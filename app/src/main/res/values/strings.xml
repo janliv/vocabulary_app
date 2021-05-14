@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VocabApp</string>
+
+    <string-array name="Sample_Words">
+        <item> Sample word 1 </item>
+        <item> Sample word 2 </item>
+        <item> Sample word 3 </item>
+        <item> Sample word 4 </item>
+        <item> Sample word 5 </item>
+        <item> Sample word 6 </item>
+    </string-array>
+
+</resources>
