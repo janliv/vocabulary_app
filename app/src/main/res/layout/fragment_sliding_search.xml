@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|bottom"
+            android:text="@string/bar_title"
+            android:textColor="@color/colorTextWhite"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|top"
+            android:text="@string/bar_description"
+            android:textColor="@color/colorTextWhite"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/dim_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="160dp"
+            android:orientation="vertical"
+
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutAnimation="@anim/layout_animation"
+                app:layout_behavior= "@string/appbar_scrolling_view_behavior"/>
+        </LinearLayout>
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:translationY="90dp"
+            app:floatingSearch_close_search_on_keyboard_dismiss="false"
+            app:floatingSearch_dimBackground="false"
+            app:floatingSearch_dismissOnOutsideTouch="true"
+            app:floatingSearch_leftActionMode="showSearch"
+            app:floatingSearch_searchBarMarginLeft="5dp"
+            app:floatingSearch_searchBarMarginRight="5dp"
+            app:floatingSearch_searchBarMarginTop="5dp"
+            app:floatingSearch_searchHint="Enter your word"
+            app:floatingSearch_showSearchKey="true"
+            app:floatingSearch_suggestionsListAnimDuration="250" />
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_marginTop="75dp"-->
+        <!--            android:orientation="vertical">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="bottom"-->
+        <!--                android:layout_marginStart="15dp"-->
+        <!--                android:layout_marginTop="15dp"-->
+        <!--                android:layout_marginEnd="15dp"-->
+        <!--                android:text="RECENT"-->
+        <!--                android:textColor="@color/colorWhite"-->
+        <!--                android:textSize="28dp"-->
+        <!--                android:textStyle="bold" />-->
+
+        <!--            <FrameLayout-->
+
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="250dp"-->
+        <!--                android:layout_gravity="bottom"-->
+        <!--                >-->
+
+        <!--                <include layout="@layout/flash_card"/>-->
+        <!--                <include layout="@layout/flash_card_back"/>-->
+        <!--            </FrameLayout>-->
+        <!--        </LinearLayout>-->
+    </FrameLayout>
+</RelativeLayout>

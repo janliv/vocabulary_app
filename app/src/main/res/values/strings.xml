@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">VocabApp</string>
+    <string name="bar_title">Dictionary</string>
+    <string name="bar_description">Welcome, All words here!</string>
 
     <string-array name="Sample_Words">
         <item> Sample word 1 </item>
