@@ -4,9 +4,16 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Objects;
 
 public class PronunciationsList {
+    @SerializedName("phoneticSpelling")
+    private String phoneticSpelling;
+
+    public String getPhoneticSpelling(){return this.phoneticSpelling;}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

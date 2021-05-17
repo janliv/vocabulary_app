@@ -32,7 +32,6 @@ anim layout_animation
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
-animator animation
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1962,6 +1961,7 @@ id endToStart
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id etymology
 id example
 id exitUntilCollapsed
 id expand_activities_button
@@ -2108,6 +2108,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id pronunciation
 id pronunciation_text_view
 id radio
 id ratio

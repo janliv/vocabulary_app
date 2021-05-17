@@ -7,7 +7,7 @@
     android:id="@+id/card_view"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     app:cardCornerRadius="18dp"
     app:cardElevation="4dp"
     >
@@ -25,7 +25,8 @@
             android:layout_alignParentTop="true"
             android:textStyle="bold"
             tools:text="(noun)"
-            android:textColor="@color/colorTextWhite"/>
+            android:textColor="@color/colorTextWhite"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/word"
@@ -37,13 +38,24 @@
             android:textColor="@color/color_text_pink"
             android:textSize="32dp"
             android:textStyle="bold"
-            tools:text="Sausage" />
+            tools:text="Sausage"
+          android:visibility="gone"/>
+        <TextView
+            android:id="@+id/pronunciation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/word"
+            android:textColor="@color/colorTextWhite"
+            android:textStyle="normal"
+            android:textSize="16dp"
+            tools:text="/pronunciation/"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/defination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/word"
+            android:layout_below="@id/pronunciation"
             android:layout_marginTop="8dp"
             android:textColor="@color/colorTextWhite"
             android:textStyle="bold"
@@ -57,7 +69,18 @@
             android:layout_below="@id/defination"
             android:layout_marginTop="8dp"
             tools:text="Tasty when fried for breakfast"
-            android:textColor="@color/colorTextWhite"/>
+            android:textColor="@color/colorTextWhite"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/etymology"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/example"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorTextWhite"
+            android:textStyle="italic"
+            android:text = "Old English, I think"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

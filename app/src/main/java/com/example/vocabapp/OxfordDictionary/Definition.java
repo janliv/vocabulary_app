@@ -1,9 +1,11 @@
 package com.example.vocabapp.OxfordDictionary;
 
 import com.example.vocabapp.model.Entry;
-import com.example.vocabapp.model.LexicalCategory;
-import com.example.vocabapp.model.LexicalEntry;
+import com.example.vocabapp.model.ExamplesList;
+import com.example.vocabapp.model.PronunciationsList;
 import com.example.vocabapp.model.Sense;
+
+import java.util.List;
 
 public class Definition {
     private final String category;
@@ -11,11 +13,22 @@ public class Definition {
     private final String etymology;
     private final String definition;
     private final String example;
+    private final String pronunciation;
 
-    public Definition(String category, String word, Entry entry, Sense s, String example) {
+    public Definition(String category, String word, Entry entry, Sense s) {
         this.category = category;
         this.word = word;
-        this.example = example;
+
+        List<ExamplesList> examples = s.getExamples();
+        this.example = examples != null && examples.size() > 0 ? examples.get(0).getText() : null;
+
+        if (s.getPronunciations() != null) {
+            List<PronunciationsList> pronunciations = s.getPronunciations();
+            this.pronunciation = pronunciations != null && pronunciations.size() > 0 ? pronunciations.get(0).getPhoneticSpelling() : null;
+        } else {
+            List<PronunciationsList> pronunciations = entry.getPronunciations();
+            this.pronunciation = pronunciations != null && pronunciations.size() > 0 ? pronunciations.get(0).getPhoneticSpelling() : null;
+        }
 
         String[] etymologies = entry.getEtymologies();
         this.etymology = etymologies != null && etymologies.length > 0 ? etymologies[0] : null;
@@ -40,5 +53,11 @@ public class Definition {
         return definition;
     }
 
-    public String getExample(){return example;}
+    public String getExample() {
+        return example;
+    }
+
+    public String getPronunciation() {
+        return "/" + this.pronunciation + "/";
+    }
 }
