@@ -19,51 +19,51 @@
 13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 13-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:8:5-80
 13-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:8:22-78
-14
-15    <application
-15-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:10:5-28:19
-16        android:allowBackup="true"
-16-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:11:9-35
-17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.3.1] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b234a824af7fd98a5c54fc0522824a91\core-1.3.1\AndroidManifest.xml:24:18-86
-18        android:debuggable="true"
-19        android:icon="@mipmap/ic_launcher"
-19-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:12:9-43
-20        android:label="@string/app_name"
-20-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:13:9-41
-21        android:roundIcon="@mipmap/ic_launcher_round"
-21-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:14:9-54
-22        android:supportsRtl="true"
-22-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:15:9-35
-23        android:testOnly="true"
-24        android:theme="@style/Theme.VocabApp" >
-24-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:16:9-46
-25        <activity android:name="com.example.vocabapp.Home" >
-25-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:18:9-23:20
-25-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:18:19-39
-26            <intent-filter>
-26-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:19:13-22:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:20:17-69
-27-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:20:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:21:17-77
-29-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:21:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity android:name="com.example.vocabapp.Learn" />
-32-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:24:9-43
-32-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:24:19-40
-33        <activity android:name="com.example.vocabapp.Search" />
-33-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:25:9-44
-33-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:25:19-41
-34        <activity android:name="com.example.vocabapp.Records" />
-34-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:26:9-45
-34-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:26:19-42
-35        <activity android:name="com.example.vocabapp.Activities.SearchResultActivity" />
-35-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:27:9-68
-35-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:27:19-66
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:9:5-79
+14-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:9:22-77
+15
+16    <application
+16-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:11:5-28:19
+17        android:allowBackup="true"
+17-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:12:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.3.1] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b234a824af7fd98a5c54fc0522824a91\core-1.3.1\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:13:9-43
+21        android:label="@string/app_name"
+21-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:14:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:15:9-54
+23        android:supportsRtl="true"
+23-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:16:9-35
+24        android:testOnly="true"
+25        android:theme="@style/Theme.VocabApp" >
+25-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:17:9-46
+26        <activity android:name="com.example.vocabapp.Home" >
+26-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:19:9-24:20
+26-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:19:19-39
+27            <intent-filter>
+27-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:20:13-23:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:21:17-69
+28-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:21:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:22:17-77
+30-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:22:27-74
+31            </intent-filter>
+32        </activity>
+33        <activity android:name="com.example.vocabapp.Learn" />
+33-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:25:9-43
+33-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:25:19-40
+34        <activity android:name="com.example.vocabapp.Search" />
+34-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:26:9-44
+34-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:26:19-41
+35        <activity android:name="com.example.vocabapp.Records" />
+35-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:27:9-45
+35-->D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:27:19-42
 36    </application>
 37
 38</manifest>

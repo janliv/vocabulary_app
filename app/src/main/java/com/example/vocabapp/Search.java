@@ -1,7 +1,6 @@
 package com.example.vocabapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -11,18 +10,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
-import com.example.vocabapp.Activities.SearchResultActivity;
+import com.example.vocabapp.Data.DataHelper;
 import com.example.vocabapp.Fragment.BaseFragment;
 import com.example.vocabapp.Fragment.FragmentSlidingSearch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
-public class Search extends FragmentActivity implements BaseFragment.BaseExampleFragmentCallbacks{
-    public static String WORD_SEARCH = "WORDSEARCH";
-    public static String PRONUNCIATION = "PRONUNCIATION";
-    public static String DESCRIPTION = "DESCRIPTION";
-
+public class Search extends FragmentActivity implements BaseFragment.BaseExampleFragmentCallbacks {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +27,7 @@ public class Search extends FragmentActivity implements BaseFragment.BaseExample
 
         // Set Search selected
         bottomNavigationView.setSelectedItemId(R.id.searchId);
+        DataHelper.setsColorSuggestions(this);
 
         // Item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -62,12 +58,6 @@ public class Search extends FragmentActivity implements BaseFragment.BaseExample
         showFragment(new FragmentSlidingSearch());
 
     }
-
-//    public void onSuggestionOrSearchClick(String str){
-//        Intent intent = new Intent(this , SearchResultActivity.class);
-//        intent.putExtra(WORD_SEARCH,str);
-//        startActivityForResult(intent,0);
-//    }
 
     @Override
     public void onAttachSearchViewToDrawer(FloatingSearchView searchView) {

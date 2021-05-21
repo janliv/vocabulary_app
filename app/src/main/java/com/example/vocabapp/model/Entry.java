@@ -21,7 +21,7 @@ public class Entry {
     private String homographNumber = null;
 
     @SerializedName("notes")
-    private CategorizedTextList notes = null;
+    private List<CategorizedTextList> notes = null;
 
     @SerializedName("pronunciations")
     private List<PronunciationsList> pronunciations = null;
@@ -30,7 +30,7 @@ public class Entry {
     private List<Sense> senses = new ArrayList<Sense>();
 
     @SerializedName("variantForms")
-    private VariantFormsList variantForms = null;
+    private List<VariantFormsList> variantForms = null;
 
     public Entry etymologies(String[] etymologies) {
         this.etymologies = etymologies;
@@ -83,7 +83,7 @@ public class Entry {
         this.homographNumber = homographNumber;
     }
 
-    public Entry notes(CategorizedTextList notes) {
+    public Entry notes(List<CategorizedTextList> notes) {
         this.notes = notes;
         return this;
     }
@@ -92,11 +92,11 @@ public class Entry {
      * Get notes
      * @return notes
      **/
-    public CategorizedTextList getNotes() {
+    public List<CategorizedTextList> getNotes() {
         return notes;
     }
 
-    public void setNotes(CategorizedTextList notes) {
+    public void setNotes(List<CategorizedTextList> notes) {
         this.notes = notes;
     }
 
@@ -139,7 +139,7 @@ public class Entry {
         this.senses = senses;
     }
 
-    public Entry variantForms(VariantFormsList variantForms) {
+    public Entry variantForms(List<VariantFormsList> variantForms) {
         this.variantForms = variantForms;
         return this;
     }
@@ -148,11 +148,11 @@ public class Entry {
      * Various words that are used interchangeably depending on the context, e.g 'a' and 'an'
      * @return variantForms
      **/
-    public VariantFormsList getVariantForms() {
+    public List<VariantFormsList> getVariantForms() {
         return variantForms;
     }
 
-    public void setVariantForms(VariantFormsList variantForms) {
+    public void setVariantForms(List<VariantFormsList> variantForms) {
         this.variantForms = variantForms;
     }
 

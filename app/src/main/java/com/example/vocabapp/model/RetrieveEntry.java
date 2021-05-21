@@ -81,7 +81,6 @@ public class RetrieveEntry {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class RetrieveEntry {\n");
-
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    results: ").append(toIndentedString(results)).append("\n");
         sb.append("}");

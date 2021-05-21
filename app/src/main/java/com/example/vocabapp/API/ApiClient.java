@@ -1,10 +1,14 @@
 package com.example.vocabapp.API;
 
+import com.example.vocabapp.model.RetrieveEntry;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
 import okhttp3.Interceptor;
 import okhttp3.Interceptor.Chain;
 import okhttp3.OkHttpClient;
@@ -40,7 +44,6 @@ public class ApiClient {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.newThread()))
                     .build();
         }
-
         return retrofit;
     }
 }

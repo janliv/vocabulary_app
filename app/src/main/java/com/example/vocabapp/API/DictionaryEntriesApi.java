@@ -5,6 +5,7 @@ import com.example.vocabapp.model.RetrieveEntry;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.Callback;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Path;

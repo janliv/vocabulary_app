@@ -3,6 +3,9 @@ package com.example.vocabapp.Data;
 import android.content.Context;
 import android.widget.Filter;
 
+import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
+import com.example.vocabapp.Fragment.FragmentSlidingSearch;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -12,19 +15,21 @@ import java.util.Comparator;
 import java.util.List;
 
 public class DataHelper {
-    private static final String WORD_FILE_NAME = "words.json";
 
-    private static List<WordSuggestion> sColorSuggestions =
-            new ArrayList<>(Arrays.asList(
-                    new WordSuggestion("good"),
-                    new WordSuggestion("nation"),
-                    new WordSuggestion("international"),
-                    new WordSuggestion("flow")));
-
+    private static List<WordSuggestion> sColorSuggestions = new ArrayList<>();
+//            new ArrayList<>(Arrays.asList(
+//                    new WordSuggestion("good"),
+//                    new WordSuggestion("nation"),
+//                    new WordSuggestion("international"),
+//                    new WordSuggestion("flow")));
+    public static void setsColorSuggestions(Context context){
+        sColorSuggestions = DatabaseAccess.getInstance(context).getSuggestions();
+    }
 
     public interface OnFindSuggestionsListener {
         void onResults(List<WordSuggestion> results);
     }
+
 
     public static List<WordSuggestion> getHistory(Context context, int count) {
 
@@ -98,34 +103,6 @@ public class DataHelper {
             }
         }.filter(query);
 
-    }
-
-
-    private static String loadJson(Context context) {
-
-        String jsonString;
-
-        try {
-            InputStream is = context.getAssets().open(WORD_FILE_NAME);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            jsonString = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-
-        return jsonString;
-    }
-
-    public void addSuggestion(String word){
-        WordSuggestion w = new WordSuggestion(word);
-        if(!sColorSuggestions.contains(w)) {
-            w.setIsHistory(true);
-            sColorSuggestions.add(w);
-        }
     }
 }
 
