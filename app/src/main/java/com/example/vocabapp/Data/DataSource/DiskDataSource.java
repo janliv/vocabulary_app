@@ -13,7 +13,7 @@ public class DiskDataSource implements DataSource {
 
     private final SharedPreferences sharedPreferences;
 
-    public DiskDataSource(SharedPreferences sharedPreferences){
+    public DiskDataSource(SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
     }
 
@@ -24,12 +24,10 @@ public class DiskDataSource implements DataSource {
             if (!string.equals("")) {
                 Gson gson = new Gson();
                 RetrieveEntry retrieveEntry = gson.fromJson(string, RetrieveEntry.class);
-                if (retrieveEntry != null) {
-                    emitter.onNext(retrieveEntry);
-                    Log.d("DISK","get from disk");
-                }
-                emitter.onComplete();
+                emitter.onNext(retrieveEntry);
+                Log.d("DISK", "get from disk");
             }
+            emitter.onComplete();
         });
     }
 
@@ -39,8 +37,8 @@ public class DiskDataSource implements DataSource {
             String str = gson.toJson(retrieveEntry);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(word, str);
-            editor.apply();
-            Log.d("savedata",word + str);
+            if (editor.commit())
+                Log.d("savedata", word + str);
         }
     }
 }

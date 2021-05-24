@@ -17,11 +17,7 @@ import java.util.List;
 public class DataHelper {
 
     private static List<WordSuggestion> sColorSuggestions = new ArrayList<>();
-//            new ArrayList<>(Arrays.asList(
-//                    new WordSuggestion("good"),
-//                    new WordSuggestion("nation"),
-//                    new WordSuggestion("international"),
-//                    new WordSuggestion("flow")));
+
     public static void setsColorSuggestions(Context context){
         sColorSuggestions = DatabaseAccess.getInstance(context).getSuggestions();
     }

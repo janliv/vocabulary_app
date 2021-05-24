@@ -50,6 +50,12 @@ public class Sense {
     @SerializedName("variantForms")
     private List<VariantFormsList> variantForms = null;
 
+    @SerializedName("synonyms")
+    private List<SynonymsAntonyms> synonyms;
+
+    @SerializedName("antonyms")
+    private List<SynonymsAntonyms> antonyms;
+
     public Sense crossReferenceMarkers(String[] crossReferenceMarkers) {
         this.crossReferenceMarkers = crossReferenceMarkers;
         return this;
@@ -276,6 +282,31 @@ public class Sense {
         this.variantForms = variantForms;
     }
 
+    public Sense antonyms(List<SynonymsAntonyms> antonyms){
+        this.antonyms = antonyms;
+        return this;
+    }
+
+    public List<SynonymsAntonyms> getAntonyms() {
+        return antonyms;
+    }
+
+    public void setAntonyms(List<SynonymsAntonyms> antonyms) {
+        this.antonyms = antonyms;
+    }
+
+    public Sense synonyms(List<SynonymsAntonyms> synonyms){
+        this.synonyms = synonyms;
+        return this;
+    }
+
+    public List<SynonymsAntonyms> getSynonyms() {
+        return synonyms;
+    }
+
+    public void setSynonyms(List<SynonymsAntonyms> synonyms) {
+        this.synonyms = synonyms;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override

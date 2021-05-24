@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,6 +66,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     private MemoryDataSource memoryDataSource;
     private DiskDataSource diskDataSource;
     private NetworkDataSource networkDataSource;
+    private static final String SHAREDPREF = "SHAREDPREF";
 
 
     public FragmentSlidingSearch() {
@@ -93,7 +95,6 @@ public class FragmentSlidingSearch extends BaseFragment {
 
         setupFloatingSearch();
         setupDrawer();
-        String SHAREDPREF = "SHAREDPREF";
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE);
         memoryDataSource = new MemoryDataSource();
         diskDataSource = new DiskDataSource(sharedPreferences);
@@ -178,6 +179,7 @@ public class FragmentSlidingSearch extends BaseFragment {
             public void onSuggestionClicked(final SearchSuggestion searchSuggestion) {
                 mLastQuery = searchSuggestion.getBody();
                 performSearch(mLastQuery);
+                mSearchView.setSearchFocused(false);
             }
 
             @Override
@@ -186,6 +188,7 @@ public class FragmentSlidingSearch extends BaseFragment {
                 if (!mLastQuery.equals(""))
                     performSearch(mLastQuery);
                 Log.d(TAG, "onSearchAction()");
+                mSearchView.setSearchFocused(false);
             }
         });
 

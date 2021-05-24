@@ -1,19 +1,10 @@
 package com.example.vocabapp.API;
 
-import com.example.vocabapp.model.RetrieveEntry;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
 
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Call;
-import okhttp3.Interceptor;
-import okhttp3.Interceptor.Chain;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     private OkHttpClient httpClient;
     private Retrofit retrofit;
-    private Map<Class, Object> interfaceCache = new HashMap<>();
+    private final Map<Class, Object> interfaceCache = new HashMap<>();
 
     @SuppressWarnings("unchecked")
     public <T> T get(Class<T> interfaceClass) {
@@ -33,7 +24,7 @@ public class ApiClient {
         return cachedInterface;
     }
 
-    private Retrofit retrofit() {
+    public Retrofit retrofit() {
         if (this.retrofit == null) {
             httpClient = new OkHttpClient.Builder().build();
 

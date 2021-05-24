@@ -1869,6 +1869,7 @@ id all
 id always
 id animateToEnd
 id animateToStart
+id antonyms
 id asConfigured
 id async
 id auto
@@ -2190,6 +2191,7 @@ id submit_area
 id suggestions_list
 id suggestions_list_container
 id swipe_up
+id synonyms
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

@@ -3,8 +3,12 @@ package com.example.vocabapp.Data.DataSource;
 import com.example.vocabapp.API.ApiClient;
 import com.example.vocabapp.API.DictionaryEntriesApi;
 import com.example.vocabapp.model.RetrieveEntry;
+import com.google.gson.internal.$Gson$Preconditions;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NetworkDataSource implements DataSource {
     @Override
