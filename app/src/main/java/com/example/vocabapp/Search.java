@@ -1,17 +1,23 @@
 package com.example.vocabapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
+import com.example.vocabapp.Data.DataHelper;
+import com.example.vocabapp.Fragment.BaseFragment;
+import com.example.vocabapp.Fragment.FragmentSlidingSearch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Search extends AppCompatActivity {
+import java.util.List;
 
+public class Search extends FragmentActivity implements BaseFragment.BaseExampleFragmentCallbacks {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +27,7 @@ public class Search extends AppCompatActivity {
 
         // Set Search selected
         bottomNavigationView.setSelectedItemId(R.id.searchId);
+        DataHelper.setsColorSuggestions(this);
 
         // Item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,5 +53,30 @@ public class Search extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        showFragment(new FragmentSlidingSearch());
+
+    }
+
+    @Override
+    public void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
+        return;
+    }
+
+    @Override
+    public void onBackPressed() {
+        List fragments = getSupportFragmentManager().getFragments();
+        BaseFragment currentFragment = (BaseFragment) fragments.get(fragments.size() - 1);
+
+        if (!currentFragment.onActivityBackPress()) {
+            super.onBackPressed();
+        }
+    }
+
+    private void showFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment).commit();
     }
 }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card_view"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="4dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:background="@color/color_row">
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            tools:text="(noun)"
+            android:textColor="@color/colorTextWhite" />
+
+        <TextView
+            android:id="@+id/word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@id/category"
+            android:textColor="@color/color_text_pink"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            tools:text="Sausage"/>
+        <TextView
+            android:id="@+id/pronunciation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/word"
+            android:textColor="@color/colorTextWhite"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            tools:text="/pronunciation/"/>
+
+        <TextView
+            android:id="@+id/defination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pronunciation"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorTextWhite"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            tools:text="Old English, I think" />
+
+        <TextView
+            android:id="@+id/example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/defination"
+            android:layout_marginTop="0dp"
+            tools:text="Tasty when fried for breakfast"
+            android:textColor="@color/colorTextWhite"/>
+        <TextView
+            android:id="@+id/etymology"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/example"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorTextWhite"
+            android:textStyle="italic"
+            android:text = "Old English, I think"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etymology"
+            android:id="@+id/antonyms"
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:text = "antonyms"
+            android:textColor="@color/colorTextWhite"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/antonyms"
+            android:id="@+id/synonyms"
+            android:layout_marginTop="0dp"
+            android:textStyle="italic"
+            android:text = "synonyms"
+            android:textColor="@color/colorTextWhite"/>
+
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
