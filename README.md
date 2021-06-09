@@ -1,2 +1,2 @@
 # vocabulary_app
-Repo of the Vocabulary App
+Vocabulary Application Project by Nguyen Nhut Tan, Bui Minh Thinh and Nguyen Tri Minh.
