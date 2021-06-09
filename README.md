@@ -1,2 +1,2 @@
 # vocabulary_app
-Repo of the Vocabulary App
+Nguyen Tri Minh's branch.
