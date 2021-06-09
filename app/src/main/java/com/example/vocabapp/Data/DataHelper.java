@@ -1,24 +1,23 @@
 package com.example.vocabapp.Data;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Filter;
 
 import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
-import com.example.vocabapp.Fragment.FragmentSlidingSearch;
+import com.example.vocabapp.Users.User;
+import com.example.vocabapp.Users.UserDataHelper;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Observable;
 
 public class DataHelper {
 
     private static List<WordSuggestion> sColorSuggestions = new ArrayList<>();
 
-    public static void setsColorSuggestions(Context context){
+    public static void setsColorSuggestions(Context context) {
         sColorSuggestions = DatabaseAccess.getInstance(context).getSuggestions();
     }
 
@@ -26,20 +25,78 @@ public class DataHelper {
         void onResults(List<WordSuggestion> results);
     }
 
+    public static List<String> getHistory() {
+        List<String> l = new ArrayList<>();
+        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+            @Override
+            public void ListIsLoaded(List<String> list) {
+                if (list != null)
+                    l.addAll(list);
+
+            }
+
+            @Override
+            public void ListIsInserted() {
+
+            }
+
+            @Override
+            public void ListIsUpdated() {
+
+            }
+
+            @Override
+            public void ListIsDeleted() {
+
+            }
+        });
+        Log.d("list",String.valueOf(l.size()));
+
+        return l;
+    }
+
 
     public static List<WordSuggestion> getHistory(Context context, int count) {
-
         List<WordSuggestion> suggestionList = new ArrayList<>();
-        WordSuggestion colorSuggestion;
-        for (int i = 0; i < sColorSuggestions.size(); i++) {
-            colorSuggestion = sColorSuggestions.get(i);
-            colorSuggestion.setIsHistory(true);
-            suggestionList.add(colorSuggestion);
-            if (suggestionList.size() == count) {
-                break;
+        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+            @Override
+            public void ListIsLoaded(List<String> list) {
+                if (list != null)
+                    for(String str : list)
+                        suggestionList.add(new WordSuggestion(str));
             }
+
+            @Override
+            public void ListIsInserted() {
+
+            }
+
+            @Override
+            public void ListIsUpdated() {
+
+            }
+
+            @Override
+            public void ListIsDeleted() {
+
+            }
+        });
+//        WordSuggestion colorSuggestion;
+//        for (int i = 0; i < sColorSuggestions.size(); i++) {
+//            colorSuggestion = sColorSuggestions.get(i);
+//            colorSuggestion.setIsHistory(true);
+//            suggestionList.add(colorSuggestion);
+//            if (suggestionList.size() == count) {
+//                break;
+//            }
+//        }
+        List<WordSuggestion> wordSuggestions = new ArrayList<>();
+        for (int i = suggestionList.size() - 1; i >= 0; i--) {
+            wordSuggestions.add(suggestionList.get(i));
+            if (wordSuggestions.size() == count)
+                break;
         }
-        return suggestionList;
+        return wordSuggestions;
     }
 
     public static void resetSuggestionsHistory() {
@@ -78,12 +135,7 @@ public class DataHelper {
                 }
 
                 FilterResults results = new FilterResults();
-                Collections.sort(suggestionList, new Comparator<WordSuggestion>() {
-                    @Override
-                    public int compare(WordSuggestion lhs, WordSuggestion rhs) {
-                        return lhs.getIsHistory() ? -1 : 0;
-                    }
-                });
+                Collections.sort(suggestionList, (lhs, rhs) -> lhs.getIsHistory() ? -1 : 0);
                 results.values = suggestionList;
                 results.count = suggestionList.size();
 

@@ -1,8 +1,7 @@
 com/example/vocabapp/model/Word.java
  com.example.vocabapp.model.Word
-com/example/vocabapp/Home.java
- com.example.vocabapp.Home
- com.example.vocabapp.Home$1
+com/example/vocabapp/model/Sense.java
+ com.example.vocabapp.model.Sense
 com/example/vocabapp/API/DictionaryEntriesApi.java
  com.example.vocabapp.API.DictionaryEntriesApi
 com/example/vocabapp/Data/WordSuggestion.java
@@ -11,23 +10,36 @@ com/example/vocabapp/Data/WordSuggestion.java
 com/example/vocabapp/Data/DataHelper.java
  com.example.vocabapp.Data.DataHelper
  com.example.vocabapp.Data.DataHelper$1
- com.example.vocabapp.Data.DataHelper$1$1
+ com.example.vocabapp.Data.DataHelper$2
+ com.example.vocabapp.Data.DataHelper$3
  com.example.vocabapp.Data.DataHelper$OnFindSuggestionsListener
+com/example/vocabapp/API/WordService.java
+ com.example.vocabapp.API.WordService
 com/example/vocabapp/Fragment/BaseFragment.java
  com.example.vocabapp.Fragment.BaseFragment
  com.example.vocabapp.Fragment.BaseFragment$BaseExampleFragmentCallbacks
-com/example/vocabapp/model/Sense.java
- com.example.vocabapp.model.Sense
+com/example/vocabapp/OxfordDictionary/DefinitionRenderer.java
+ com.example.vocabapp.OxfordDictionary.DefinitionRenderer
 com/example/vocabapp/model/RetrieveEntry.java
  com.example.vocabapp.model.RetrieveEntry
 com/example/vocabapp/model/PronunciationsList.java
  com.example.vocabapp.model.PronunciationsList
+com/example/vocabapp/Users/UserDataHelper.java
+ com.example.vocabapp.Users.UserDataHelper
+ com.example.vocabapp.Users.UserDataHelper$1
+ com.example.vocabapp.Users.UserDataHelper$2
+ com.example.vocabapp.Users.UserDataHelper$DataStatus
+ com.example.vocabapp.Users.UserDataHelper$WordSearchedStatus
 com/example/vocabapp/API/ApiClient.java
  com.example.vocabapp.API.ApiClient
 com/example/vocabapp/model/SynonymsAntonyms.java
  com.example.vocabapp.model.SynonymsAntonyms
+com/example/vocabapp/Users/User.java
+ com.example.vocabapp.Users.User
 com/example/vocabapp/model/Register.java
  com.example.vocabapp.model.Register
+com/example/vocabapp/Fragment/ResetPasswordFragment.java
+ com.example.vocabapp.Fragment.ResetPasswordFragment
 com/example/vocabapp/model/Domain.java
  com.example.vocabapp.model.Domain
 com/example/vocabapp/model/TranslationsList.java
@@ -36,6 +48,11 @@ com/example/vocabapp/Data/DataSource/DiskDataSource.java
  com.example.vocabapp.Data.DataSource.DiskDataSource
 com/example/vocabapp/model/GrammaticalFeaturesList.java
  com.example.vocabapp.model.GrammaticalFeaturesList
+com/example/vocabapp/Records.java
+ com.example.vocabapp.Records
+ com.example.vocabapp.Records$1
+com/example/vocabapp/CustomTextInputLayout.java
+ com.example.vocabapp.CustomTextInputLayout
 com/example/vocabapp/model/Entry.java
  com.example.vocabapp.model.Entry
 com/example/vocabapp/model/Region.java
@@ -50,15 +67,22 @@ com/example/vocabapp/Data/DataSource/DataRepository.java
  com.example.vocabapp.Data.DataSource.DataRepository
 com/example/vocabapp/model/VariantFormsList.java
  com.example.vocabapp.model.VariantFormsList
+com/example/vocabapp/model/CategorizedTextList.java
+ com.example.vocabapp.model.CategorizedTextList
 com/example/vocabapp/model/LexicalCategory.java
  com.example.vocabapp.model.LexicalCategory
-com/example/vocabapp/Search.java
- com.example.vocabapp.Search
- com.example.vocabapp.Search$1
+com/example/vocabapp/OxfordDictionary/Definition.java
+ com.example.vocabapp.OxfordDictionary.Definition
 com/example/vocabapp/BuildConfig.java
  com.example.vocabapp.BuildConfig
-com/example/vocabapp/API/WordService.java
- com.example.vocabapp.API.WordService
+com/example/vocabapp/Fragment/FragmentSlidingSearch.java
+ com.example.vocabapp.Fragment.FragmentSlidingSearch
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$3
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$CategorizedEntry
 com/example/vocabapp/DatabaseHelper/DatabaseAccess.java
  com.example.vocabapp.DatabaseHelper.DatabaseAccess
 com/example/vocabapp/model/LexicalEntry.java
@@ -73,22 +97,23 @@ com/example/vocabapp/DatabaseHelper/DatabaseOpenHelper.java
  com.example.vocabapp.DatabaseHelper.DatabaseOpenHelper
 com/example/vocabapp/model/ArrayOfRelatedEntries.java
  com.example.vocabapp.model.ArrayOfRelatedEntries
-com/example/vocabapp/Records.java
- com.example.vocabapp.Records
- com.example.vocabapp.Records$1
+com/example/vocabapp/Search.java
+ com.example.vocabapp.Search
+ com.example.vocabapp.Search$1
+com/example/vocabapp/Home.java
+ com.example.vocabapp.Home
+ com.example.vocabapp.Home$1
 com/example/vocabapp/Learn.java
  com.example.vocabapp.Learn
  com.example.vocabapp.Learn$1
  com.example.vocabapp.Learn$2
-com/example/vocabapp/model/CategorizedTextList.java
- com.example.vocabapp.model.CategorizedTextList
-com/example/vocabapp/OxfordDictionary/Definition.java
- com.example.vocabapp.OxfordDictionary.Definition
-com/example/vocabapp/Fragment/FragmentSlidingSearch.java
- com.example.vocabapp.Fragment.FragmentSlidingSearch
- com.example.vocabapp.Fragment.FragmentSlidingSearch$1
- com.example.vocabapp.Fragment.FragmentSlidingSearch$2
- com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1
- com.example.vocabapp.Fragment.FragmentSlidingSearch$CategorizedEntry
-com/example/vocabapp/OxfordDictionary/DefinitionRenderer.java
- com.example.vocabapp.OxfordDictionary.DefinitionRenderer
+com/example/vocabapp/Fragment/RegisterFragment.java
+ com.example.vocabapp.Fragment.RegisterFragment
+ com.example.vocabapp.Fragment.RegisterFragment$1
+ com.example.vocabapp.Fragment.RegisterFragment$2
+com/example/vocabapp/Fragment/LoginFragment.java
+ com.example.vocabapp.Fragment.LoginFragment
+ com.example.vocabapp.Fragment.LoginFragment$1
+ com.example.vocabapp.Fragment.LoginFragment$2
+com/example/vocabapp/LoginActivity.java
+ com.example.vocabapp.LoginActivity

@@ -16,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.arlib.floatingsearchview.util.Util;
+
 import com.example.vocabapp.Data.DataHelper;
 import com.example.vocabapp.Data.DataSource.DataRepository;
 import com.example.vocabapp.Data.DataSource.DiskDataSource;
@@ -36,12 +36,16 @@ import com.example.vocabapp.Data.WordSuggestion;
 import com.example.vocabapp.OxfordDictionary.Definition;
 import com.example.vocabapp.OxfordDictionary.DefinitionRenderer;
 import com.example.vocabapp.R;
+import com.example.vocabapp.Users.User;
+import com.example.vocabapp.Users.UserDataHelper;
 import com.example.vocabapp.model.Entry;
 import com.example.vocabapp.model.LexicalCategory;
+
 import com.pedrogomez.renderers.ListAdapteeCollection;
 import com.pedrogomez.renderers.RVRendererAdapter;
 import com.pedrogomez.renderers.RendererBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -67,7 +71,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     private DiskDataSource diskDataSource;
     private NetworkDataSource networkDataSource;
     private static final String SHAREDPREF = "SHAREDPREF";
-
+    private List<WordSuggestion> l = new ArrayList<>();
 
     public FragmentSlidingSearch() {
         // Required empty public constructor
@@ -99,10 +103,12 @@ public class FragmentSlidingSearch extends BaseFragment {
         memoryDataSource = new MemoryDataSource();
         diskDataSource = new DiskDataSource(sharedPreferences);
         networkDataSource = new NetworkDataSource();
+
     }
 
     @SuppressLint("CheckResult")
     private void performSearch(final String searchText) {
+        addHistoryWord(searchText);
         DataRepository dataRepository = new DataRepository(memoryDataSource, diskDataSource, networkDataSource);
         //entriesApi.getDictionaryEntries("en-us", searchText, "application/json", "0b61a8b1", "aae13662958f2a69eb82099315c1375d")
         dataRepository.getData(searchText)
@@ -204,8 +210,35 @@ public class FragmentSlidingSearch extends BaseFragment {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+                            @Override
+                            public void ListIsLoaded(List<String> list) {
+                                l.clear();
+                                for (int i = list.size() - 1; i >= 0; i--) {
+                                    l.add(new WordSuggestion(list.get(i), true));
+                                    if (l.size() == 5)
+                                        break;
+                                }
+                                if(mSearchView.isSearchBarFocused())
+                                mSearchView.swapSuggestions(l);
+                            }
+
+                            @Override
+                            public void ListIsInserted() {
+
+                            }
+
+                            @Override
+                            public void ListIsUpdated() {
+
+                            }
+
+                            @Override
+                            public void ListIsDeleted() {
+
+                            }
+                        });
                         //show suggestions when search bar gains focus (typically history suggestions)
-                        mSearchView.swapSuggestions(DataHelper.getHistory(getActivity(), 3));
 
                     }
                 });
@@ -265,10 +298,7 @@ public class FragmentSlidingSearch extends BaseFragment {
 
     @Override
     public boolean onActivityBackPress() {
-        if (!mSearchView.setSearchFocused(false)) {
-            return false;
-        }
-        return true;
+        return mSearchView.setSearchFocused(false);
     }
 
     private void setupDrawer() {
@@ -283,10 +313,45 @@ public class FragmentSlidingSearch extends BaseFragment {
             mDimDrawable.setAlpha(value);
         });
         if (listener != null) {
-            anim.addListener(listener);
+            anim.addListener(null);
         }
         anim.setDuration(ANIM_DURATION);
         anim.start();
     }
+
+    private void addHistoryWord(String word) {
+        List<String> list = new ArrayList<>();
+        for (WordSuggestion w : l) {
+            list.add(w.getBody());
+        }
+        if(!list.contains(word)){
+
+            list.add(word);
+            new UserDataHelper().updateWordSearched(list, new UserDataHelper.WordSearchedStatus() {
+                @Override
+                public void ListIsLoaded(List<String> list) {
+
+                }
+
+                @Override
+                public void ListIsInserted() {
+
+                }
+
+                @Override
+                public void ListIsUpdated() {
+                    Log.d("TAG", "wordsearchupdated");
+                }
+
+                @Override
+                public void ListIsDeleted() {
+
+                }
+            });
+        }
+        else return;
+    }
+
+
 }
 

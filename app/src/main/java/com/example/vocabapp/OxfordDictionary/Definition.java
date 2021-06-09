@@ -15,6 +15,7 @@ public class Definition {
     private final String definition;
     private final String example;
     private final String pronunciation;
+    private final String pronunciationUrl;
     private StringBuilder synonyms = new StringBuilder();
     private StringBuilder antonyms = new StringBuilder();
 
@@ -32,6 +33,7 @@ public class Definition {
             pronunciations = entry.getPronunciations();
         }
         this.pronunciation = pronunciations != null && pronunciations.size() > 0 ? pronunciations.get(0).getPhoneticSpelling() : null;
+        this.pronunciationUrl = pronunciations != null && pronunciations.size() > 0 ? pronunciations.get(1).getAudioFile() : null;
 
         String[] etymologies = entry.getEtymologies();
         this.etymology = etymologies != null && etymologies.length > 0 ? etymologies[0] : null;
@@ -68,9 +70,9 @@ public class Definition {
     }
 
     public String getExample() {
-        if(example!=null)
-            return "example: "+ example;
-        return example;
+        if (example != null)
+            return "example: " + example;
+        return null;
     }
 
     public String getPronunciation() {
@@ -80,12 +82,16 @@ public class Definition {
     public String getAntonyms() {
         if (antonyms == null)
             return null;
-        return "antonym: " + antonyms.delete(antonyms.length()-2,antonyms.length()).toString();
+        return "ANTONYMS: " + antonyms.delete(antonyms.length() - 2, antonyms.length()).toString();
     }
 
     public String getSynonyms() {
         if (synonyms == null)
             return null;
-        return "synonyms: " + synonyms.delete(synonyms.length()-2,synonyms.length()).toString();
+        return "SYNONYMS: " + synonyms.delete(synonyms.length() - 2, synonyms.length()).toString();
+    }
+
+    public String getPronunciationUrl() {
+        return this.pronunciationUrl;
     }
 }

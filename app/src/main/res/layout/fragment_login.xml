@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".Fragment.LoginFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@drawable/round_conner">
+
+            <LinearLayout
+                android:id="@+id/linear01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+
+                <com.example.vocabapp.CustomTextInputLayout
+                    android:id="@+id/customTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="12sp"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintTextAppearance="@style/FloatingLabelTextAppearance">
+
+
+                    <EditText
+                        android:id="@+id/email_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/color_text_pink" />
+                </com.example.vocabapp.CustomTextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear01">
+
+
+                <com.example.vocabapp.CustomTextInputLayout
+                    android:id="@+id/customTextInputLayoutPlus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="12sp"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintTextAppearance="@style/FloatingLabelTextAppearance">
+
+
+                    <EditText
+                        android:id="@+id/password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/color_text_pink" />
+                </com.example.vocabapp.CustomTextInputLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear02"
+                android:layout_alignRight="@id/linear02"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32sp"
+                android:text="LOGIN"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/forget_password_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_button"
+                android:layout_marginTop="12sp"
+                android:text="Forgot your password?"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/login_with"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/forget_password_button"
+                android:gravity="center"
+                android:text="Or login with" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_up_google_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_with"
+                android:layout_marginTop="12sp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/sign_up_facebook_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_with"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@id/sign_up_google_button"
+                android:layout_alignBottom="@id/sign_up_google_button"
+                android:layout_marginBottom="5dp"/>
+
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear02"
+                android:layout_alignLeft="@id/linear02"
+                android:layout_marginTop="32sp"
+                android:layout_toStartOf="@id/login_button"
+                android:text="Register"
+                android:textAllCaps="false" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
+
+</FrameLayout>

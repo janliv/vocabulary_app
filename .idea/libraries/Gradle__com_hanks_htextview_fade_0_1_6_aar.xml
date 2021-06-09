@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.hanks:htextview-fade:0.1.6@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3999a96e8edcce290a4e6c9902407c87/jetified-htextview-fade-0.1.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3999a96e8edcce290a4e6c9902407c87/jetified-htextview-fade-0.1.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3999a96e8edcce290a4e6c9902407c87/jetified-htextview-fade-0.1.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a21ea10a4bf6bccd08ad148ff100a832/jetified-htextview-fade-0.1.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a21ea10a4bf6bccd08ad148ff100a832/jetified-htextview-fade-0.1.6/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a21ea10a4bf6bccd08ad148ff100a832/jetified-htextview-fade-0.1.6/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hanks/htextview-fade/0.1.6/3e652e48002127f6fd67787b909cad76ebc54db0/htextview-fade-0.1.6-javadoc.jar!/" />

@@ -2,12 +2,16 @@ package com.example.vocabapp.Data;
 
 import android.os.Parcel;
 
+import androidx.annotation.InspectableProperty;
+
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 public class WordSuggestion implements SearchSuggestion {
     private String mWord;
     private boolean mIsHistory = false;
     public WordSuggestion(String suggestion) {this.mWord = suggestion.toLowerCase();}
+    public WordSuggestion(String suggestion, boolean isHistory){this.mWord = suggestion; this.mIsHistory = isHistory;}
 
     public boolean getIsHistory(){return this.mIsHistory;}
     public void setIsHistory(boolean isHistory){this.mIsHistory = isHistory;}

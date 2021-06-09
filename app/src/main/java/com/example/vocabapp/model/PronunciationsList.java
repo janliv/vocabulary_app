@@ -9,10 +9,20 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
 public class PronunciationsList {
+    @SerializedName("audioFile")
+    private String audioFile;
+
     @SerializedName("phoneticSpelling")
     private String phoneticSpelling;
 
-    public String getPhoneticSpelling(){return this.phoneticSpelling;}
+
+    public String getPhoneticSpelling() {
+        return this.phoneticSpelling;
+    }
+
+    public String getAudioFile() {
+        return this.audioFile;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -35,7 +45,8 @@ public class PronunciationsList {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PronunciationsList {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+        sb.append("    audioFile: ").append(toIndentedString(audioFile)).append("\n");
+        sb.append("    phoneticSpelling: ").append(toIndentedString(phoneticSpelling)).append("\n");
         sb.append("}");
         return sb.toString();
     }
