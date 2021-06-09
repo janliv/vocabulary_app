@@ -1,2 +1,3 @@
 # vocabulary_app
-Nguyen Nhut Tan's branch.
+Vocabulary Application Project by Nguyen Nhut Tan, Bui Minh Thinh and Nguyen Tri Minh.
+

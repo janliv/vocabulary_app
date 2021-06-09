@@ -5,72 +5,56 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.GestureDetector;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.vocabapp.API.WordService;
-import com.example.vocabapp.model.Word;
+import com.example.vocabapp.LearnModels.Word;
+import com.example.vocabapp.LearnService.WordService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.hanks.htextview.base.HTextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Learn extends AppCompatActivity implements GestureDetector.OnGestureListener {
+public class Learn extends AppCompatActivity {
 
-    private ArrayList<String> arrayList;
-    private ArrayAdapter<String> arrayAdapter;
+    private TextView word;
+    private TextView definition;
+    private TextView wordtype;
+    private TextView phonetic;
+    private ImageButton btn1;
+    private ImageButton btn2;
+    private ImageButton btn3;
+    private ImageButton btn4;
+    private String defOfWord = "";
+    private String typeOfWord = "";
+    private String phoneticOfWord = "";
+    private int indexList = 0;
+    private List<String> wordsListReview = new ArrayList<String>();
+    private List<String> defListReview = new ArrayList<String>();
+    private String voiceURL;
 
-    private HTextView vocab;
-
-    private float x1, x2, y1, y2;
-    private static int MIN_DISTANCE = 0;
-    private GestureDetector gestureDetector;
-
-    private GifImageView swipeup;
-
-    private static final String WORD_URL = "https://random-words-api.vercel.app/";
-
-    // Override on touch event
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        gestureDetector.onTouchEvent(event);
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
-                y1 = event.getY();
-                break;
-
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                y2 = event.getY();
-                float valueX = y2 - x1;
-                float valueY = y2 - y1;
-
-                if (Math.abs(valueX) > MIN_DISTANCE) {
-                    if (y2 <= y1) {
-                        callApi(); // Top swiped to call API
-                    }
-                }
-        }
-
-        return super.onTouchEvent(event);
+    public void onBackPressed() {
     }
 
     @Override
@@ -79,7 +63,6 @@ public class Learn extends AppCompatActivity implements GestureDetector.OnGestur
         setContentView(R.layout.activity_learn);
 
         // *Bottom navigation bar*
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // Set Learn selected
@@ -110,66 +93,170 @@ public class Learn extends AppCompatActivity implements GestureDetector.OnGestur
             }
         });
 
-        // Initialize gesture detector
-        this.gestureDetector = new GestureDetector(this, this);
+        word = findViewById(R.id.word);
+        definition = findViewById(R.id.definition);
+        wordtype = findViewById(R.id.wordtype);
+        phonetic = findViewById(R.id.phonetic);
+        btn1 = findViewById(R.id.next_word);
+        btn2 = findViewById(R.id.learn_this_word);
+        btn3 = findViewById(R.id.voice);
+        btn4 = findViewById(R.id.review_words);
 
-        // Random word
-        vocab = findViewById(R.id.word);
+        btn4.setVisibility(View.INVISIBLE);
 
-        // Swipe up gif
-        swipeup = findViewById(R.id.swipe_up);
+        word.setText(randomWord());
+        getVoice();
+        getWordDefinition();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                word.setText(randomWord());
+                phonetic.setText("");
+                wordtype.setText("");
+                definition.setText("");
+                getVoice();
+                getWordDefinition();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setWordDefinition();
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playVoice();
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Learn.this, WordsReview.class);
+                intent.putStringArrayListExtra("wordsKey", (ArrayList<String>) wordsListReview);
+                intent.putStringArrayListExtra("meaningKey", (ArrayList<String>) defListReview);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    private void callApi() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(WORD_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        WordService wordService = retrofit.create(WordService.class);
-        Call<List<Word>> call = wordService.getAllWords();
-        call.enqueue(new Callback<List<Word>>() {
+    // Generate random word
+    private String randomWord() {
+        int upperBound = 4244;
+        Random r = new Random();
+        int someRandomNo = r.nextInt(upperBound);
+        String displayWord = getStreamTextByLine("words_list.txt", someRandomNo);
+        return displayWord;
+    }
+
+    // Read a line from file
+    @SuppressLint("LongLogTag")
+    public String getStreamTextByLine(String fileName, int randomNumber) {
+        String strOut = "";
+        String line = "";
+        int counter = 1;
+        AssetManager assetManager = getAssets();
+        try {
+            InputStream in = assetManager.open(fileName);
+            if (in != null) {
+                InputStreamReader input = new InputStreamReader(in);
+                BufferedReader buffreader = new BufferedReader(input);
+                while ((line = buffreader.readLine()) != null) {
+                    if (counter == randomNumber) {
+                        strOut = line;
+                    }
+                    counter++;
+                }
+                in.close();
+            } else {
+                Log.e("Input Stream Problem",
+                        "Input stream of text file is null");
+            }
+        } catch (Exception e) {
+            Log.e("0003:Error in get stream", e.getMessage());
+        }
+        return strOut;
+    }
+
+    // Get definition of word
+    private void getWordDefinition() {
+        WordService.wordService.getWord(word.getText().toString()).enqueue(new Callback<List<Word>>() {
             @Override
             public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
-                vocab.animateText(response.body().toString().replaceFirst("]", ""));
+                List<Word> word = response.body();
+                if (word != null) {
+                    phoneticOfWord = word.get(0).phonetics.get(0).text;
+                    typeOfWord = word.get(0).meanings.get(0).partOfSpeech;
+                    defOfWord = word.get(0).meanings.get(0).definitions.get(0).definition;
+                }
             }
 
             @Override
             public void onFailure(Call<List<Word>> call, Throwable t) {
-                vocab.animateText("Please wait a few seconds!");
             }
         });
     }
 
-
-    // Swipe up gesture
-    @Override
-    public boolean onDown(MotionEvent motionEvent) {
-        return false;
+    private void setWordDefinition() {
+        phonetic.setText(phoneticOfWord);
+        wordtype.setText("(" + typeOfWord + ")");
+        definition.setText(defOfWord);
+        addWordToList(defOfWord);
     }
 
-    @Override
-    public void onShowPress(MotionEvent motionEvent) {
-
+    private void addWordToList(String definition){
+        if (indexList <= 4) {
+            wordsListReview.add(indexList, word.getText().toString());
+            if (indexList == 0 || !wordsListReview.get(indexList).equals(wordsListReview.get(indexList - 1))) {
+                defListReview.add(indexList, definition);
+                indexList++;
+            }
+            else {
+                wordsListReview.remove(indexList);
+                Toast.makeText(Learn.this, "You've already learned this word!", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (indexList > 4) {
+            Toast.makeText(Learn.this, "You've reached 5/5 words!", Toast.LENGTH_SHORT).show();
+            btn1.setVisibility(View.INVISIBLE);
+            btn4.setVisibility(View.VISIBLE);
+        }
     }
 
-    @Override
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        return false;
+    private void getVoice() {
+        WordService.wordService.getWord(word.getText().toString()).enqueue(new Callback<List<Word>>() {
+            @Override
+            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+                List<Word> word = response.body();
+                if (word != null) {
+                    voiceURL = word.get(0).phonetics.get(0).audio;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Word>> call, Throwable t) {
+            }
+        });
     }
 
-    @Override
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        return false;
+    private void playVoice() {
+        MediaPlayer mp = new MediaPlayer();
+        try {
+            mp.setDataSource(voiceURL);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            mp.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mp.start();
     }
-
-    @Override
-    public void onLongPress(MotionEvent motionEvent) {
-
-    }
-
-    @Override
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        return false;
-    }
-
 }
