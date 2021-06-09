@@ -108,11 +108,11 @@
 
     <ImageButton
         android:id="@+id/voice"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="286dp"
+        android:layout_marginBottom="295dp"
         android:background="@drawable/voice_button_custom" />
 
 
