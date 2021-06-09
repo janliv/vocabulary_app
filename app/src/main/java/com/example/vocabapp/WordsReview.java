@@ -71,6 +71,11 @@ public class WordsReview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_review);
 
+        wordList.clear();
+        meaningList.clear();
+        temp.clear();
+        ans.clear();
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             wordList = bundle.getStringArrayList("wordsKey");
@@ -86,6 +91,11 @@ public class WordsReview extends AppCompatActivity {
         ans_B = findViewById(R.id.ans_B);
         ans_C = findViewById(R.id.ans_C);
         ans_D = findViewById(R.id.ans_D);
+
+        ans_A.setText("");
+        ans_B.setText("");
+        ans_C.setText("");
+        ans_D.setText("");
 
         boxA = findViewById(R.id.A_answer_box);
         boxB = findViewById(R.id.B_answer_box);

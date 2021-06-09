@@ -14,17 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VocabApp"
         tools:ignore="AllowBackup">
-        <activity android:name=".Home">
+        <activity android:name=".Home"
+            android:launchMode = "standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Learn" />
-        <activity android:name=".Search" />
-        <activity android:name=".Records" />
-        <activity android:name=".WordsReview" />
+        <activity
+            android:name=".Learn"
+            android:launchMode = "standard"/>
+        <activity android:name=".Search"
+            android:launchMode = "standard"/>
+        <activity android:name=".Records"
+            android:launchMode = "standard"/>
+        <activity
+            android:name=".WordsReview"
+            android:launchMode = "standard"/>
     </application>
 
 </manifest>
