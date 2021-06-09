@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "403100613084",
+    "project_id": "vocabulary-app-ac07c",
+    "storage_bucket": "vocabulary-app-ac07c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403100613084:android:f1095c1264d315cc00f719",
+        "android_client_info": {
+          "package_name": "com.example.vocabapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403100613084-9g4ojlfvo0kql7tuv6cusrhi498uhbh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vocabapp",
+            "certificate_hash": "e14c7753918e11db009e0f42a33d32005d0a6f37"
+          }
+        },
+        {
+          "client_id": "403100613084-2i7fte6560455sh39p9uvk7447tee1ng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB10TRZLg55NUz8tbRyiiGCGH45nVQ1Qkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403100613084-2i7fte6560455sh39p9uvk7447tee1ng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

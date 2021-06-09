@@ -1,11 +1,16 @@
 package com.example.vocabapp.OxfordDictionary;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -13,6 +18,8 @@ import androidx.cardview.widget.CardView;
 
 import com.example.vocabapp.R;
 import com.pedrogomez.renderers.Renderer;
+
+import java.io.IOException;
 
 public class DefinitionRenderer extends Renderer<Definition> {
     private TextView category;
@@ -23,11 +30,13 @@ public class DefinitionRenderer extends Renderer<Definition> {
     private TextView pronunciation;
     private TextView antonyms;
     private TextView synonyms;
+    private ImageButton urlAudio;
     private CardView cardView;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void setUpView(View rootView) {
-        category =  rootView.findViewById(R.id.category);
+        category = rootView.findViewById(R.id.category);
         word = rootView.findViewById(R.id.word);
         etymology = rootView.findViewById(R.id.etymology);
         meaning = rootView.findViewById(R.id.defination);
@@ -36,6 +45,13 @@ public class DefinitionRenderer extends Renderer<Definition> {
         cardView = rootView.findViewById(R.id.card_view);
         antonyms = rootView.findViewById(R.id.antonyms);
         synonyms = rootView.findViewById(R.id.synonyms);
+//        urlAudio = rootView.findViewById(R.id.pronounce_image_button);
+//        mediaPlayer = new MediaPlayer();
+//        mediaPlayer.setOnPreparedListener(prepare -> {
+//            urlAudio.setVisibility(View.VISIBLE);
+//            urlAudio.setOnClickListener(v -> mediaPlayer.start());
+//        });
+//        mediaPlayer.setAudioStreamType(AudioManager.USE_DEFAULT_STREAM_TYPE);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -48,20 +64,27 @@ public class DefinitionRenderer extends Renderer<Definition> {
                 setVisible(example, true);
                 setVisible(etymology, true);
                 setVisible(pronunciation, true);
-                setVisible(category,true);
-                setVisible(antonyms,true);
-                setVisible(synonyms,true);
+                setVisible(category, true);
+                setVisible(antonyms, true);
+                setVisible(synonyms, true);
+
             } else if (word.getVisibility() == View.VISIBLE) {
                 setVisible(example, false);
                 setVisible(etymology, false);
                 setVisible(pronunciation, false);
                 setVisible(word, false);
-                setVisible(category,false);
-                setVisible(synonyms,false);
-                setVisible(antonyms,false);
+                setVisible(category, false);
+                setVisible(synonyms, false);
+                setVisible(antonyms, false);
+//                urlAudio.setVisibility(View.GONE);
+//                if (mediaPlayer.isPlaying()) {
+//                    mediaPlayer.stop();
+//                    mediaPlayer.prepareAsync();
+//                }
                 //TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
             }
         });
+
     }
 
     @Override
@@ -73,7 +96,7 @@ public class DefinitionRenderer extends Renderer<Definition> {
     public void render() {
         Definition definition = getContent();
         setFieldText(category, definition.getCategory());
-        setVisible(category,false);
+        setVisible(category, false);
         setFieldText(word, definition.getWord());
         setVisible(word, false);
         setFieldText(example, definition.getExample());
@@ -83,10 +106,19 @@ public class DefinitionRenderer extends Renderer<Definition> {
         setVisible(etymology, false);
         setFieldText(pronunciation, definition.getPronunciation());
         setVisible(pronunciation, false);
-        setFieldText(antonyms,definition.getAntonyms());
-        setVisible(antonyms,false);
-        setFieldText(synonyms,definition.getSynonyms());
-        setVisible(synonyms,false);
+        setFieldText(antonyms, definition.getAntonyms());
+        setVisible(antonyms, false);
+        setFieldText(synonyms, definition.getSynonyms());
+        setVisible(synonyms, false);
+//        urlAudio.setVisibility(View.GONE);
+//
+//        try {
+//            mediaPlayer.setDataSource(definition.getPronunciationUrl());
+//            mediaPlayer.prepare();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void setFieldText(TextView field, String text) {

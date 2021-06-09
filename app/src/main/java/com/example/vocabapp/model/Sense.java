@@ -343,7 +343,6 @@ public class Sense {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Sense {\n");
-
         sb.append("    crossReferenceMarkers: ").append(toIndentedString(crossReferenceMarkers)).append("\n");
         sb.append("    crossReferences: ").append(toIndentedString(crossReferences)).append("\n");
         sb.append("    definitions: ").append(toIndentedString(definitions)).append("\n");

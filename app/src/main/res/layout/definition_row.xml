@@ -40,7 +40,7 @@
             tools:text="Sausage"/>
         <TextView
             android:id="@+id/pronunciation"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/word"
             android:textColor="@color/colorTextWhite"
@@ -94,6 +94,14 @@
             android:textStyle="italic"
             android:text = "synonyms"
             android:textColor="@color/colorTextWhite"/>
+<!--        <ImageButton-->
+<!--            android:layout_width="20sp"-->
+<!--            android:layout_height="20sp"-->
+<!--            android:layout_toEndOf="@id/pronunciation"-->
+<!--            android:layout_alignBottom="@id/pronunciation"-->
+<!--            android:id="@+id/pronounce_image_button"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:background="@drawable/ic_baseline_record_voice_over_24" />-->
 
 
 

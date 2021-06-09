@@ -15,6 +15,11 @@
         <item name="fontFamily">@font/sfprodisplay</item>
     </style>
 
+
+    <style name="FloatingLabelTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTextWhite</item>
+    </style>
+
     <style name="Theme.VocabApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -23,4 +28,5 @@
     <style name="Theme.VocabApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.VocabApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
