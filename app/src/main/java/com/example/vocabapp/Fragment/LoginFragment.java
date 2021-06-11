@@ -134,7 +134,8 @@ public class LoginFragment extends BaseFragment {
 
 
         if (firebaseAuth.getCurrentUser() != null)
-            startHomeActivity();
+            //startHomeActivity();
+            firebaseAuth.signOut();
 
         registerButton.setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_out, R.anim.fade, R.anim.slide_in, R.anim.fade_in).replace(R.id.login_activity_container, new RegisterFragment()).addToBackStack(RegisterFragment.TAG).commit();

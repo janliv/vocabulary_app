@@ -30,6 +30,8 @@ anim design_snackbar_out
 anim fade
 anim fade_in
 anim fragment_fast_out_extra_slow_in
+anim from_left
+anim from_right
 anim item_animation_fall_down
 anim layout_animation
 anim mtrl_bottom_sheet_slide_in
@@ -41,6 +43,8 @@ anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
 anim slide_in
 anim slide_out
+anim to_left
+anim to_right
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1897,6 +1901,7 @@ drawable ic_arrow_back_black_24dp
 drawable ic_back_to_learn
 drawable ic_back_to_learn_pressed
 drawable ic_baseline_add_photo_alternate_24
+drawable ic_baseline_add_reaction_120
 drawable ic_baseline_arrow_back_ios_24
 drawable ic_baseline_record_voice_over_24
 drawable ic_clear_black_24dp
@@ -2518,6 +2523,7 @@ id unlabeled
 id up
 id useLogo
 id view_offset_helper
+id view_paper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
@@ -2598,8 +2604,6 @@ layout action_item_layout
 layout activity_home
 layout activity_learn
 layout activity_login
-layout activity_records
-layout activity_search
 layout activity_words_review
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -2627,11 +2631,13 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout floating_search_layout
+layout fragment_home
+layout fragment_learn
 layout fragment_login
+layout fragment_record
 layout fragment_register
 layout fragment_reset_password
 layout fragment_sliding_search
-layout layout_card_view_expand
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

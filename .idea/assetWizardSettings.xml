@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add_photo_alternate/baseline_add_photo_alternate_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add_reaction/baseline_add_reaction_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -34,7 +34,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_add_photo_alternate_24" />
+                            <entry key="outputName" value="ic_baseline_add_reaction_120" />
                             <entry key="sourceFile" value="D:\NguyenNhutTan\do_an\vocabulary_app" />
                           </map>
                         </option>

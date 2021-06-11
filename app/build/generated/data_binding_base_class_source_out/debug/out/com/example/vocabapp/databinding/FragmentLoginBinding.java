@@ -15,6 +15,8 @@ import androidx.viewbinding.ViewBinding;
 import com.example.vocabapp.R;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -24,13 +26,13 @@ public final class FragmentLoginBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final View customTextInputLayout;
+  public final TextInputLayout customTextInputLayout;
 
   @NonNull
-  public final View customTextInputLayoutPlus;
+  public final TextInputLayout customTextInputLayoutPlus;
 
   @NonNull
-  public final View emailEditText;
+  public final TextInputEditText emailEditText;
 
   @NonNull
   public final Button forgetPasswordButton;
@@ -48,7 +50,7 @@ public final class FragmentLoginBinding implements ViewBinding {
   public final TextView loginWith;
 
   @NonNull
-  public final View passwordEditText;
+  public final TextInputEditText passwordEditText;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -62,11 +64,12 @@ public final class FragmentLoginBinding implements ViewBinding {
   @NonNull
   public final SignInButton signUpGoogleButton;
 
-  private FragmentLoginBinding(@NonNull FrameLayout rootView, @NonNull View customTextInputLayout,
-      @NonNull View customTextInputLayoutPlus, @NonNull View emailEditText,
+  private FragmentLoginBinding(@NonNull FrameLayout rootView,
+      @NonNull TextInputLayout customTextInputLayout,
+      @NonNull TextInputLayout customTextInputLayoutPlus, @NonNull TextInputEditText emailEditText,
       @NonNull Button forgetPasswordButton, @NonNull LinearLayout linear01,
       @NonNull LinearLayout linear02, @NonNull Button loginButton, @NonNull TextView loginWith,
-      @NonNull View passwordEditText, @NonNull ProgressBar progressBar,
+      @NonNull TextInputEditText passwordEditText, @NonNull ProgressBar progressBar,
       @NonNull Button registerButton, @NonNull LoginButton signUpFacebookButton,
       @NonNull SignInButton signUpGoogleButton) {
     this.rootView = rootView;
@@ -113,19 +116,19 @@ public final class FragmentLoginBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.customTextInputLayout;
-      View customTextInputLayout = rootView.findViewById(id);
+      TextInputLayout customTextInputLayout = rootView.findViewById(id);
       if (customTextInputLayout == null) {
         break missingId;
       }
 
       id = R.id.customTextInputLayoutPlus;
-      View customTextInputLayoutPlus = rootView.findViewById(id);
+      TextInputLayout customTextInputLayoutPlus = rootView.findViewById(id);
       if (customTextInputLayoutPlus == null) {
         break missingId;
       }
 
       id = R.id.email_edit_text;
-      View emailEditText = rootView.findViewById(id);
+      TextInputEditText emailEditText = rootView.findViewById(id);
       if (emailEditText == null) {
         break missingId;
       }
@@ -161,7 +164,7 @@ public final class FragmentLoginBinding implements ViewBinding {
       }
 
       id = R.id.password_edit_text;
-      View passwordEditText = rootView.findViewById(id);
+      TextInputEditText passwordEditText = rootView.findViewById(id);
       if (passwordEditText == null) {
         break missingId;
       }

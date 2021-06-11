@@ -7,16 +7,25 @@
     android:layout_height="match_parent"
     android:background="#1A272D"
     android:id="@+id/relative_layout_home">
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_paper"
+        android:layout_above="@id/bottom_navigation">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="50dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        tools:ignore="HardcodedText,SpUsage" />
+    </androidx.viewpager.widget.ViewPager>
+<!--        android:layout_above="@id/bottom_navigation"-->
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Home"-->
+<!--        android:textSize="50dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        tools:ignore="HardcodedText,SpUsage" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -28,6 +37,7 @@
         app:itemRippleColor="#2A3C44"
         app:itemIconTint="@color/icons_color"
         app:itemTextColor="@color/icons_color" />
+
 
 
 </RelativeLayout>

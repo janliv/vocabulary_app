@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewpager.widget.ViewPager;
 import com.example.vocabapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
@@ -24,11 +25,16 @@ public final class ActivityHomeBinding implements ViewBinding {
   @NonNull
   public final RelativeLayout relativeLayoutHome;
 
+  @NonNull
+  public final ViewPager viewPaper;
+
   private ActivityHomeBinding(@NonNull RelativeLayout rootView,
-      @NonNull BottomNavigationView bottomNavigation, @NonNull RelativeLayout relativeLayoutHome) {
+      @NonNull BottomNavigationView bottomNavigation, @NonNull RelativeLayout relativeLayoutHome,
+      @NonNull ViewPager viewPaper) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
     this.relativeLayoutHome = relativeLayoutHome;
+    this.viewPaper = viewPaper;
   }
 
   @Override
@@ -66,8 +72,14 @@ public final class ActivityHomeBinding implements ViewBinding {
 
       RelativeLayout relativeLayoutHome = (RelativeLayout) rootView;
 
+      id = R.id.view_paper;
+      ViewPager viewPaper = rootView.findViewById(id);
+      if (viewPaper == null) {
+        break missingId;
+      }
+
       return new ActivityHomeBinding((RelativeLayout) rootView, bottomNavigation,
-          relativeLayoutHome);
+          relativeLayoutHome, viewPaper);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

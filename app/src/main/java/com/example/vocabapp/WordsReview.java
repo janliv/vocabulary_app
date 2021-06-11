@@ -150,8 +150,7 @@ public class WordsReview extends AppCompatActivity {
         backToLearn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WordsReview.this, Learn.class);
-                startActivity(intent);
+                finish();
             }
         });
 

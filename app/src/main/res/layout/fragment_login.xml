@@ -37,17 +37,19 @@
                 android:layout_alignParentTop="true">
 
 
-                <com.example.vocabapp.CustomTextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/customTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
                     android:paddingTop="12sp"
                     android:textColorHint="@color/colorPrimary"
                     app:hintTextAppearance="@style/FloatingLabelTextAppearance">
 
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
@@ -56,7 +58,7 @@
                         android:inputType="textEmailAddress"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/color_text_pink" />
-                </com.example.vocabapp.CustomTextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -66,17 +68,19 @@
                 android:layout_below="@id/linear01">
 
 
-                <com.example.vocabapp.CustomTextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/customTextInputLayoutPlus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
                     android:paddingTop="12sp"
                     android:textColorHint="@color/colorPrimary"
                     app:hintTextAppearance="@style/FloatingLabelTextAppearance">
 
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/password_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
@@ -85,7 +89,7 @@
                         android:inputType="textPassword"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/color_text_pink" />
-                </com.example.vocabapp.CustomTextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <Button

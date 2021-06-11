@@ -31,13 +31,6 @@
         </activity>
 
         <activity
-            android:name=".Learn"
-            android:launchMode = "standard"/>
-        <activity android:name=".Search"
-            android:launchMode = "standard"/>
-        <activity android:name=".Records"
-            android:launchMode = "standard"/>
-        <activity
             android:name=".WordsReview"
             android:launchMode = "standard"/>
     </application>
