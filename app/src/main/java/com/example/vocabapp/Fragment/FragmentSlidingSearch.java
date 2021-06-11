@@ -36,8 +36,10 @@ import com.example.vocabapp.Data.WordSuggestion;
 import com.example.vocabapp.OxfordDictionary.Definition;
 import com.example.vocabapp.OxfordDictionary.DefinitionRenderer;
 import com.example.vocabapp.R;
-import com.example.vocabapp.Users.User;
+
 import com.example.vocabapp.Users.UserDataHelper;
+
+
 import com.example.vocabapp.model.Entry;
 import com.example.vocabapp.model.LexicalCategory;
 
@@ -51,7 +53,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-public class FragmentSlidingSearch extends BaseFragment {
+public class FragmentSlidingSearch extends BaseFragment{
     private final String TAG = "BlankFragment";
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
@@ -103,6 +105,7 @@ public class FragmentSlidingSearch extends BaseFragment {
         memoryDataSource = new MemoryDataSource();
         diskDataSource = new DiskDataSource(sharedPreferences);
         networkDataSource = new NetworkDataSource();
+        DataHelper.setsColorSuggestions(getContext());
 
     }
 
@@ -210,9 +213,9 @@ public class FragmentSlidingSearch extends BaseFragment {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+                        new UserDataHelper().readWordSearched(new UserDataHelper.DataStatus() {
                             @Override
-                            public void ListIsLoaded(List<String> list) {
+                            public void DataIsLoaded(List<String> list, String key) {
                                 l.clear();
                                 for (int i = list.size() - 1; i >= 0; i--) {
                                     l.add(new WordSuggestion(list.get(i), true));
@@ -220,23 +223,25 @@ public class FragmentSlidingSearch extends BaseFragment {
                                         break;
                                 }
                                 if(mSearchView.isSearchBarFocused())
-                                mSearchView.swapSuggestions(l);
+                                    mSearchView.swapSuggestions(l);
                             }
 
                             @Override
-                            public void ListIsInserted() {
-
-                            }
-
-                            @Override
-                            public void ListIsUpdated() {
+                            public void DataIsInserted() {
 
                             }
 
                             @Override
-                            public void ListIsDeleted() {
+                            public void DataIsUpdated() {
 
                             }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+
+
                         });
                         //show suggestions when search bar gains focus (typically history suggestions)
 
@@ -320,38 +325,27 @@ public class FragmentSlidingSearch extends BaseFragment {
     }
 
     private void addHistoryWord(String word) {
-        List<String> list = new ArrayList<>();
-        for (WordSuggestion w : l) {
-            list.add(w.getBody());
-        }
-        if(!list.contains(word)){
-
-            list.add(word);
-            new UserDataHelper().updateWordSearched(list, new UserDataHelper.WordSearchedStatus() {
+            new UserDataHelper().addNewWordSearched(word, new UserDataHelper.DataStatus() {
                 @Override
-                public void ListIsLoaded(List<String> list) {
+                public void DataIsLoaded(List<String> list, String key) {
 
                 }
 
                 @Override
-                public void ListIsInserted() {
+                public void DataIsInserted() {
 
                 }
 
                 @Override
-                public void ListIsUpdated() {
-                    Log.d("TAG", "wordsearchupdated");
+                public void DataIsUpdated() {
+                    Log.d("TAG","added word search");
                 }
 
                 @Override
-                public void ListIsDeleted() {
+                public void DataIsDeleted() {
 
                 }
             });
-        }
-        else return;
     }
-
-
 }
 

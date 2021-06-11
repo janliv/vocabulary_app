@@ -11,20 +11,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vocabapp.LearnModels.Word;
 import com.example.vocabapp.LearnService.WordService;
+import com.example.vocabapp.Users.UserDataHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -32,8 +31,6 @@ import java.util.Random;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Learn extends AppCompatActivity {
 
@@ -152,6 +149,7 @@ public class Learn extends AppCompatActivity {
         Random r = new Random();
         int someRandomNo = r.nextInt(upperBound);
         String displayWord = getStreamTextByLine("words_list.txt", someRandomNo);
+        addNewWordToFireBase(displayWord);
         return displayWord;
     }
 
@@ -258,5 +256,29 @@ public class Learn extends AppCompatActivity {
             e.printStackTrace();
         }
         mp.start();
+    }
+
+    private  void addNewWordToFireBase(String word){
+        new UserDataHelper().addNewWordSeen(word, new UserDataHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<String> list, String key) {
+
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+                Log.d("TAG","Added new Word Seen");
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
     }
 }

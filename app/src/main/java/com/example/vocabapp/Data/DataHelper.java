@@ -1,17 +1,13 @@
 package com.example.vocabapp.Data;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Filter;
 
 import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
-import com.example.vocabapp.Users.User;
-import com.example.vocabapp.Users.UserDataHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Observable;
 
 public class DataHelper {
 
@@ -25,79 +21,79 @@ public class DataHelper {
         void onResults(List<WordSuggestion> results);
     }
 
-    public static List<String> getHistory() {
-        List<String> l = new ArrayList<>();
-        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
-            @Override
-            public void ListIsLoaded(List<String> list) {
-                if (list != null)
-                    l.addAll(list);
-
-            }
-
-            @Override
-            public void ListIsInserted() {
-
-            }
-
-            @Override
-            public void ListIsUpdated() {
-
-            }
-
-            @Override
-            public void ListIsDeleted() {
-
-            }
-        });
-        Log.d("list",String.valueOf(l.size()));
-
-        return l;
-    }
-
-
-    public static List<WordSuggestion> getHistory(Context context, int count) {
-        List<WordSuggestion> suggestionList = new ArrayList<>();
-        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
-            @Override
-            public void ListIsLoaded(List<String> list) {
-                if (list != null)
-                    for(String str : list)
-                        suggestionList.add(new WordSuggestion(str));
-            }
-
-            @Override
-            public void ListIsInserted() {
-
-            }
-
-            @Override
-            public void ListIsUpdated() {
-
-            }
-
-            @Override
-            public void ListIsDeleted() {
-
-            }
-        });
-//        WordSuggestion colorSuggestion;
-//        for (int i = 0; i < sColorSuggestions.size(); i++) {
-//            colorSuggestion = sColorSuggestions.get(i);
-//            colorSuggestion.setIsHistory(true);
-//            suggestionList.add(colorSuggestion);
-//            if (suggestionList.size() == count) {
-//                break;
+//    public static List<String> getHistory() {
+//        List<String> l = new ArrayList<>();
+//        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+//            @Override
+//            public void ListIsLoaded(List<String> list) {
+//                if (list != null)
+//                    l.addAll(list);
+//
 //            }
+//
+//            @Override
+//            public void ListIsInserted() {
+//
+//            }
+//
+//            @Override
+//            public void ListIsUpdated() {
+//
+//            }
+//
+//            @Override
+//            public void ListIsDeleted() {
+//
+//            }
+//        });
+//        Log.d("list",String.valueOf(l.size()));
+//
+//        return l;
+//    }
+//
+//
+//    public static List<WordSuggestion> getHistory(Context context, int count) {
+//        List<WordSuggestion> suggestionList = new ArrayList<>();
+//        new UserDataHelper().readWordSearched(new UserDataHelper.WordSearchedStatus() {
+//            @Override
+//            public void ListIsLoaded(List<String> list) {
+//                if (list != null)
+//                    for(String str : list)
+//                        suggestionList.add(new WordSuggestion(str));
+//            }
+//
+//            @Override
+//            public void ListIsInserted() {
+//
+//            }
+//
+//            @Override
+//            public void ListIsUpdated() {
+//
+//            }
+//
+//            @Override
+//            public void ListIsDeleted() {
+//
+//            }
+//        });
+////        WordSuggestion colorSuggestion;
+////        for (int i = 0; i < sColorSuggestions.size(); i++) {
+////            colorSuggestion = sColorSuggestions.get(i);
+////            colorSuggestion.setIsHistory(true);
+////            suggestionList.add(colorSuggestion);
+////            if (suggestionList.size() == count) {
+////                break;
+////            }
+////        }
+//        List<WordSuggestion> wordSuggestions = new ArrayList<>();
+//        for (int i = suggestionList.size() - 1; i >= 0; i--) {
+//            wordSuggestions.add(suggestionList.get(i));
+//            if (wordSuggestions.size() == count)
+//                break;
 //        }
-        List<WordSuggestion> wordSuggestions = new ArrayList<>();
-        for (int i = suggestionList.size() - 1; i >= 0; i--) {
-            wordSuggestions.add(suggestionList.get(i));
-            if (wordSuggestions.size() == count)
-                break;
-        }
-        return wordSuggestions;
-    }
+//        return wordSuggestions;
+//    }
 
     public static void resetSuggestionsHistory() {
         for (WordSuggestion colorSuggestion : sColorSuggestions) {

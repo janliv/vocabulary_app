@@ -64,11 +64,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.vocabapp.Home" >
+        <activity
+            android:name="com.example.vocabapp.Home"
+            android:launchMode="standard" >
         </activity>
-        <activity android:name="com.example.vocabapp.Learn" />
-        <activity android:name="com.example.vocabapp.Search" />
-        <activity android:name="com.example.vocabapp.Records" />
+        <activity
+            android:name="com.example.vocabapp.Learn"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.example.vocabapp.Search"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.example.vocabapp.Records"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.example.vocabapp.WordsReview"
+            android:launchMode="standard" />
         <activity android:name="com.facebook.CustomTabMainActivity" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

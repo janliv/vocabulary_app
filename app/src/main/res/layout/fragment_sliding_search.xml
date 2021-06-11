@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|bottom"
-            android:text="@string/bar_title"
+            android:text="Welcome"
             android:textColor="@color/colorTextWhite"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -26,9 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|top"
-            android:text="@string/bar_description"
+            android:text="You can find your all words here!"
             android:textColor="@color/colorTextWhite"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 

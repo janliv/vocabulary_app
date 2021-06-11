@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.vocabapp.Users.UserDataHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -161,6 +164,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_A.getText().toString())) {
                     boxA.setImageResource(R.drawable.a_correct);
                     countCorrect++;
+                    addNewWordLearnedToFireBase(ans_A.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_B.getText().toString())) {
@@ -202,6 +206,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_B.getText().toString())) {
                     boxB.setImageResource(R.drawable.b_correct);
                     countCorrect++;
+                    addNewWordLearnedToFireBase(ans_B.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -243,6 +248,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_C.getText().toString())) {
                     boxC.setImageResource(R.drawable.c_correct);
                     countCorrect++;
+                    addNewWordLearnedToFireBase(ans_C.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -284,6 +290,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_D.getText().toString())) {
                     boxD.setImageResource(R.drawable.d_correct);
                     countCorrect++;
+                    addNewWordLearnedToFireBase(ans_D.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -419,6 +426,30 @@ public class WordsReview extends AppCompatActivity {
     private int randomInt(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min) + min;
+    }
+
+    private  void addNewWordLearnedToFireBase(String word){
+        new UserDataHelper().addNewWordLearned(word, new  UserDataHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<String> list, String key) {
+
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+                Log.d("TAG","Added new word learned");
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
     }
 
 }

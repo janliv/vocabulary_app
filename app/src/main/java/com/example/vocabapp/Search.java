@@ -2,15 +2,19 @@ package com.example.vocabapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
+import com.example.vocabapp.Fragment.BaseFragment;
+import com.example.vocabapp.Fragment.FragmentSlidingSearch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Search extends AppCompatActivity {
+public class Search extends AppCompatActivity implements BaseFragment.BaseExampleFragmentCallbacks {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +50,15 @@ public class Search extends AppCompatActivity {
                 return false;
             }
         });
+        showFragment(new FragmentSlidingSearch());
+    }
+
+    @Override
+    public void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
+
+    }
+
+    private void showFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 }
