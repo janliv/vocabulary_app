@@ -3,8 +3,8 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/ic_next_word_pressed" />
+        android:drawable="@drawable/btn_new_word_pressed" />
     <item
-        android:drawable="@drawable/ic_next_word" />
+        android:drawable="@drawable/btn_new_word" />
 
 </selector>

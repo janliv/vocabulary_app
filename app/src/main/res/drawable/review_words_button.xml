@@ -3,9 +3,9 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/ic_review_words_pressed"/>
+        android:drawable="@drawable/btn_review_pressed"/>
 
     <item
-        android:drawable="@drawable/ic_review_words"/>
+        android:drawable="@drawable/btn_review"/>
 
 </selector>

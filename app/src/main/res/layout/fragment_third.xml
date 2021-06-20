@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background2_onboarding"
+    tools:context=".Fragment.ThirdFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_toinfinity"
+            android:layout_width="780.6609px"
+            android:layout_height="192.2279px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="580dp"
+            android:background="@drawable/ic_button_onboarding" />
+
+        <TextView
+            android:id="@+id/tv_andbeyond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="660dp"
+            android:fontFamily="@font/sfprodisplaysemibold"
+            android:text="and beyond"
+            android:textColor="#45377d"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

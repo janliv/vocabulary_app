@@ -1,10 +1,5 @@
 package com.example.vocabapp.LearnService;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import com.example.vocabapp.Learn;
 import com.example.vocabapp.LearnModels.Word;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

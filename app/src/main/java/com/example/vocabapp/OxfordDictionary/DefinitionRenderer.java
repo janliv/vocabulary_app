@@ -1,12 +1,9 @@
 package com.example.vocabapp.OxfordDictionary;
 
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +15,6 @@ import androidx.cardview.widget.CardView;
 
 import com.example.vocabapp.R;
 import com.pedrogomez.renderers.Renderer;
-
-import java.io.IOException;
 
 public class DefinitionRenderer extends Renderer<Definition> {
     private TextView category;

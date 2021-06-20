@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.transition.TransitionInflater;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.vocabapp.R;
+import com.example.vocabapp.Users.UserDataHelper;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +35,8 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -57,6 +61,8 @@ public class RegisterFragment extends BaseFragment {
     private EditText emailInput;
     private EditText passwordInput;
     private EditText displayNameInput;
+    private EditText passwordAgainInput;
+    private EditText ageInput;
     private CircleImageView displayPhoto;
     private Button registerButton;
     private ImageButton bacButton;
@@ -112,12 +118,7 @@ public class RegisterFragment extends BaseFragment {
 
     private void uploadDisplayPhoto(Uri imageUri) {
         StorageReference fileReference = storageReference.child("users/" + firebaseAuth.getCurrentUser().getUid() + "/profile.jpg");
-        fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Log.d("TAG", "upload photo successfully");
-            }
-        });
+        fileReference.putFile(imageUri).addOnSuccessListener(taskSnapshot -> Log.d("TAG", "upload photo successfully"));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -131,6 +132,8 @@ public class RegisterFragment extends BaseFragment {
         passwordInput = view.findViewById(R.id.password_edit_text);
         displayNameInput = view.findViewById(R.id.display_name);
         displayPhoto = view.findViewById(R.id.image_display_photo);
+        passwordAgainInput = view.findViewById(R.id.password_again_edit_text);
+        ageInput = view.findViewById(R.id.age_edit_text);
         registerButton = view.findViewById(R.id.register_button);
         bacButton = view.findViewById(R.id.image_back_button);
         progressBar = view.findViewById(R.id.progressBar);
@@ -142,49 +145,69 @@ public class RegisterFragment extends BaseFragment {
 
         bacButton.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         emailInput.setOnFocusChangeListener((v, hasFocus) -> {
-
-            if (hasFocus) {
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-            } else if (!passwordInput.hasFocus()) {
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-            }
+            if (!hasFocus&&!passwordInput.hasFocus()&&!passwordAgainInput.hasFocus()&&!displayNameInput.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
         });
         passwordInput.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-            } else {
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-            }
+            if (!hasFocus&&!emailInput.hasFocus()&&!passwordAgainInput.hasFocus()&&!displayNameInput.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
         });
+        passwordAgainInput.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus&&!passwordInput.hasFocus()&&!emailInput.hasFocus()&&!displayNameInput.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+        });
+        displayNameInput.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus&&!passwordInput.hasFocus()&&!passwordAgainInput.hasFocus()&&!emailInput.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+        });
+
 
         registerButton.setOnClickListener(v -> {
 
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
+            String passwordAgain = passwordAgainInput.getText().toString().trim();
+            String userName = displayNameInput.getText().toString().trim();
+            String age = ageInput.getText().toString().trim();
 
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(getContext(), "Enter email", Toast.LENGTH_LONG).show();
+            if (!isValidEmail(email)) {
+                emailInput.requestFocus();
+                emailInput.setError("Invalid email");
+                return;
+            }
+            if (userName.isEmpty() || userName.length() <= 3) {
+                displayNameInput.requestFocus();
+                displayNameInput.setError("Invalid name");
+            }
+
+            if (age.isEmpty()) {
+                ageInput.requestFocus();
+                ageInput.setError("Enter your age");
                 return;
             }
 
             if (TextUtils.isEmpty(password)) {
-                Toast.makeText(getContext(), "Enter password", Toast.LENGTH_LONG).show();
+                passwordInput.requestFocus();
+                passwordInput.setError("Enter your password");
                 return;
             }
             if (password.length() < 6) {
-                Toast.makeText(getContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                passwordInput.requestFocus();
+                passwordInput.setError("Password too short, enter minimum 6 characters!");
                 return;
+            }
+            if (password.compareTo(passwordAgain) != 0) {
+                passwordAgainInput.requestFocus();
+                passwordAgainInput.setError("");
             }
             progressBar.setVisibility(View.VISIBLE);
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(getActivity(), task -> {
-                        Toast.makeText(getActivity(), "Create User With Email: onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         if (!task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            updateProfile(email, password);
+                        } else {
+                            updateProfile(email, password, age, userName);
                             Toast.makeText(getContext(), "Sign up successful", Toast.LENGTH_LONG).show();
                             getActivity().getSupportFragmentManager().popBackStack();
                         }
@@ -205,25 +228,36 @@ public class RegisterFragment extends BaseFragment {
         return view;
     }
 
-    private void updateProfile(String email, String password) {
-        String displayName = displayNameInput.getText().toString().trim();
-        if (displayName.isEmpty()) {
-            displayNameInput.setError("Enter your name");
-            return;
-        }
-        if (uri == null) {
-            Toast.makeText(getContext(), "Choose your profile photo", Toast.LENGTH_LONG).show();
-            return;
+    private void updateProfile(String email, String password, String age, String displayName) {
+        if (uri != null) {
+            uploadDisplayPhoto(uri);
         }
 
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        new UserDataHelper().updateAge(age, new UserDataHelper.DataStatus() {
             @Override
-            public void onSuccess(AuthResult authResult) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                uploadDisplayPhoto(uri);
-                user.updateProfile(new UserProfileChangeRequest.Builder().setDisplayName(displayName).build()).addOnSuccessListener(aVoid -> Log.d("TAG", "profile updated"));
+            public void DataIsLoaded(List<String> list, String key) {
 
             }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+                Log.d("TAG", "Updated age");
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            user.updateProfile(new UserProfileChangeRequest.Builder().setDisplayName(displayName).build()).addOnSuccessListener(aVoid -> Log.d("TAG", "profile updated"));
         });
         firebaseAuth.signOut();
     }
@@ -231,5 +265,9 @@ public class RegisterFragment extends BaseFragment {
     @Override
     public boolean onActivityBackPress() {
         return false;
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 }

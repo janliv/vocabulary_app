@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangePassWordActivity"
+    android:background="@color/white">
+
+
+    <Button
+        android:layout_width="55.5391px"
+        android:layout_height="99.2251px"
+        android:layout_marginTop="230px"
+        android:layout_marginLeft="70px"
+        android:background="@drawable/btn_back_user_custom"
+        android:id="@+id/image_back_button"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="93px"
+        android:fontFamily="@font/sfprodisplayheavy"
+        android:textColor="#45377d"
+        android:layout_marginTop="350px"
+        android:layout_marginLeft="70px"
+        android:text="Change Password"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="68px"
+        android:fontFamily="@font/sfprodisplayheavy"
+        android:textColor="#f7cc2f"
+        android:layout_marginTop="620px"
+        android:layout_centerHorizontal="true"
+        android:text="19522270@gm.uit.edu.vn"
+        android:id="@+id/email_text_view"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70px"
+        android:fontFamily="@font/sfprodisplaybold"
+        android:textColor="@color/black"
+        android:layout_marginTop="870px"
+        android:layout_marginLeft="100px"
+        android:text="Old Password"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="962.4151px"
+        android:layout_height="113.9998px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1000px"
+        android:background="@drawable/input_layout"
+        android:id="@+id/old_password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:fontFamily="@font/sfprodisplaymedium"
+        android:textStyle="bold"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70px"
+        android:fontFamily="@font/sfprodisplaybold"
+        android:textColor="@color/black"
+        android:layout_marginTop="1160px"
+        android:layout_marginLeft="100px"
+        android:text="New Password"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="962.4151px"
+        android:layout_height="113.9998px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1290px"
+        android:background="@drawable/input_layout"
+        android:id="@+id/new_password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:fontFamily="@font/sfprodisplaymedium"
+        android:textStyle="bold"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70px"
+        android:fontFamily="@font/sfprodisplaybold"
+        android:textColor="@color/black"
+        android:layout_marginTop="1450px"
+        android:layout_marginLeft="100px"
+        android:text="Confirm Password"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="962.4151px"
+        android:layout_height="113.9998px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1580px"
+        android:background="@drawable/input_layout"
+        android:id="@+id/confirm_password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:fontFamily="@font/sfprodisplaymedium"
+        android:textStyle="bold"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black" />
+
+    <Button
+        android:layout_width="935.7367px"
+        android:layout_height="113.9998px"
+        android:background="@drawable/btn_changepassword_user_custom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1860px"
+        android:id="@+id/change_password_button"/>
+
+
+
+</RelativeLayout>

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.example.vocabapp.Fragment.BaseFragment;
@@ -25,6 +26,8 @@ private LoginFragment loginFragment;
                 .beginTransaction()
                 .replace(R.id.login_activity_container, loginFragment).addToBackStack(loginFragment.TAG).
                 commit();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
     }
 
     @Override

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TermOfUesActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <ImageButton
+            android:id="@+id/image_back_button"
+            android:layout_width="55.5391px"
+            android:layout_height="99.2251px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="32sp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/btn_back_user_custom" />
+
+        <TextView
+            android:id="@+id/edit_profile_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_back_button"
+            android:layout_marginStart="32sp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Term of use"
+            android:textColor="#45377d"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/edit_profile_text_view"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="36dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfprodisplayregular"
+                    android:textColor="@color/colorTextBlack"
+                    android:layout_marginStart="32sp"
+                    android:layout_marginEnd="32sp"
+                    android:text="@string/pp0"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

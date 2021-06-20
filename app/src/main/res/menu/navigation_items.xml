@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/homeId"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/home"
         android:title="Home"
         tools:ignore="HardcodedText" />
 
     <item android:id="@+id/learnId"
-        android:icon="@drawable/ic_learn"
+        android:icon="@drawable/book"
         android:title="Learn"
         tools:ignore="HardcodedText" />
 
     <item android:id="@+id/searchId"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/transparency"
         android:title="Search"
         tools:ignore="HardcodedText" />
 
     <item android:id="@+id/achievementsId"
-        android:icon="@drawable/ic_achievements"
+        android:icon="@drawable/badge"
         android:title="Records"
         tools:ignore="HardcodedText" />
 </menu>
