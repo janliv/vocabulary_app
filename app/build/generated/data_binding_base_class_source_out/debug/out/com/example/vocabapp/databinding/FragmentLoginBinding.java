@@ -6,15 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import com.example.vocabapp.R;
-import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
@@ -35,19 +33,13 @@ public final class FragmentLoginBinding implements ViewBinding {
   public final TextInputEditText emailEditText;
 
   @NonNull
-  public final Button forgetPasswordButton;
-
-  @NonNull
-  public final LinearLayout linear01;
-
-  @NonNull
-  public final LinearLayout linear02;
+  public final TextView forgetPasswordTextView;
 
   @NonNull
   public final Button loginButton;
 
   @NonNull
-  public final TextView loginWith;
+  public final ImageView logo;
 
   @NonNull
   public final TextInputEditText passwordEditText;
@@ -56,34 +48,31 @@ public final class FragmentLoginBinding implements ViewBinding {
   public final ProgressBar progressBar;
 
   @NonNull
-  public final Button registerButton;
+  public final TextView registerTextView;
 
   @NonNull
-  public final LoginButton signUpFacebookButton;
+  public final Button signUpFacebookButton;
 
   @NonNull
-  public final SignInButton signUpGoogleButton;
+  public final Button signUpGoogleButton;
 
   private FragmentLoginBinding(@NonNull FrameLayout rootView,
       @NonNull TextInputLayout customTextInputLayout,
       @NonNull TextInputLayout customTextInputLayoutPlus, @NonNull TextInputEditText emailEditText,
-      @NonNull Button forgetPasswordButton, @NonNull LinearLayout linear01,
-      @NonNull LinearLayout linear02, @NonNull Button loginButton, @NonNull TextView loginWith,
-      @NonNull TextInputEditText passwordEditText, @NonNull ProgressBar progressBar,
-      @NonNull Button registerButton, @NonNull LoginButton signUpFacebookButton,
-      @NonNull SignInButton signUpGoogleButton) {
+      @NonNull TextView forgetPasswordTextView, @NonNull Button loginButton,
+      @NonNull ImageView logo, @NonNull TextInputEditText passwordEditText,
+      @NonNull ProgressBar progressBar, @NonNull TextView registerTextView,
+      @NonNull Button signUpFacebookButton, @NonNull Button signUpGoogleButton) {
     this.rootView = rootView;
     this.customTextInputLayout = customTextInputLayout;
     this.customTextInputLayoutPlus = customTextInputLayoutPlus;
     this.emailEditText = emailEditText;
-    this.forgetPasswordButton = forgetPasswordButton;
-    this.linear01 = linear01;
-    this.linear02 = linear02;
+    this.forgetPasswordTextView = forgetPasswordTextView;
     this.loginButton = loginButton;
-    this.loginWith = loginWith;
+    this.logo = logo;
     this.passwordEditText = passwordEditText;
     this.progressBar = progressBar;
-    this.registerButton = registerButton;
+    this.registerTextView = registerTextView;
     this.signUpFacebookButton = signUpFacebookButton;
     this.signUpGoogleButton = signUpGoogleButton;
   }
@@ -133,21 +122,9 @@ public final class FragmentLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.forget_password_button;
-      Button forgetPasswordButton = rootView.findViewById(id);
-      if (forgetPasswordButton == null) {
-        break missingId;
-      }
-
-      id = R.id.linear01;
-      LinearLayout linear01 = rootView.findViewById(id);
-      if (linear01 == null) {
-        break missingId;
-      }
-
-      id = R.id.linear02;
-      LinearLayout linear02 = rootView.findViewById(id);
-      if (linear02 == null) {
+      id = R.id.forget_password_text_view;
+      TextView forgetPasswordTextView = rootView.findViewById(id);
+      if (forgetPasswordTextView == null) {
         break missingId;
       }
 
@@ -157,9 +134,9 @@ public final class FragmentLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.login_with;
-      TextView loginWith = rootView.findViewById(id);
-      if (loginWith == null) {
+      id = R.id.logo;
+      ImageView logo = rootView.findViewById(id);
+      if (logo == null) {
         break missingId;
       }
 
@@ -175,28 +152,28 @@ public final class FragmentLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.register_button;
-      Button registerButton = rootView.findViewById(id);
-      if (registerButton == null) {
+      id = R.id.register_text_view;
+      TextView registerTextView = rootView.findViewById(id);
+      if (registerTextView == null) {
         break missingId;
       }
 
       id = R.id.sign_up_facebook_button;
-      LoginButton signUpFacebookButton = rootView.findViewById(id);
+      Button signUpFacebookButton = rootView.findViewById(id);
       if (signUpFacebookButton == null) {
         break missingId;
       }
 
       id = R.id.sign_up_google_button;
-      SignInButton signUpGoogleButton = rootView.findViewById(id);
+      Button signUpGoogleButton = rootView.findViewById(id);
       if (signUpGoogleButton == null) {
         break missingId;
       }
 
       return new FragmentLoginBinding((FrameLayout) rootView, customTextInputLayout,
-          customTextInputLayoutPlus, emailEditText, forgetPasswordButton, linear01, linear02,
-          loginButton, loginWith, passwordEditText, progressBar, registerButton,
-          signUpFacebookButton, signUpGoogleButton);
+          customTextInputLayoutPlus, emailEditText, forgetPasswordTextView, loginButton, logo,
+          passwordEditText, progressBar, registerTextView, signUpFacebookButton,
+          signUpGoogleButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

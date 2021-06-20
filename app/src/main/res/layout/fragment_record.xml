@@ -3,13 +3,186 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.RecordFragment"
-    android:background="#1A272D">
+    tools:context=".Fragment.RecordFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="@string/hello_blank_fragment" />-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_background_nerfsize">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Record"
+            android:textColor="#f7cc2f"
+            android:textSize="140px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105px"
+            android:layout_marginTop="435px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Record of the day!"
+            android:textColor="@color/white"
+            android:textSize="70px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105px"
+            android:layout_marginTop="900px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Record of your universe!"
+            android:textColor="@color/white"
+            android:textSize="70px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105px"
+            android:layout_marginTop="1690px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Experience"
+            android:textColor="@color/white"
+            android:textSize="70px" />
+
+        <LinearLayout
+            android:layout_width="934.2929px"
+            android:layout_height="257.7186px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="580px"
+            android:background="@drawable/iv_ofday_record"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#45377d"
+                android:textSize="95px"
+                android:translationY="8dp"
+                android:id="@+id/today_word_seen"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#45377d"
+                android:textSize="95px"
+                android:translationY="8dp"
+                android:id="@+id/today_word_learn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="536.3586px"
+            android:layout_height="130.4963px"
+            android:layout_marginLeft="140px"
+            android:layout_marginTop="1040px"
+            android:background="@drawable/iv_twl_record"
+            android:id="@+id/layout_01">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#f7cc2f"
+                android:textSize="70px"
+                android:translationY="8dp"
+                android:id="@+id/total_word_seen"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="536.3586px"
+            android:layout_height="130.4963px"
+            android:layout_marginLeft="400px"
+            android:layout_marginTop="1200px"
+            android:background="@drawable/iv_tws_record"
+            android:id="@+id/layout_02">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#f7cc2f"
+                android:textSize="70px"
+                android:translationY="8dp"
+                android:id="@+id/total_word_learn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="536.3586px"
+            android:layout_height="130.4963px"
+            android:layout_marginLeft="140px"
+            android:layout_marginTop="1360px"
+            android:background="@drawable/iv_nods_record"
+            android:id="@+id/layout_03">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#f7cc2f"
+                android:textSize="70px"
+                android:translationY="8dp"
+                android:id="@+id/number_day_learn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="536.3586px"
+            android:layout_height="130.4963px"
+            android:layout_marginLeft="400px"
+            android:layout_marginTop="1520px"
+            android:background="@drawable/iv_llr_record"
+            android:id="@+id/layout_04">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sfprodisplayheavy"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#f7cc2f"
+                android:textSize="70px"
+                android:translationY="8dp"
+                android:id="@+id/highest_record"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="855.3198px"
+            android:layout_height="81.2911px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1830px"
+            android:background="@drawable/iv_exp_record"
+            android:id="@+id/layout_05">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="0"
+            android:layout_marginLeft="42dp"
+            android:gravity="center|start"
+            android:textColor="@color/black"
+            android:textSize="37px"
+            android:id="@+id/exp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </FrameLayout>

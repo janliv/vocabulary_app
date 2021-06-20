@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="21"
         android:targetSdkVersion="30" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,6 +26,22 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.VocabApp" >
+        <activity android:name="com.example.vocabapp.ChangePassWordActivity" />
+        <activity android:name="com.example.vocabapp.UserActivity" />
+        <activity android:name="com.example.vocabapp.TermOfUesActivity" />
+        <activity android:name="com.example.vocabapp.PrivacyPolicyActivity" />
+        <activity android:name="com.example.vocabapp.EditProfileActivity" />
+        <activity
+            android:name="com.example.vocabapp.IntroActivity"
+            android:label="@string/title_activity_intro"
+            android:theme="@style/Theme.VocabApp.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -57,17 +73,10 @@
                     android:scheme="fbconnect" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.vocabapp.LoginActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.example.vocabapp.LoginActivity" />
         <activity
             android:name="com.example.vocabapp.Home"
-            android:launchMode="standard" >
-        </activity>
+            android:launchMode="standard" />
         <activity
             android:name="com.example.vocabapp.WordsReview"
             android:launchMode="standard" />

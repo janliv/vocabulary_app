@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -23,6 +27,7 @@ import java.util.Random;
 
 public class WordsReview extends AppCompatActivity {
 
+    private Animation flyuptodown, flydowntoupvoice, flydowntouplearn, flydowntoupnext, lefttoright, righttoleft, fadein;
     private TextView meaningView;
     private static List<String> wordList = new ArrayList<String>();
     private static List<String> meaningList = new ArrayList<String>();
@@ -37,11 +42,12 @@ public class WordsReview extends AppCompatActivity {
 
     private TextView ans_A, ans_B, ans_C, ans_D;
 
-    private ImageView boxA, boxB, boxC, boxD;
+    private ImageView meaningholder, boxA, boxB, boxC, boxD;
 
     private int countCorrect = 0;
     private int countEXPs = 0;
     private int countTimesTryAgain = 0;
+    private int checkTryAgain = 0;
 
     private TextView title;
 
@@ -85,8 +91,18 @@ public class WordsReview extends AppCompatActivity {
             meaningList = bundle.getStringArrayList("meaningKey");
         }
 
+        flyuptodown = AnimationUtils.loadAnimation(this, R.anim.fly_up_to_down);
+        flydowntoupvoice = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_voice);
+        flydowntouplearn = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_learn);
+        flydowntoupnext = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_next);
+        lefttoright = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+        righttoleft = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+        fadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        meaningholder = findViewById(R.id.meaning_holder);
         meaningView = findViewById(R.id.meaningView);
         nextMeaning = findViewById(R.id.next_meaning);
+        meaningView.setMovementMethod(new ScrollingMovementMethod());
         tryAgain = findViewById(R.id.shuffle);
         backToLearn = findViewById(R.id.backtolearn);
 
@@ -120,18 +136,20 @@ public class WordsReview extends AppCompatActivity {
         tryAgain.setVisibility(View.INVISIBLE);
         backToLearn.setVisibility(View.INVISIBLE);
 
-        nextMeaning.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callNewMeaning();
-                nextMeaning.setVisibility(View.INVISIBLE);
-            }
+        // Animations
+        meaningholder.setAnimation(flyuptodown);
+        meaningView.setAnimation(flyuptodown);
+
+        nextMeaning.setOnClickListener(v -> {
+            callNewMeaning();
+            nextMeaning.setVisibility(View.INVISIBLE);
         });
 
         tryAgain.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                checkTryAgain++;
                 Collections.shuffle(shuffle);
                 reorderArray(meaningList);
                 reorderArray(wordList);
@@ -150,7 +168,7 @@ public class WordsReview extends AppCompatActivity {
         backToLearn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+               finish();
             }
         });
 
@@ -163,7 +181,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_A.getText().toString())) {
                     boxA.setImageResource(R.drawable.a_correct);
                     countCorrect++;
-                    addNewWordLearnedToFireBase(ans_A.getText().toString());
+                    addWordToFireBase(ans_A.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_B.getText().toString())) {
@@ -191,8 +209,8 @@ public class WordsReview extends AppCompatActivity {
                 nextMeaning.setVisibility(View.VISIBLE);
                 if (currentIndex == 5) {
                     nextMeaning.setVisibility(View.INVISIBLE);
-                    tryAgain.setVisibility(View.VISIBLE);
-                    backToLearn.setVisibility(View.VISIBLE);
+                    delayAnim(tryAgain, flydowntouplearn, 400);
+                    delayAnim(backToLearn, flydowntoupnext, 600);
                     showResult();
                 }
             }
@@ -205,7 +223,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_B.getText().toString())) {
                     boxB.setImageResource(R.drawable.b_correct);
                     countCorrect++;
-                    addNewWordLearnedToFireBase(ans_B.getText().toString());
+                    addWordToFireBase(ans_B.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -233,8 +251,8 @@ public class WordsReview extends AppCompatActivity {
                 nextMeaning.setVisibility(View.VISIBLE);
                 if (currentIndex == 5) {
                     nextMeaning.setVisibility(View.INVISIBLE);
-                    tryAgain.setVisibility(View.VISIBLE);
-                    backToLearn.setVisibility(View.VISIBLE);
+                    delayAnim(tryAgain, flydowntouplearn, 400);
+                    delayAnim(backToLearn, flydowntoupnext, 600);
                     showResult();
                 }
             }
@@ -247,7 +265,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_C.getText().toString())) {
                     boxC.setImageResource(R.drawable.c_correct);
                     countCorrect++;
-                    addNewWordLearnedToFireBase(ans_C.getText().toString());
+                    addWordToFireBase(ans_C.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -275,8 +293,8 @@ public class WordsReview extends AppCompatActivity {
                 nextMeaning.setVisibility(View.VISIBLE);
                 if (currentIndex == 5) {
                     nextMeaning.setVisibility(View.INVISIBLE);
-                    tryAgain.setVisibility(View.VISIBLE);
-                    backToLearn.setVisibility(View.VISIBLE);
+                    delayAnim(tryAgain, flydowntouplearn, 400);
+                    delayAnim(backToLearn, flydowntoupnext, 600);
                     showResult();
                 }
             }
@@ -289,7 +307,7 @@ public class WordsReview extends AppCompatActivity {
                 if (validateAns(ans_D.getText().toString())) {
                     boxD.setImageResource(R.drawable.d_correct);
                     countCorrect++;
-                    addNewWordLearnedToFireBase(ans_D.getText().toString());
+                    addWordToFireBase(ans_D.getText().toString());
                     Toast.makeText(WordsReview.this, commentsCorrect.get(randomInt(0, 4)), Toast.LENGTH_SHORT).show();
                 } else {
                     if (validateAns(ans_A.getText().toString())) {
@@ -317,8 +335,8 @@ public class WordsReview extends AppCompatActivity {
                 nextMeaning.setVisibility(View.VISIBLE);
                 if (currentIndex == 5) {
                     nextMeaning.setVisibility(View.INVISIBLE);
-                    tryAgain.setVisibility(View.VISIBLE);
-                    backToLearn.setVisibility(View.VISIBLE);
+                    delayAnim(tryAgain, flydowntouplearn, 400);
+                    delayAnim(backToLearn, flydowntoupnext, 600);
                     showResult();
                 }
             }
@@ -348,6 +366,18 @@ public class WordsReview extends AppCompatActivity {
             ans_B.setText(ans.get(1));
             ans_C.setText(ans.get(2));
             ans_D.setText(ans.get(3));
+
+            if (currentIndex == 0 && checkTryAgain == 0) {
+                ans_A.setAnimation(lefttoright);
+                ans_B.setAnimation(righttoleft);
+                ans_C.setAnimation(lefttoright);
+                ans_D.setAnimation(righttoleft);
+
+                boxA.setAnimation(lefttoright);
+                boxB.setAnimation(righttoleft);
+                boxC.setAnimation(lefttoright);
+                boxD.setAnimation(righttoleft);
+            }
 
             currentIndex++;
         }
@@ -416,10 +446,11 @@ public class WordsReview extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void showResult() {
         title.setText("Result");
-        meaningView.setTextSize(25);
+        meaningView.setTextSize(23);
         meaningView.setText("Congratulations!" + "\n\n");
         meaningView.append("Correct answers: " + countCorrect + "/5" + "\n");
         meaningView.append("Total EXPs gained: " + countEXPs);
+        meaningView.setAnimation(fadein);
     }
 
     private int randomInt(int min, int max) {
@@ -427,8 +458,19 @@ public class WordsReview extends AppCompatActivity {
         return random.nextInt(max - min) + min;
     }
 
-    private  void addNewWordLearnedToFireBase(String word){
-        new UserDataHelper().addNewWordLearned(word, new  UserDataHelper.DataStatus() {
+    private void delayAnim(ImageButton btn, Animation anim, long time) {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn.startAnimation(anim);
+                btn.setVisibility(View.VISIBLE);
+            }
+        }, time);
+    }
+
+    private void addWordToFireBase(String word){
+        new UserDataHelper().addNewWordLearned(word, new UserDataHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<String> list, String key) {
 
@@ -441,7 +483,7 @@ public class WordsReview extends AppCompatActivity {
 
             @Override
             public void DataIsUpdated() {
-                Log.d("TAG","Added new word learned");
+                Log.d("TAG", "add word to firebase successful");
             }
 
             @Override

@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.vocabapp.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,7 +20,7 @@ public final class ActivityHomeBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final BottomNavigationView bottomNavigation;
+  public final MeowBottomNavigation bottomNavigation;
 
   @NonNull
   public final RelativeLayout relativeLayoutHome;
@@ -29,7 +29,7 @@ public final class ActivityHomeBinding implements ViewBinding {
   public final ViewPager viewPaper;
 
   private ActivityHomeBinding(@NonNull RelativeLayout rootView,
-      @NonNull BottomNavigationView bottomNavigation, @NonNull RelativeLayout relativeLayoutHome,
+      @NonNull MeowBottomNavigation bottomNavigation, @NonNull RelativeLayout relativeLayoutHome,
       @NonNull ViewPager viewPaper) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
@@ -65,7 +65,7 @@ public final class ActivityHomeBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.bottom_navigation;
-      BottomNavigationView bottomNavigation = rootView.findViewById(id);
+      MeowBottomNavigation bottomNavigation = rootView.findViewById(id);
       if (bottomNavigation == null) {
         break missingId;
       }

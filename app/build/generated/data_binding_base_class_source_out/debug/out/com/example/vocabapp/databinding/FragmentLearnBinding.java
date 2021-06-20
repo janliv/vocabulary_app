@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,10 +24,10 @@ public final class FragmentLearnBinding implements ViewBinding {
   public final TextView definition;
 
   @NonNull
-  public final RelativeLayout imageView2;
+  public final ImageButton learnThisWord;
 
   @NonNull
-  public final ImageButton learnThisWord;
+  public final ImageView line;
 
   @NonNull
   public final ImageButton nextWord;
@@ -44,21 +45,25 @@ public final class FragmentLearnBinding implements ViewBinding {
   public final TextView word;
 
   @NonNull
+  public final ImageView wordHolder;
+
+  @NonNull
   public final TextView wordtype;
 
   private FragmentLearnBinding(@NonNull RelativeLayout rootView, @NonNull TextView definition,
-      @NonNull RelativeLayout imageView2, @NonNull ImageButton learnThisWord,
-      @NonNull ImageButton nextWord, @NonNull TextView phonetic, @NonNull ImageButton reviewWords,
-      @NonNull ImageButton voice, @NonNull TextView word, @NonNull TextView wordtype) {
+      @NonNull ImageButton learnThisWord, @NonNull ImageView line, @NonNull ImageButton nextWord,
+      @NonNull TextView phonetic, @NonNull ImageButton reviewWords, @NonNull ImageButton voice,
+      @NonNull TextView word, @NonNull ImageView wordHolder, @NonNull TextView wordtype) {
     this.rootView = rootView;
     this.definition = definition;
-    this.imageView2 = imageView2;
     this.learnThisWord = learnThisWord;
+    this.line = line;
     this.nextWord = nextWord;
     this.phonetic = phonetic;
     this.reviewWords = reviewWords;
     this.voice = voice;
     this.word = word;
+    this.wordHolder = wordHolder;
     this.wordtype = wordtype;
   }
 
@@ -95,15 +100,15 @@ public final class FragmentLearnBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageView2;
-      RelativeLayout imageView2 = rootView.findViewById(id);
-      if (imageView2 == null) {
-        break missingId;
-      }
-
       id = R.id.learn_this_word;
       ImageButton learnThisWord = rootView.findViewById(id);
       if (learnThisWord == null) {
+        break missingId;
+      }
+
+      id = R.id.line;
+      ImageView line = rootView.findViewById(id);
+      if (line == null) {
         break missingId;
       }
 
@@ -137,14 +142,20 @@ public final class FragmentLearnBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.word_holder;
+      ImageView wordHolder = rootView.findViewById(id);
+      if (wordHolder == null) {
+        break missingId;
+      }
+
       id = R.id.wordtype;
       TextView wordtype = rootView.findViewById(id);
       if (wordtype == null) {
         break missingId;
       }
 
-      return new FragmentLearnBinding((RelativeLayout) rootView, definition, imageView2,
-          learnThisWord, nextWord, phonetic, reviewWords, voice, word, wordtype);
+      return new FragmentLearnBinding((RelativeLayout) rootView, definition, learnThisWord, line,
+          nextWord, phonetic, reviewWords, voice, word, wordHolder, wordtype);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2,25 +2,24 @@ package com.example.vocabapp.Fragment;
 
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
 import android.transition.TransitionInflater;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+
 import com.example.vocabapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
@@ -45,6 +44,8 @@ public class ResetPasswordFragment extends BaseFragment {
     private Button resetButton;
     private TextView emailInput;
     private FirebaseAuth firebaseAuth;
+    private Animation flyuptodown, flydowntoupvoice, flydowntouplearn, flydowntoupnext, lefttoright, righttoleft, fadein;
+
 
     public ResetPasswordFragment() {
         // Required empty public constructor
@@ -68,6 +69,12 @@ public class ResetPasswordFragment extends BaseFragment {
         return fragment;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        resetButton.setAnimation(flydowntoupnext);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,19 +93,31 @@ public class ResetPasswordFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reset_password, container, false);
         backButton = view.findViewById(R.id.image_back_button);
-        resetButton = view.findViewById(R.id.reset_button);
+        resetButton = view.findViewById(R.id.reset_password_button);
         emailInput = view.findViewById(R.id.email_edit_text);
+
+        flyuptodown = AnimationUtils.loadAnimation(getContext(), R.anim.fly_up_to_down);
+        flydowntoupvoice = AnimationUtils.loadAnimation(getContext(), R.anim.fly_down_to_up_voice);
+        flydowntouplearn = AnimationUtils.loadAnimation(getContext(), R.anim.fly_down_to_up_learn);
+        flydowntoupnext = AnimationUtils.loadAnimation(getContext(), R.anim.fly_down_to_up_next);
+        lefttoright = AnimationUtils.loadAnimation(getContext(), R.anim.left_to_right);
+        righttoleft = AnimationUtils.loadAnimation(getContext(), R.anim.right_to_left);
+        fadein = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+
+
         emailInput.requestFocus();
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
         backButton.setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().popBackStack();
         });
+
         resetButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();
 
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(getContext(), "Enter email", Toast.LENGTH_LONG).show();
+            if (!isValidEmail(email)) {
+                emailInput.requestFocus();
+                emailInput.setError("Invalid email");
                 return;
             }
 
@@ -109,20 +128,17 @@ public class ResetPasswordFragment extends BaseFragment {
                             getActivity().getSupportFragmentManager().popBackStack();
                             Toast.makeText(getContext(), "We have sent you instruction to reset your password", Toast.LENGTH_LONG).show();
                         } else {
-                            emailInput.setError("enter email again");
+                            emailInput.requestFocus();
+                            emailInput.setError("Enter email again");
                             Toast.makeText(getContext(), "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
-
                     });
 
         });
         InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(INPUT_METHOD_SERVICE);
-        emailInput.setOnFocusChangeListener((v,hasFocus)->{
-            if (hasFocus) {
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-            } else{
-                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
-            }
+        emailInput.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus)
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         });
 //        InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(INPUT_METHOD_SERVICE);
 //        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
@@ -135,5 +151,9 @@ public class ResetPasswordFragment extends BaseFragment {
     @Override
     public boolean onActivityBackPress() {
         return false;
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 }

@@ -33,6 +33,7 @@ import com.example.vocabapp.Data.DataSource.DiskDataSource;
 import com.example.vocabapp.Data.DataSource.MemoryDataSource;
 import com.example.vocabapp.Data.DataSource.NetworkDataSource;
 import com.example.vocabapp.Data.WordSuggestion;
+import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
 import com.example.vocabapp.OxfordDictionary.Definition;
 import com.example.vocabapp.OxfordDictionary.DefinitionRenderer;
 import com.example.vocabapp.R;
@@ -53,7 +54,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-public class FragmentSlidingSearch extends BaseFragment{
+public class FragmentSlidingSearch extends BaseFragment {
     private final String TAG = "BlankFragment";
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
@@ -73,7 +74,7 @@ public class FragmentSlidingSearch extends BaseFragment{
     private DiskDataSource diskDataSource;
     private NetworkDataSource networkDataSource;
     private static final String SHAREDPREF = "SHAREDPREF";
-    private List<WordSuggestion> l = new ArrayList<>();
+    private final List<WordSuggestion> l = new ArrayList<>();
 
     public FragmentSlidingSearch() {
         // Required empty public constructor
@@ -106,6 +107,10 @@ public class FragmentSlidingSearch extends BaseFragment{
         diskDataSource = new DiskDataSource(sharedPreferences);
         networkDataSource = new NetworkDataSource();
         DataHelper.setsColorSuggestions(getContext());
+
+        String w = randomString();
+        mSearchView.setSearchBarTitle(w);
+        performSearch(w);
 
     }
 
@@ -204,7 +209,7 @@ public class FragmentSlidingSearch extends BaseFragment{
         mSearchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
             @Override
             public void onFocus() {
-                int headerHeight = 195;
+                int headerHeight = 205;
                 ObjectAnimator anim = ObjectAnimator.ofFloat(mSearchView, "translationY",
                         headerHeight, 0);
                 anim.setDuration(350);
@@ -219,10 +224,8 @@ public class FragmentSlidingSearch extends BaseFragment{
                                 l.clear();
                                 for (int i = list.size() - 1; i >= 0; i--) {
                                     l.add(new WordSuggestion(list.get(i), true));
-                                    if (l.size() == 5)
-                                        break;
                                 }
-                                if(mSearchView.isSearchBarFocused())
+                                if (mSearchView.isSearchBarFocused())
                                     mSearchView.swapSuggestions(l);
                             }
 
@@ -240,9 +243,8 @@ public class FragmentSlidingSearch extends BaseFragment{
                             public void DataIsDeleted() {
 
                             }
-
-
                         });
+
                         //show suggestions when search bar gains focus (typically history suggestions)
 
                     }
@@ -254,7 +256,7 @@ public class FragmentSlidingSearch extends BaseFragment{
 
             @Override
             public void onFocusCleared() {
-                int headerHeight = 195;
+                int headerHeight = 205;
                 ObjectAnimator anim = ObjectAnimator.ofFloat(mSearchView, "translationY",
                         0, headerHeight);
                 anim.setDuration(350);
@@ -325,27 +327,38 @@ public class FragmentSlidingSearch extends BaseFragment{
     }
 
     private void addHistoryWord(String word) {
-            new UserDataHelper().addNewWordSearched(word, new UserDataHelper.DataStatus() {
-                @Override
-                public void DataIsLoaded(List<String> list, String key) {
+        if (l.size() < 0) return;
+        for (WordSuggestion wordSuggestion : l)
+            if (wordSuggestion.getBody().equals(word))
+                return;
+        new UserDataHelper().addNewWordSearched(word, new UserDataHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<String> list, String key) {
 
-                }
+            }
 
-                @Override
-                public void DataIsInserted() {
+            @Override
+            public void DataIsInserted() {
 
-                }
+            }
 
-                @Override
-                public void DataIsUpdated() {
-                    Log.d("TAG","added word search");
-                }
+            @Override
+            public void DataIsUpdated() {
+                Log.d("TAG", "added word search");
+            }
 
-                @Override
-                public void DataIsDeleted() {
+            @Override
+            public void DataIsDeleted() {
 
-                }
-            });
+            }
+        });
+    }
+
+    public String randomString(){
+        List<WordSuggestion> list;
+        list = DatabaseAccess.getInstance(getContext()).getSuggestions();
+        int index = (int)(Math.random()*list.size());
+        return list.get(index).getBody();
     }
 }
 

@@ -23,5 +23,24 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_intro">IntroActivity</string>
+    <string name="wordplay1">Learn English vocabulary</string>
+    <string name="wordplay2">with your own universe!</string>
+    <string name="subtitle1">"Learning English is like drinking,</string>
+    <string name="subtitle2">be dotted, then remembered”</string>
+    <string name="pp0">At Vocka, we make the protection of your personal information a top priority.<br />
+We fully understand that your personal information belongs to you, so we make every effort to securely store and handle the information you share with us.<br />
+We value your trust the most. We therefore collect the minimum amount of information only with your permission and use this information only for the purposes intended. We do not provide information to third parties without your knowledge.
+At Vocka we do our best to ensure the protection of your data, including technical data security and internal management processes as well as physical data protection measures.
+We strive to improve your life by delivering inspiring and engaging digital experiences. To do this, your trust is paramount and so we will make every effort to protect your personal information.
+Thank you for your continued interest and support.<br />
+        At Vocka, we make the protection of your personal information a top priority.
+We fully understand that your personal information belongs to you, so we make every effort to securely store and handle the information you share with us.
+We value your trust the most. We therefore collect the minimum amount of information only with your permission and use this information only for the purposes intended. We do not provide information to third parties without your knowledge.
+At Vocka we do our best to ensure the protection of your data, including technical data security and internal management processes as well as physical data protection measures.
+We strive to improve your life by delivering inspiring and engaging digital experiences. To do this, your trust is paramount and so we will make every effort to protect your personal information.
+Thank you for your continued interest and support.
+    </string>
+
 
 </resources>

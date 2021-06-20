@@ -71,7 +71,7 @@ public class Definition {
 
     public String getExample() {
         if (example != null)
-            return "example: " + example;
+            return "\t> example: " + example;
         return null;
     }
 
@@ -82,13 +82,13 @@ public class Definition {
     public String getAntonyms() {
         if (antonyms == null)
             return null;
-        return "ANTONYMS: " + antonyms.delete(antonyms.length() - 2, antonyms.length()).toString();
+        return "\t> antonyms: " + antonyms.delete(antonyms.length() - 2, antonyms.length()).toString();
     }
 
     public String getSynonyms() {
         if (synonyms == null)
             return null;
-        return "SYNONYMS: " + synonyms.delete(synonyms.length() - 2, synonyms.length()).toString();
+        return "\t\t> synonyms: " + synonyms.delete(synonyms.length() - 2, synonyms.length()).toString();
     }
 
     public String getPronunciationUrl() {

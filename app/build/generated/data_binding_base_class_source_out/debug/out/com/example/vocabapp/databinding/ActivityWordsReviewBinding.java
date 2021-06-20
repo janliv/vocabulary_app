@@ -48,6 +48,9 @@ public final class ActivityWordsReviewBinding implements ViewBinding {
   public final ImageButton backtolearn;
 
   @NonNull
+  public final ImageView meaningHolder;
+
+  @NonNull
   public final TextView meaningView;
 
   @NonNull
@@ -63,8 +66,8 @@ public final class ActivityWordsReviewBinding implements ViewBinding {
       @NonNull ImageView AAnswerBox, @NonNull ImageView BAnswerBox, @NonNull ImageView CAnswerBox,
       @NonNull ImageView DAnswerBox, @NonNull TextView ansA, @NonNull TextView ansB,
       @NonNull TextView ansC, @NonNull TextView ansD, @NonNull ImageButton backtolearn,
-      @NonNull TextView meaningView, @NonNull ImageButton nextMeaning, @NonNull ImageButton shuffle,
-      @NonNull TextView title) {
+      @NonNull ImageView meaningHolder, @NonNull TextView meaningView,
+      @NonNull ImageButton nextMeaning, @NonNull ImageButton shuffle, @NonNull TextView title) {
     this.rootView = rootView;
     this.AAnswerBox = AAnswerBox;
     this.BAnswerBox = BAnswerBox;
@@ -75,6 +78,7 @@ public final class ActivityWordsReviewBinding implements ViewBinding {
     this.ansC = ansC;
     this.ansD = ansD;
     this.backtolearn = backtolearn;
+    this.meaningHolder = meaningHolder;
     this.meaningView = meaningView;
     this.nextMeaning = nextMeaning;
     this.shuffle = shuffle;
@@ -162,6 +166,12 @@ public final class ActivityWordsReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.meaning_holder;
+      ImageView meaningHolder = rootView.findViewById(id);
+      if (meaningHolder == null) {
+        break missingId;
+      }
+
       id = R.id.meaningView;
       TextView meaningView = rootView.findViewById(id);
       if (meaningView == null) {
@@ -187,8 +197,8 @@ public final class ActivityWordsReviewBinding implements ViewBinding {
       }
 
       return new ActivityWordsReviewBinding((RelativeLayout) rootView, AAnswerBox, BAnswerBox,
-          CAnswerBox, DAnswerBox, ansA, ansB, ansC, ansD, backtolearn, meaningView, nextMeaning,
-          shuffle, title);
+          CAnswerBox, DAnswerBox, ansA, ansB, ansC, ansD, backtolearn, meaningHolder, meaningView,
+          nextMeaning, shuffle, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

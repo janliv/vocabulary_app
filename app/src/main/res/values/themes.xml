@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.VocabApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.VocabApp" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -9,16 +9,19 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:windowTranslucentStatus">true</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+<!--        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimary</item>-->
         <!-- Customize your theme here. -->
-        <item name="fontFamily">@font/sfprodisplay</item>
+<!--        <item name="fontFamily">@font/sfprodisplay</item>-->
         <item name="actionBarSize">0dp</item>
     </style>
 
 
     <style name="FloatingLabelTextAppearance" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/sfprodisplaymedium</item>
     </style>
 
     <style name="Theme.VocabApp.NoActionBar">

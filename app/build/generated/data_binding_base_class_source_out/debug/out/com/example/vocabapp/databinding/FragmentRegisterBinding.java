@@ -5,10 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +24,22 @@ public final class FragmentRegisterBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final TextInputLayout customTextInputLayout;
+  public final TextInputEditText ageEditText;
 
   @NonNull
-  public final TextInputLayout customTextInputLayoutPlus;
+  public final TextInputLayout customTextInputLayout01;
+
+  @NonNull
+  public final TextInputLayout customTextInputLayout02;
+
+  @NonNull
+  public final TextInputLayout customTextInputLayout03;
+
+  @NonNull
+  public final TextInputLayout customTextInputLayout04;
+
+  @NonNull
+  public final TextInputLayout customTextInputLayout05;
 
   @NonNull
   public final TextInputEditText displayName;
@@ -44,16 +54,10 @@ public final class FragmentRegisterBinding implements ViewBinding {
   public final CircleImageView imageDisplayPhoto;
 
   @NonNull
-  public final LinearLayout linear01;
+  public final TextInputEditText passwordAgainEditText;
 
   @NonNull
-  public final LinearLayout linear02;
-
-  @NonNull
-  public final LinearLayout linear03;
-
-  @NonNull
-  public final EditText passwordEditText;
+  public final TextInputEditText passwordEditText;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -62,23 +66,27 @@ public final class FragmentRegisterBinding implements ViewBinding {
   public final Button registerButton;
 
   private FragmentRegisterBinding(@NonNull FrameLayout rootView,
-      @NonNull TextInputLayout customTextInputLayout,
-      @NonNull TextInputLayout customTextInputLayoutPlus, @NonNull TextInputEditText displayName,
+      @NonNull TextInputEditText ageEditText, @NonNull TextInputLayout customTextInputLayout01,
+      @NonNull TextInputLayout customTextInputLayout02,
+      @NonNull TextInputLayout customTextInputLayout03,
+      @NonNull TextInputLayout customTextInputLayout04,
+      @NonNull TextInputLayout customTextInputLayout05, @NonNull TextInputEditText displayName,
       @NonNull TextInputEditText emailEditText, @NonNull ImageButton imageBackButton,
-      @NonNull CircleImageView imageDisplayPhoto, @NonNull LinearLayout linear01,
-      @NonNull LinearLayout linear02, @NonNull LinearLayout linear03,
-      @NonNull EditText passwordEditText, @NonNull ProgressBar progressBar,
+      @NonNull CircleImageView imageDisplayPhoto, @NonNull TextInputEditText passwordAgainEditText,
+      @NonNull TextInputEditText passwordEditText, @NonNull ProgressBar progressBar,
       @NonNull Button registerButton) {
     this.rootView = rootView;
-    this.customTextInputLayout = customTextInputLayout;
-    this.customTextInputLayoutPlus = customTextInputLayoutPlus;
+    this.ageEditText = ageEditText;
+    this.customTextInputLayout01 = customTextInputLayout01;
+    this.customTextInputLayout02 = customTextInputLayout02;
+    this.customTextInputLayout03 = customTextInputLayout03;
+    this.customTextInputLayout04 = customTextInputLayout04;
+    this.customTextInputLayout05 = customTextInputLayout05;
     this.displayName = displayName;
     this.emailEditText = emailEditText;
     this.imageBackButton = imageBackButton;
     this.imageDisplayPhoto = imageDisplayPhoto;
-    this.linear01 = linear01;
-    this.linear02 = linear02;
-    this.linear03 = linear03;
+    this.passwordAgainEditText = passwordAgainEditText;
     this.passwordEditText = passwordEditText;
     this.progressBar = progressBar;
     this.registerButton = registerButton;
@@ -111,15 +119,39 @@ public final class FragmentRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.customTextInputLayout;
-      TextInputLayout customTextInputLayout = rootView.findViewById(id);
-      if (customTextInputLayout == null) {
+      id = R.id.age_edit_text;
+      TextInputEditText ageEditText = rootView.findViewById(id);
+      if (ageEditText == null) {
         break missingId;
       }
 
-      id = R.id.customTextInputLayoutPlus;
-      TextInputLayout customTextInputLayoutPlus = rootView.findViewById(id);
-      if (customTextInputLayoutPlus == null) {
+      id = R.id.customTextInputLayout01;
+      TextInputLayout customTextInputLayout01 = rootView.findViewById(id);
+      if (customTextInputLayout01 == null) {
+        break missingId;
+      }
+
+      id = R.id.customTextInputLayout02;
+      TextInputLayout customTextInputLayout02 = rootView.findViewById(id);
+      if (customTextInputLayout02 == null) {
+        break missingId;
+      }
+
+      id = R.id.customTextInputLayout03;
+      TextInputLayout customTextInputLayout03 = rootView.findViewById(id);
+      if (customTextInputLayout03 == null) {
+        break missingId;
+      }
+
+      id = R.id.customTextInputLayout04;
+      TextInputLayout customTextInputLayout04 = rootView.findViewById(id);
+      if (customTextInputLayout04 == null) {
+        break missingId;
+      }
+
+      id = R.id.customTextInputLayout05;
+      TextInputLayout customTextInputLayout05 = rootView.findViewById(id);
+      if (customTextInputLayout05 == null) {
         break missingId;
       }
 
@@ -147,26 +179,14 @@ public final class FragmentRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.linear01;
-      LinearLayout linear01 = rootView.findViewById(id);
-      if (linear01 == null) {
-        break missingId;
-      }
-
-      id = R.id.linear02;
-      LinearLayout linear02 = rootView.findViewById(id);
-      if (linear02 == null) {
-        break missingId;
-      }
-
-      id = R.id.linear03;
-      LinearLayout linear03 = rootView.findViewById(id);
-      if (linear03 == null) {
+      id = R.id.password_again_edit_text;
+      TextInputEditText passwordAgainEditText = rootView.findViewById(id);
+      if (passwordAgainEditText == null) {
         break missingId;
       }
 
       id = R.id.password_edit_text;
-      EditText passwordEditText = rootView.findViewById(id);
+      TextInputEditText passwordEditText = rootView.findViewById(id);
       if (passwordEditText == null) {
         break missingId;
       }
@@ -183,9 +203,11 @@ public final class FragmentRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentRegisterBinding((FrameLayout) rootView, customTextInputLayout,
-          customTextInputLayoutPlus, displayName, emailEditText, imageBackButton, imageDisplayPhoto,
-          linear01, linear02, linear03, passwordEditText, progressBar, registerButton);
+      return new FragmentRegisterBinding((FrameLayout) rootView, ageEditText,
+          customTextInputLayout01, customTextInputLayout02, customTextInputLayout03,
+          customTextInputLayout04, customTextInputLayout05, displayName, emailEditText,
+          imageBackButton, imageDisplayPhoto, passwordAgainEditText, passwordEditText, progressBar,
+          registerButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

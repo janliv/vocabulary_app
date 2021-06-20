@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FirthFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_background_fullsize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="200px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Hello"
+            android:textColor="#f7cc2f"
+            android:textSize="140px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="380px"
+            android:fontFamily="@font/sfprodisplaymedium"
+            android:text="Welcome to our Universe!"
+            android:textColor="@color/white"
+            android:textSize="60px" />
+
+        <ImageView
+            android:layout_width="1071.1736px"
+            android:layout_height="1004.6743px"
+            android:layout_marginTop="1130px"
+            android:background="@drawable/iv_astronaut_login" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="892.2304px"
+            android:layout_height="134.8228px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="600px"
+            android:background="@drawable/btn_signin_login"
+            android:id="@+id/sign_in_button"/>
+
+        <Button
+            android:layout_width="892.2304px"
+            android:layout_height="134.8228px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="800px"
+            android:background="@drawable/btn_signup_login"
+            android:id="@+id/sign_up_button"/>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

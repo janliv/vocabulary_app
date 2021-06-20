@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FirstFragment"
+    android:background="@drawable/ic_background_onboarding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="1080px"
+            android:layout_height="1225px"
+            android:id="@+id/peopledream"
+            android:background="@drawable/ic_peopledream_onboarding"/>
+
+        <ImageView
+            android:layout_width="780px"
+            android:layout_height="780px"
+            android:layout_below="@+id/peopledream"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/whiteframe"
+            android:background="@drawable/ic_whiteframe_onboarding"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to"
+                android:layout_marginTop="1305px"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:id="@+id/tv_welcome"
+                android:textSize="82px"></TextView>
+
+            <ImageView
+                android:layout_width="667.0259px"
+                android:layout_height="347.0444px"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/iv_logo1"
+                android:layout_marginTop="1455px"
+                android:background="@drawable/ic_logo"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wordplay1"
+                android:layout_marginTop="1805px"
+                android:layout_centerHorizontal="true"
+                android:textColor="#6a5f97"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:id="@+id/tv_wordplay1"
+                android:textSize="44px"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wordplay2"
+                android:layout_marginTop="1860px"
+                android:layout_centerHorizontal="true"
+                android:textColor="#6a5f97"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:id="@+id/tv_wordplay2"
+                android:textSize="44px"></TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

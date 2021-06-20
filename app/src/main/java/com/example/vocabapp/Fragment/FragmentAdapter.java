@@ -1,5 +1,7 @@
 package com.example.vocabapp.Fragment;
 
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -39,4 +41,11 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public void addFragment(Fragment fragment){
         list.add(fragment);
     }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        return;
+//        super.destroyItem(container, position, object);
+    }
+
 }

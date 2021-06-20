@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:layout_width="55.5391px"
+            android:layout_height="99.2251px"
+            android:layout_marginLeft="70px"
+            android:layout_marginTop="230px"
+            android:background="@drawable/btn_back_user_custom"
+            android:id="@+id/image_back_button"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70px"
+            android:layout_marginTop="350px"
+            android:fontFamily="@font/sfprodisplayheavy"
+            android:text="Edit Profile"
+            android:textColor="#45377d"
+            android:textSize="93px" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="418.6065px"
+            android:layout_height="418.6065px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="550px"
+            android:background="@drawable/iv_stroke_user"
+            android:padding="3dp"
+            android:src="@drawable/iv_avatar_user"
+            android:id="@+id/display_photo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1040px"
+            android:fontFamily="@font/sfprodisplayregular"
+            android:text="Change Profile Picture"
+            android:textColor="@color/black"
+            android:textSize="50px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140px"
+            android:layout_marginTop="1190px"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="User name"
+            android:textColor="@color/black"
+            android:textSize="70px"
+            android:selectAllOnFocus="true"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="962.4151px"
+            android:layout_height="113.9998px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1330px"
+            android:background="@drawable/input_layout"
+            android:id="@+id/user_name"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:fontFamily="@font/sfprodisplaymedium"
+            android:textStyle="bold"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140px"
+            android:layout_marginTop="1490px"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="Age"
+            android:textColor="@color/black"
+            android:textSize="70px" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="962.4151px"
+            android:layout_height="113.9998px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1620px"
+            android:background="@drawable/input_layout"
+            android:id="@+id/age"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:selectAllOnFocus="true"
+            android:fontFamily="@font/sfprodisplaymedium"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="604.4574px"
+            android:layout_height="157.2816px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1860px"
+            android:background="@drawable/btn_savechanges_user_custom"
+            android:id="@+id/save_change_button"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +24,7 @@ public final class FragmentResetPasswordBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final TextInputLayout customTextInputLayout;
+  public final TextInputLayout customTextInputLayout01;
 
   @NonNull
   public final TextInputEditText emailEditText;
@@ -33,25 +33,25 @@ public final class FragmentResetPasswordBinding implements ViewBinding {
   public final ImageButton imageBackButton;
 
   @NonNull
-  public final LinearLayout linear01;
+  public final ImageView logo;
 
   @NonNull
   public final ProgressBar progressBar;
 
   @NonNull
-  public final Button resetButton;
+  public final Button resetPasswordButton;
 
   private FragmentResetPasswordBinding(@NonNull FrameLayout rootView,
-      @NonNull TextInputLayout customTextInputLayout, @NonNull TextInputEditText emailEditText,
-      @NonNull ImageButton imageBackButton, @NonNull LinearLayout linear01,
-      @NonNull ProgressBar progressBar, @NonNull Button resetButton) {
+      @NonNull TextInputLayout customTextInputLayout01, @NonNull TextInputEditText emailEditText,
+      @NonNull ImageButton imageBackButton, @NonNull ImageView logo,
+      @NonNull ProgressBar progressBar, @NonNull Button resetPasswordButton) {
     this.rootView = rootView;
-    this.customTextInputLayout = customTextInputLayout;
+    this.customTextInputLayout01 = customTextInputLayout01;
     this.emailEditText = emailEditText;
     this.imageBackButton = imageBackButton;
-    this.linear01 = linear01;
+    this.logo = logo;
     this.progressBar = progressBar;
-    this.resetButton = resetButton;
+    this.resetPasswordButton = resetPasswordButton;
   }
 
   @Override
@@ -81,9 +81,9 @@ public final class FragmentResetPasswordBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.customTextInputLayout;
-      TextInputLayout customTextInputLayout = rootView.findViewById(id);
-      if (customTextInputLayout == null) {
+      id = R.id.customTextInputLayout01;
+      TextInputLayout customTextInputLayout01 = rootView.findViewById(id);
+      if (customTextInputLayout01 == null) {
         break missingId;
       }
 
@@ -99,9 +99,9 @@ public final class FragmentResetPasswordBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.linear01;
-      LinearLayout linear01 = rootView.findViewById(id);
-      if (linear01 == null) {
+      id = R.id.logo;
+      ImageView logo = rootView.findViewById(id);
+      if (logo == null) {
         break missingId;
       }
 
@@ -111,14 +111,14 @@ public final class FragmentResetPasswordBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.reset_button;
-      Button resetButton = rootView.findViewById(id);
-      if (resetButton == null) {
+      id = R.id.reset_password_button;
+      Button resetPasswordButton = rootView.findViewById(id);
+      if (resetPasswordButton == null) {
         break missingId;
       }
 
-      return new FragmentResetPasswordBinding((FrameLayout) rootView, customTextInputLayout,
-          emailEditText, imageBackButton, linear01, progressBar, resetButton);
+      return new FragmentResetPasswordBinding((FrameLayout) rootView, customTextInputLayout01,
+          emailEditText, imageBackButton, logo, progressBar, resetPasswordButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

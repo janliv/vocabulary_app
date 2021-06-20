@@ -5,19 +5,76 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import com.example.vocabapp.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentRecordBinding implements ViewBinding {
   @NonNull
   private final FrameLayout rootView;
 
-  private FragmentRecordBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final TextView exp;
+
+  @NonNull
+  public final TextView highestRecord;
+
+  @NonNull
+  public final LinearLayout layout01;
+
+  @NonNull
+  public final LinearLayout layout02;
+
+  @NonNull
+  public final LinearLayout layout03;
+
+  @NonNull
+  public final LinearLayout layout04;
+
+  @NonNull
+  public final LinearLayout layout05;
+
+  @NonNull
+  public final TextView numberDayLearn;
+
+  @NonNull
+  public final TextView todayWordLearn;
+
+  @NonNull
+  public final TextView todayWordSeen;
+
+  @NonNull
+  public final TextView totalWordLearn;
+
+  @NonNull
+  public final TextView totalWordSeen;
+
+  private FragmentRecordBinding(@NonNull FrameLayout rootView, @NonNull TextView exp,
+      @NonNull TextView highestRecord, @NonNull LinearLayout layout01,
+      @NonNull LinearLayout layout02, @NonNull LinearLayout layout03,
+      @NonNull LinearLayout layout04, @NonNull LinearLayout layout05,
+      @NonNull TextView numberDayLearn, @NonNull TextView todayWordLearn,
+      @NonNull TextView todayWordSeen, @NonNull TextView totalWordLearn,
+      @NonNull TextView totalWordSeen) {
     this.rootView = rootView;
+    this.exp = exp;
+    this.highestRecord = highestRecord;
+    this.layout01 = layout01;
+    this.layout02 = layout02;
+    this.layout03 = layout03;
+    this.layout04 = layout04;
+    this.layout05 = layout05;
+    this.numberDayLearn = numberDayLearn;
+    this.todayWordLearn = todayWordLearn;
+    this.todayWordSeen = todayWordSeen;
+    this.totalWordLearn = totalWordLearn;
+    this.totalWordSeen = totalWordSeen;
   }
 
   @Override
@@ -43,10 +100,87 @@ public final class FragmentRecordBinding implements ViewBinding {
 
   @NonNull
   public static FragmentRecordBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.exp;
+      TextView exp = rootView.findViewById(id);
+      if (exp == null) {
+        break missingId;
+      }
 
-    return new FragmentRecordBinding((FrameLayout) rootView);
+      id = R.id.highest_record;
+      TextView highestRecord = rootView.findViewById(id);
+      if (highestRecord == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_01;
+      LinearLayout layout01 = rootView.findViewById(id);
+      if (layout01 == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_02;
+      LinearLayout layout02 = rootView.findViewById(id);
+      if (layout02 == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_03;
+      LinearLayout layout03 = rootView.findViewById(id);
+      if (layout03 == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_04;
+      LinearLayout layout04 = rootView.findViewById(id);
+      if (layout04 == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_05;
+      LinearLayout layout05 = rootView.findViewById(id);
+      if (layout05 == null) {
+        break missingId;
+      }
+
+      id = R.id.number_day_learn;
+      TextView numberDayLearn = rootView.findViewById(id);
+      if (numberDayLearn == null) {
+        break missingId;
+      }
+
+      id = R.id.today_word_learn;
+      TextView todayWordLearn = rootView.findViewById(id);
+      if (todayWordLearn == null) {
+        break missingId;
+      }
+
+      id = R.id.today_word_seen;
+      TextView todayWordSeen = rootView.findViewById(id);
+      if (todayWordSeen == null) {
+        break missingId;
+      }
+
+      id = R.id.total_word_learn;
+      TextView totalWordLearn = rootView.findViewById(id);
+      if (totalWordLearn == null) {
+        break missingId;
+      }
+
+      id = R.id.total_word_seen;
+      TextView totalWordSeen = rootView.findViewById(id);
+      if (totalWordSeen == null) {
+        break missingId;
+      }
+
+      return new FragmentRecordBinding((FrameLayout) rootView, exp, highestRecord, layout01,
+          layout02, layout03, layout04, layout05, numberDayLearn, todayWordLearn, todayWordSeen,
+          totalWordLearn, totalWordSeen);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

@@ -8,10 +8,10 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="20sp">
+        android:layout_marginStart="12sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="12sp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/display_photo"
@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:layout_toEndOf="@id/display_photo"
             android:text="Display name"
-            android:textColor="@color/color_text_pink"
+            android:textColor="#45377d"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -40,8 +40,8 @@
             android:layout_alignTop="@id/display_photo"
             android:layout_gravity="center"
             android:layout_toEndOf="@id/display_photo"
-            android:text="Wellcome"
-            android:textColor="@color/colorTextWhite"
+            android:text="Welcome"
+            android:textColor="@color/colorTextBlack"
             android:textSize="12sp"
             android:textStyle="bold" />
 
