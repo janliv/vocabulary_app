@@ -28,6 +28,10 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\asset_52_google.png"
     },
     {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_asset51_review.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\asset51_review.png"
+    },
+    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_record.xml.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_record.xml"
     },
@@ -100,12 +104,12 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_signin_login_custom.xml"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_back_ios_40_black.xml.flat",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_back_ios_40_black.xml"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_termsofuse_user_custom.xml.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_termsofuse_user_custom.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_back_ios_40_black.xml.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_back_ios_40_black.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_d_default.png.flat",
@@ -118,6 +122,10 @@
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_darknight_onboarding.png.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_darknight_onboarding.png"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_asset53_dictionary.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\asset53_dictionary.png"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_next_word_review_button_custom.xml.flat",
@@ -232,24 +240,24 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_home.png"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_meaning_area.png.flat",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_meaning_area.png"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_next_review.png.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_next_review.png"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_meaning_area.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_meaning_area.png"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_termsofuse_user.png.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_termsofuse_user.png"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_new_word_pressed.png.flat",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_new_word_pressed.png"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_swipeup.gif.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_swipeup.gif"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_new_word_pressed.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_new_word_pressed.png"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\menu_navigation_items.xml.flat",
@@ -350,6 +358,10 @@
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_panel.png.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_panel.png"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_asset52_acchiment.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\asset52_acchiment.png"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_c_default.png.flat",
@@ -460,6 +472,10 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\iv_tws_record.png"
     },
     {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_sound_learn_pressed.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\btn_sound_learn_pressed.png"
+    },
+    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_line1_onboarding.xml.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\ic_line1_onboarding.xml"
     },
@@ -534,6 +550,10 @@
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_intro.xml.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_intro.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_icon_layout.xml.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\icon_layout.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\anim_to_right.xml.flat",
@@ -746,6 +766,10 @@
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_text_view_pressed.xml.flat",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\text_view_pressed.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_asset50_learn.png.flat",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\drawable\\asset50_learn.png"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_cardplanet4_onboarding.png.flat",

@@ -44,6 +44,7 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
     private Fragment searchFragment;
     private Fragment recordFragment;
     private FragmentAdapter fragmentAdapter;
+    private int prevPosition = 0;
 
     private final int ID_HOME = 0;
     private final int ID_LEARN = 1;
@@ -66,7 +67,6 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_RECORD, R.drawable.badge));
 
 
-
         if (homeFragment == null)
             homeFragment = new HomeFragment();
         if (learnFragment == null)
@@ -82,19 +82,20 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
         textView = layout.findViewById(R.id.display_name);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user !=null){
-        textView.setText(user.getDisplayName());
-        storageReference = FirebaseStorage.getInstance().getReference();
+        if (user != null) {
+            textView.setText(user.getDisplayName());
+            storageReference = FirebaseStorage.getInstance().getReference();
 
-        StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
-        fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(imageView))
-                .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(imageView));
+            StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
+            fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(imageView))
+                    .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(imageView));
 
-        Toast toast = new Toast(this);
-        toast.setGravity(Gravity.CENTER | Gravity.TOP, 0, 25);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.show();}
+            Toast toast = new Toast(this);
+            toast.setGravity(Gravity.CENTER | Gravity.TOP, 0, 25);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+        }
 
         viewPager = findViewById(R.id.view_paper);
         fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
@@ -105,14 +106,16 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
         viewPager.setAdapter(fragmentAdapter);
 
 
-        bottomNavigation.setOnClickMenuListener(item -> viewPager.setCurrentItem(item.getId()));
+        bottomNavigation.setOnClickMenuListener(item -> {
+            viewPager.setCurrentItem(item.getId());
+        });
         bottomNavigation.setOnShowListener(item -> {
             return;
         });
         bottomNavigation.setOnReselectListener(item -> {
             return;
         });
-        bottomNavigation.show(ID_HOME,true);
+        bottomNavigation.show(ID_HOME, true);
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -122,7 +125,13 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
 
             @Override
             public void onPageSelected(int position) {
-                bottomNavigation.show(position,true);
+                final Fragment prevFragment = fragmentAdapter.getItem(prevPosition);
+                prevFragment.onPause();
+                final Fragment fragment = fragmentAdapter.getItem(position);
+                fragment.onResume();
+
+                prevPosition = position;
+                bottomNavigation.show(position, true);
             }
 
             @Override
@@ -131,7 +140,6 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
             }
         });
     }
-
 
     @Override
     public void onBackPressed() {
@@ -158,8 +166,8 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
     @Override
     protected void onStart() {
         super.onStart();
-        if (user==null){
-            Intent intent = new Intent(this,LoginActivity.class);
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }

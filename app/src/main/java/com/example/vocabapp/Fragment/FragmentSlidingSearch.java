@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.arlib.floatingsearchview.util.Util;
-
 import com.example.vocabapp.Data.DataHelper;
 import com.example.vocabapp.Data.DataSource.DataRepository;
 import com.example.vocabapp.Data.DataSource.DiskDataSource;
@@ -37,13 +36,9 @@ import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
 import com.example.vocabapp.OxfordDictionary.Definition;
 import com.example.vocabapp.OxfordDictionary.DefinitionRenderer;
 import com.example.vocabapp.R;
-
 import com.example.vocabapp.Users.UserDataHelper;
-
-
 import com.example.vocabapp.model.Entry;
 import com.example.vocabapp.model.LexicalCategory;
-
 import com.pedrogomez.renderers.ListAdapteeCollection;
 import com.pedrogomez.renderers.RVRendererAdapter;
 import com.pedrogomez.renderers.RendererBuilder;
@@ -75,6 +70,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     private NetworkDataSource networkDataSource;
     private static final String SHAREDPREF = "SHAREDPREF";
     private final List<WordSuggestion> l = new ArrayList<>();
+    private int i = 0;
 
     public FragmentSlidingSearch() {
         // Required empty public constructor
@@ -84,6 +80,24 @@ public class FragmentSlidingSearch extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_sliding_search, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("LASTWORD", Context.MODE_PRIVATE);
+        String lastword = sharedPreferences.getString("lastword", "welcome");
+        mSearchView.setSearchBarTitle(lastword);
+        performSearch(lastword);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (l.size() > 0) {
+            SharedPreferences sharedPreferences = getContext().getSharedPreferences("LASTWORD", Context.MODE_PRIVATE);
+            sharedPreferences.edit().putString("lastword", l.get(0).getBody()).apply();
+        }
     }
 
     @Override
@@ -107,11 +121,6 @@ public class FragmentSlidingSearch extends BaseFragment {
         diskDataSource = new DiskDataSource(sharedPreferences);
         networkDataSource = new NetworkDataSource();
         DataHelper.setsColorSuggestions(getContext());
-
-        String w = randomString();
-        mSearchView.setSearchBarTitle(w);
-        performSearch(w);
-
     }
 
     @SuppressLint("CheckResult")
@@ -327,7 +336,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     }
 
     private void addHistoryWord(String word) {
-        if (l.size() < 0) return;
+        if (l.size() < 0 || word.equals("welcome")) return;
         for (WordSuggestion wordSuggestion : l)
             if (wordSuggestion.getBody().equals(word))
                 return;
@@ -354,10 +363,10 @@ public class FragmentSlidingSearch extends BaseFragment {
         });
     }
 
-    public String randomString(){
+    public String randomString() {
         List<WordSuggestion> list;
         list = DatabaseAccess.getInstance(getContext()).getSuggestions();
-        int index = (int)(Math.random()*list.size());
+        int index = (int) (Math.random() * list.size());
         return list.get(index).getBody();
     }
 }

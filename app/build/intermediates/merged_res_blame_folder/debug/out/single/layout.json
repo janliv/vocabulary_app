@@ -72,6 +72,10 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_home.xml"
     },
     {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\icon_layout.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\icon_layout.xml"
+    },
+    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_login.xml"
     },

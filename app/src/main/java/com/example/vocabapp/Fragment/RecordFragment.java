@@ -32,7 +32,7 @@ public class RecordFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private LinearLayout layout01, layout02, layout03, layout04, layout05;
+    private LinearLayout layout01, layout02, layout03, layout04, layout05, layout06;
     private UserDataHelper dataHelper;
     private TextView todayWordSeen;
     private int numTodayWordSeen = 0;
@@ -101,6 +101,7 @@ public class RecordFragment extends Fragment {
         layout03 = view.findViewById(R.id.layout_03);
         layout04 = view.findViewById(R.id.layout_04);
         layout05 = view.findViewById(R.id.layout_05);
+        layout06 = view.findViewById(R.id.layout_06);
 
         flyuptodown = AnimationUtils.loadAnimation(getContext(), R.anim.fly_up_to_down);
         flydowntoupvoice = AnimationUtils.loadAnimation(getContext(), R.anim.fly_down_to_up_voice);
@@ -110,20 +111,46 @@ public class RecordFragment extends Fragment {
         righttoleft = AnimationUtils.loadAnimation(getContext(), R.anim.right_to_left);
         fadein = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
 
-
+        gone();
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        delayAnim(layout01, righttoleft, 300);
+        delayAnim(layout03, righttoleft, 300);
+        delayAnim(layout02, lefttoright, 300);
+        delayAnim(layout04, lefttoright, 300);
+        delayAnim(layout05, flydowntoupnext, 300);
+        delayAnim(layout06 , flyuptodown,300);
+    }
+
+    private void gone() {
+        layout01.setVisibility(View.GONE);
+        layout02.setVisibility(View.GONE);
+        layout03.setVisibility(View.GONE);
+        layout04.setVisibility(View.GONE);
+        layout05.setVisibility(View.GONE);
+        layout06.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        gone();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        gone();
     }
 
     @Override
     public void onStart() {
         super.onStart();
         dataHelper = new UserDataHelper();
-
-        delayAnim(layout01, lefttoright, 100);
-        delayAnim(layout03, lefttoright, 300);
-        delayAnim(layout02, righttoleft, 200);
-        delayAnim(layout04, righttoleft, 400);
-        delayAnim(layout05, flydowntoupnext, 500);
 
 
         dataHelper.getTotalWordLearned(num -> {

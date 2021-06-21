@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.vocabapp.Users.UserDataHelper;
@@ -43,6 +45,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
     private Uri uri;
+    private ProgressBar progressBar;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -70,6 +73,7 @@ public class EditProfileActivity extends AppCompatActivity {
         age = findViewById(R.id.age);
         saveChangeButton = findViewById(R.id.save_change_button);
         displayPhoto = findViewById(R.id.display_photo);
+        progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -80,8 +84,8 @@ public class EditProfileActivity extends AppCompatActivity {
         flydowntouplearn = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_learn);
         flydowntoupnext = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_next);
 
-        saveChangeButton.setAnimation(flydowntoupnext);
-        displayPhoto.setAnimation(flyuptodown);
+        delayAnim(saveChangeButton,flydowntouplearn,500);
+        delayAnim(displayPhoto,flyuptodown,500);
 
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -159,5 +163,20 @@ public class EditProfileActivity extends AppCompatActivity {
             });
 
         });
+    }
+
+    private void delayAnim(Button btn, Animation anim, long time) {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
+        }, time);
+    }
+    private void delayAnim(CircleImageView btn, Animation anim, long time) {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
+        }, time);
     }
 }

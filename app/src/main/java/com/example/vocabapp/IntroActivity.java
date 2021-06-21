@@ -19,6 +19,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
 
@@ -49,13 +51,31 @@ public class IntroActivity extends AppCompatActivity {
         fourthFragment = new FourthFragment();
         firthFragment = new FirthFragment();
         adapter = new FragmentAdapter(getSupportFragmentManager());
+        adapter.addFragment(fourthFragment);
         adapter.addFragment(firstFragment);
         adapter.addFragment(secondFragment);
         adapter.addFragment(thirdFragment);
-        adapter.addFragment(fourthFragment);
-        adapter.addFragment(firthFragment);
+//        adapter.addFragment(firthFragment);
         liquidPager = findViewById(R.id.liquid_pager);
         liquidPager.setAdapter(adapter);
         liquidPager.setCurrentItem(0);
+
+        liquidPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+               Fragment fragment = adapter.getItem(position);
+               fragment.onResume();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 }

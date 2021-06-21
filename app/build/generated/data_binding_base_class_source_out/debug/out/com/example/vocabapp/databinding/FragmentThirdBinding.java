@@ -4,8 +4,8 @@ package com.example.vocabapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +20,12 @@ public final class FragmentThirdBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final ImageView ivToinfinity;
+  public final Button ivToinfinity;
 
   @NonNull
   public final TextView tvAndbeyond;
 
-  private FragmentThirdBinding(@NonNull FrameLayout rootView, @NonNull ImageView ivToinfinity,
+  private FragmentThirdBinding(@NonNull FrameLayout rootView, @NonNull Button ivToinfinity,
       @NonNull TextView tvAndbeyond) {
     this.rootView = rootView;
     this.ivToinfinity = ivToinfinity;
@@ -60,7 +60,7 @@ public final class FragmentThirdBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.iv_toinfinity;
-      ImageView ivToinfinity = rootView.findViewById(id);
+      Button ivToinfinity = rootView.findViewById(id);
       if (ivToinfinity == null) {
         break missingId;
       }

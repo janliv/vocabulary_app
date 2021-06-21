@@ -1860,6 +1860,10 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable alo1
+drawable asset50_learn
+drawable asset51_review
+drawable asset52_acchiment
+drawable asset53_dictionary
 drawable asset_47
 drawable asset_47_learn
 drawable asset_48
@@ -1934,6 +1938,7 @@ drawable btn_signup_login
 drawable btn_signup_yellow_login
 drawable btn_signup_yellow_login_custom
 drawable btn_sound_learn
+drawable btn_sound_learn_pressed
 drawable btn_termsofuse_user
 drawable btn_termsofuse_user_custom
 drawable btn_try_again
@@ -2422,6 +2427,7 @@ id ignoreRequest
 id image
 id image_back_button
 id image_display_photo
+id image_view
 id info
 id inline
 id invisible
@@ -2447,6 +2453,7 @@ id layout_02
 id layout_03
 id layout_04
 id layout_05
+id layout_06
 id learnId
 id learn_button
 id learn_this_word
@@ -2578,6 +2585,7 @@ id radio
 id ratio
 id record_button
 id rectangles
+id recyler_view
 id register_button
 id register_text_view
 id relative_layout_home
@@ -2724,7 +2732,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tv_andbeyond
-id tv_cardbanner
 id tv_count
 id tv_explore
 id tv_subtitle1
@@ -2773,7 +2780,6 @@ id word_holder
 id wordtype
 id wrap
 id wrap_content
-id xxx
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -2885,6 +2891,7 @@ layout fragment_reset_password
 layout fragment_second
 layout fragment_sliding_search
 layout fragment_third
+layout icon_layout
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

@@ -1,5 +1,5 @@
-com/example/vocabapp/model/Sense.java
- com.example.vocabapp.model.Sense
+com/example/vocabapp/databinding/IconLayoutBinding.java
+ com.example.vocabapp.databinding.IconLayoutBinding
 com/example/vocabapp/LearnModels/Meanings.java
  com.example.vocabapp.LearnModels.Meanings
 com/example/vocabapp/API/DictionaryEntriesApi.java
@@ -61,6 +61,7 @@ com/example/vocabapp/model/Region.java
  com.example.vocabapp.model.Region
 com/example/vocabapp/IntroActivity.java
  com.example.vocabapp.IntroActivity
+ com.example.vocabapp.IntroActivity$1
 com/example/vocabapp/databinding/CustomToaskLayoutBinding.java
  com.example.vocabapp.databinding.CustomToaskLayoutBinding
 com/example/vocabapp/Data/DataSource/DataRepository.java
@@ -112,15 +113,15 @@ com/example/vocabapp/Data/DataHelper.java
  com.example.vocabapp.Data.DataHelper
  com.example.vocabapp.Data.DataHelper$1
  com.example.vocabapp.Data.DataHelper$OnFindSuggestionsListener
-com/example/vocabapp/OxfordDictionary/DefinitionRenderer.java
- com.example.vocabapp.OxfordDictionary.DefinitionRenderer
+com/example/vocabapp/model/Sense.java
+ com.example.vocabapp.model.Sense
 com/example/vocabapp/Fragment/BaseFragment.java
  com.example.vocabapp.Fragment.BaseFragment
  com.example.vocabapp.Fragment.BaseFragment$BaseExampleFragmentCallbacks
 com/example/vocabapp/databinding/FragmentFirstBinding.java
  com.example.vocabapp.databinding.FragmentFirstBinding
-com/example/vocabapp/LearnService/WordService.java
- com.example.vocabapp.LearnService.WordService
+com/example/vocabapp/OxfordDictionary/DefinitionRenderer.java
+ com.example.vocabapp.OxfordDictionary.DefinitionRenderer
 com/example/vocabapp/databinding/FragmentSecondBinding.java
  com.example.vocabapp.databinding.FragmentSecondBinding
 com/example/vocabapp/databinding/FragmentRecordBinding.java
@@ -135,27 +136,24 @@ com/example/vocabapp/TermOfUesActivity.java
  com.example.vocabapp.TermOfUesActivity
 com/example/vocabapp/model/Domain.java
  com.example.vocabapp.model.Domain
-com/example/vocabapp/UserActivity.java
- com.example.vocabapp.UserActivity
+com/example/vocabapp/Fragment/LearnFragment.java
+ com.example.vocabapp.Fragment.LearnFragment
+ com.example.vocabapp.Fragment.LearnFragment$1
+ com.example.vocabapp.Fragment.LearnFragment$2
+ com.example.vocabapp.Fragment.LearnFragment$3
 com/example/vocabapp/model/GrammaticalFeaturesList.java
  com.example.vocabapp.model.GrammaticalFeaturesList
-com/example/vocabapp/Fragment/FragmentSlidingSearch.java
- com.example.vocabapp.Fragment.FragmentSlidingSearch
- com.example.vocabapp.Fragment.FragmentSlidingSearch$1
- com.example.vocabapp.Fragment.FragmentSlidingSearch$2
- com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1
- com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1$1
- com.example.vocabapp.Fragment.FragmentSlidingSearch$3
- com.example.vocabapp.Fragment.FragmentSlidingSearch$CategorizedEntry
+com/example/vocabapp/model/CategorizedTextList.java
+ com.example.vocabapp.model.CategorizedTextList
 com/example/vocabapp/databinding/FragmentSlidingSearchBinding.java
  com.example.vocabapp.databinding.FragmentSlidingSearchBinding
 com/example/vocabapp/LearnModels/Definitions.java
  com.example.vocabapp.LearnModels.Definitions
 com/example/vocabapp/Data/DataSource/NetworkDataSource.java
  com.example.vocabapp.Data.DataSource.NetworkDataSource
-com/example/vocabapp/EditProfileActivity.java
- com.example.vocabapp.EditProfileActivity
- com.example.vocabapp.EditProfileActivity$1
+com/example/vocabapp/Fragment/RecordFragment.java
+ com.example.vocabapp.Fragment.RecordFragment
+ com.example.vocabapp.Fragment.RecordFragment$1
 com/example/vocabapp/databinding/FragmentLoginBinding.java
  com.example.vocabapp.databinding.FragmentLoginBinding
 com/example/vocabapp/model/ExamplesList.java
@@ -167,23 +165,26 @@ com/example/vocabapp/Data/DataSource/MemoryDataSource.java
  com.example.vocabapp.Data.DataSource.MemoryDataSource
 com/example/vocabapp/databinding/ActivityTermOfUesBinding.java
  com.example.vocabapp.databinding.ActivityTermOfUesBinding
+com/example/vocabapp/RecylerAdapter.java
+ com.example.vocabapp.RecylerAdapter
+ com.example.vocabapp.RecylerAdapter$ViewHolder
 com/example/vocabapp/model/VariantFormsList.java
  com.example.vocabapp.model.VariantFormsList
 com/example/vocabapp/model/LexicalCategory.java
  com.example.vocabapp.model.LexicalCategory
-com/example/vocabapp/model/CategorizedTextList.java
- com.example.vocabapp.model.CategorizedTextList
-com/example/vocabapp/Fragment/HomeFragment.java
- com.example.vocabapp.Fragment.HomeFragment
- com.example.vocabapp.Fragment.HomeFragment$1
- com.example.vocabapp.Fragment.HomeFragment$2
- com.example.vocabapp.Fragment.HomeFragment$3
- com.example.vocabapp.Fragment.HomeFragment$OnSelectPageViewIndex
-com/example/vocabapp/Fragment/LearnFragment.java
- com.example.vocabapp.Fragment.LearnFragment
- com.example.vocabapp.Fragment.LearnFragment$1
- com.example.vocabapp.Fragment.LearnFragment$2
- com.example.vocabapp.Fragment.LearnFragment$3
+com/example/vocabapp/Fragment/FragmentSlidingSearch.java
+ com.example.vocabapp.Fragment.FragmentSlidingSearch
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1$1
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$3
+ com.example.vocabapp.Fragment.FragmentSlidingSearch$CategorizedEntry
+com/example/vocabapp/Home.java
+ com.example.vocabapp.Home
+ com.example.vocabapp.Home$1
+com/example/vocabapp/LearnService/WordService.java
+ com.example.vocabapp.LearnService.WordService
 com/example/vocabapp/databinding/ActivityLoginBinding.java
  com.example.vocabapp.databinding.ActivityLoginBinding
 com/example/vocabapp/model/HeadwordEntry.java
@@ -202,15 +203,18 @@ com/example/vocabapp/DatabaseHelper/DatabaseOpenHelper.java
  com.example.vocabapp.DatabaseHelper.DatabaseOpenHelper
 com/example/vocabapp/model/ArrayOfRelatedEntries.java
  com.example.vocabapp.model.ArrayOfRelatedEntries
-com/example/vocabapp/Fragment/RecordFragment.java
- com.example.vocabapp.Fragment.RecordFragment
- com.example.vocabapp.Fragment.RecordFragment$1
-com/example/vocabapp/Home.java
- com.example.vocabapp.Home
- com.example.vocabapp.Home$1
 com/example/vocabapp/Fragment/LoginFragment.java
  com.example.vocabapp.Fragment.LoginFragment
  com.example.vocabapp.Fragment.LoginFragment$1
  com.example.vocabapp.Fragment.LoginFragment$2
+com/example/vocabapp/EditProfileActivity.java
+ com.example.vocabapp.EditProfileActivity
+ com.example.vocabapp.EditProfileActivity$1
 com/example/vocabapp/LoginActivity.java
  com.example.vocabapp.LoginActivity
+com/example/vocabapp/UserActivity.java
+ com.example.vocabapp.UserActivity
+com/example/vocabapp/Fragment/HomeFragment.java
+ com.example.vocabapp.Fragment.HomeFragment
+ com.example.vocabapp.Fragment.HomeFragment$1
+ com.example.vocabapp.Fragment.HomeFragment$OnSelectPageViewIndex

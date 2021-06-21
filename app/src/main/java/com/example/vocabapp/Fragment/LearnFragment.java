@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -137,12 +138,6 @@ public class LearnFragment extends BaseFragment {
         // Animations
         btn1.setVisibility(View.INVISIBLE);
         btn2.setVisibility(View.INVISIBLE);
-        wordHolder.setAnimation(flyuptodown);
-        word.setAnimation(flyuptodown);
-        line.setAnimation(flyuptodown);
-        voice.setAnimation(flydowntoupvoice);
-        delayAnim(btn2, flydowntouplearn, 400);
-        delayAnim(btn1, flydowntoupnext, 600);
 
         String w = randomWord();
         word.setText(w);
@@ -177,7 +172,41 @@ public class LearnFragment extends BaseFragment {
             btn4.setVisibility(View.GONE);
         });
 
+        gone();
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        delayAnim(wordHolder,flyuptodown,200);
+        delayAnim(word,flyuptodown,100);
+        delayAnim(line,flyuptodown,100);
+        delayAnim(voice,flydowntoupvoice,100);
+        delayAnim(btn2, flydowntouplearn, 400);
+        delayAnim(btn1, flydowntoupnext, 600);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        gone();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        gone();
+    }
+
+    private void gone(){
+        wordHolder.setVisibility(View.GONE);
+        word.setVisibility(View.GONE);
+        line.setVisibility(View.GONE);
+        voice.setVisibility(View.GONE);
+        btn2.setVisibility(View.GONE);
+        btn1.setVisibility(View.GONE);
     }
 
     private String randomWord() {
@@ -337,5 +366,21 @@ public class LearnFragment extends BaseFragment {
     @Override
     public boolean onActivityBackPress() {
         return false;
+    }
+
+    private void delayAnim(TextView btn, Animation anim, long time) {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
+        }, time);
+    }
+
+    private void delayAnim(ImageView btn, Animation anim, long time) {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
+        }, time);
     }
 }

@@ -197,18 +197,18 @@ public class HomeFragment extends Fragment {
     };
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if(firebaseAuth.getCurrentUser() == null) {
-            Intent intent = new Intent(getContext(), LoginActivity.class);
-            startActivity(intent);
-            getActivity().finish();
-        }
+    public void onPause() {
+        super.onPause();
+        gone();
+    }
 
-        delayAnim(learn,lefttoright,100);
-        delayAnim(record,righttoleft,100);
-        delayAnim(search,flydowntoupnext,100);
-        delayAnim(userButton,righttoleft,100);
+    @Override
+    public void onResume() {
+        super.onResume();
+        delayAnim(learn, lefttoright, 100);
+        delayAnim(record, righttoleft, 100);
+        delayAnim(search, flydowntoupnext, 100);
+        delayAnim(userButton, righttoleft, 100);
     }
 
     private void gone(){
@@ -218,26 +218,29 @@ public class HomeFragment extends Fragment {
         userButton.setVisibility(View.GONE);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (firebaseAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
+    }
 
     private void delayAnim(Button btn, Animation anim, long time) {
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn.startAnimation(anim);
-                btn.setVisibility(View.VISIBLE);
-            }
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
         }, time);
     }
 
     private void delayAnim(CircleImageView btn, Animation anim, long time) {
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn.startAnimation(anim);
-                btn.setVisibility(View.VISIBLE);
-            }
+        handler.postDelayed(() -> {
+            btn.startAnimation(anim);
+            btn.setVisibility(View.VISIBLE);
         }, time);
     }
 }

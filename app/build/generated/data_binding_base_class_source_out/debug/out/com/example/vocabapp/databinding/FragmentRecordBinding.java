@@ -41,6 +41,9 @@ public final class FragmentRecordBinding implements ViewBinding {
   public final LinearLayout layout05;
 
   @NonNull
+  public final LinearLayout layout06;
+
+  @NonNull
   public final TextView numberDayLearn;
 
   @NonNull
@@ -59,9 +62,9 @@ public final class FragmentRecordBinding implements ViewBinding {
       @NonNull TextView highestRecord, @NonNull LinearLayout layout01,
       @NonNull LinearLayout layout02, @NonNull LinearLayout layout03,
       @NonNull LinearLayout layout04, @NonNull LinearLayout layout05,
-      @NonNull TextView numberDayLearn, @NonNull TextView todayWordLearn,
-      @NonNull TextView todayWordSeen, @NonNull TextView totalWordLearn,
-      @NonNull TextView totalWordSeen) {
+      @NonNull LinearLayout layout06, @NonNull TextView numberDayLearn,
+      @NonNull TextView todayWordLearn, @NonNull TextView todayWordSeen,
+      @NonNull TextView totalWordLearn, @NonNull TextView totalWordSeen) {
     this.rootView = rootView;
     this.exp = exp;
     this.highestRecord = highestRecord;
@@ -70,6 +73,7 @@ public final class FragmentRecordBinding implements ViewBinding {
     this.layout03 = layout03;
     this.layout04 = layout04;
     this.layout05 = layout05;
+    this.layout06 = layout06;
     this.numberDayLearn = numberDayLearn;
     this.todayWordLearn = todayWordLearn;
     this.todayWordSeen = todayWordSeen;
@@ -146,6 +150,12 @@ public final class FragmentRecordBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.layout_06;
+      LinearLayout layout06 = rootView.findViewById(id);
+      if (layout06 == null) {
+        break missingId;
+      }
+
       id = R.id.number_day_learn;
       TextView numberDayLearn = rootView.findViewById(id);
       if (numberDayLearn == null) {
@@ -177,8 +187,8 @@ public final class FragmentRecordBinding implements ViewBinding {
       }
 
       return new FragmentRecordBinding((FrameLayout) rootView, exp, highestRecord, layout01,
-          layout02, layout03, layout04, layout05, numberDayLearn, todayWordLearn, todayWordSeen,
-          totalWordLearn, totalWordSeen);
+          layout02, layout03, layout04, layout05, layout06, numberDayLearn, todayWordLearn,
+          todayWordSeen, totalWordLearn, totalWordSeen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

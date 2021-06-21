@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <Button
             android:id="@+id/iv_toinfinity"
             android:layout_width="780.6609px"
             android:layout_height="192.2279px"

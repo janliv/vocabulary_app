@@ -56,7 +56,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="580px"
             android:background="@drawable/iv_ofday_record"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:id="@+id/layout_06">
 
             <TextView
                 android:layout_width="0dp"

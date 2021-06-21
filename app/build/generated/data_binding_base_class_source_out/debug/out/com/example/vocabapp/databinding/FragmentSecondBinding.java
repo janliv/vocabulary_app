@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.vocabapp.R;
 import java.lang.NullPointerException;
@@ -19,7 +20,7 @@ public final class FragmentSecondBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final TextView tvCardbanner;
+  public final RecyclerView recylerView;
 
   @NonNull
   public final TextView tvExplore;
@@ -27,16 +28,12 @@ public final class FragmentSecondBinding implements ViewBinding {
   @NonNull
   public final TextView tvYouruniverse;
 
-  @NonNull
-  public final TextView xxx;
-
-  private FragmentSecondBinding(@NonNull FrameLayout rootView, @NonNull TextView tvCardbanner,
-      @NonNull TextView tvExplore, @NonNull TextView tvYouruniverse, @NonNull TextView xxx) {
+  private FragmentSecondBinding(@NonNull FrameLayout rootView, @NonNull RecyclerView recylerView,
+      @NonNull TextView tvExplore, @NonNull TextView tvYouruniverse) {
     this.rootView = rootView;
-    this.tvCardbanner = tvCardbanner;
+    this.recylerView = recylerView;
     this.tvExplore = tvExplore;
     this.tvYouruniverse = tvYouruniverse;
-    this.xxx = xxx;
   }
 
   @Override
@@ -66,9 +63,9 @@ public final class FragmentSecondBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tv_cardbanner;
-      TextView tvCardbanner = rootView.findViewById(id);
-      if (tvCardbanner == null) {
+      id = R.id.recyler_view;
+      RecyclerView recylerView = rootView.findViewById(id);
+      if (recylerView == null) {
         break missingId;
       }
 
@@ -84,14 +81,8 @@ public final class FragmentSecondBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.xxx;
-      TextView xxx = rootView.findViewById(id);
-      if (xxx == null) {
-        break missingId;
-      }
-
-      return new FragmentSecondBinding((FrameLayout) rootView, tvCardbanner, tvExplore,
-          tvYouruniverse, xxx);
+      return new FragmentSecondBinding((FrameLayout) rootView, recylerView, tvExplore,
+          tvYouruniverse);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

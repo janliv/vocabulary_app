@@ -220,14 +220,6 @@ public class LoginFragment extends BaseFragment {
 
         facebookLoginButton.setOnClickListener(v -> connect());
 
-//        InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(INPUT_METHOD_SERVICE);
-//        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-
-        Intent intent = requireActivity().getIntent();
-        if (intent != null && intent.hasExtra("defaut")) {
-            String defaut = intent.getExtras().getString("defaut");
-            if (defaut.equals("1")) registerButton.callOnClick();
-        }
         return view;
     }
 
