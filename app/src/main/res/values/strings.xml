@@ -11,8 +11,8 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="facebook_app_id">4547393715305286</string>
-    <string name="fb_login_protocol_scheme">fbfb_login_protocol_scheme</string>
+    <string name="facebook_app_id">545875533099767</string>
+    <string name="fb_login_protocol_scheme">fb545875533099767</string>
 
     <string name="title_activity_words_review">WordsReview</string>
     <!-- Strings used for fragments for navigation -->

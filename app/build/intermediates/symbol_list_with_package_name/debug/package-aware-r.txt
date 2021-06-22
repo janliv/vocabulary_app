@@ -1864,6 +1864,8 @@ drawable asset50_learn
 drawable asset51_review
 drawable asset52_acchiment
 drawable asset53_dictionary
+drawable asset_1
+drawable asset_2
 drawable asset_47
 drawable asset_47_learn
 drawable asset_48

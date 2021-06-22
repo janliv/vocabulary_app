@@ -56,8 +56,9 @@ com/example/vocabapp/Data/DataSource/DiskDataSource.java
  com.example.vocabapp.Data.DataSource.DiskDataSource
 com/example/vocabapp/Fragment/FirthFragment.java
  com.example.vocabapp.Fragment.FirthFragment
-com/example/vocabapp/databinding/FragmentFourthBinding.java
- com.example.vocabapp.databinding.FragmentFourthBinding
+com/example/vocabapp/IntActivity.java
+ com.example.vocabapp.IntActivity
+ com.example.vocabapp.IntActivity$1
 com/example/vocabapp/model/Entry.java
  com.example.vocabapp.model.Entry
 com/example/vocabapp/model/Region.java
@@ -220,6 +221,5 @@ com/example/vocabapp/model/Sense.java
  com.example.vocabapp.model.Sense
 com/example/vocabapp/databinding/IconLayoutBinding.java
  com.example.vocabapp.databinding.IconLayoutBinding
-com/example/vocabapp/IntActivity.java
- com.example.vocabapp.IntActivity
- com.example.vocabapp.IntActivity$1
+com/example/vocabapp/databinding/FragmentFourthBinding.java
+ com.example.vocabapp.databinding.FragmentFourthBinding

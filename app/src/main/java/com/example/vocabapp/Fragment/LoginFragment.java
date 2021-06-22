@@ -228,7 +228,7 @@ public class LoginFragment extends BaseFragment {
         progressBar.setVisibility(View.VISIBLE);
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
         firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), task -> {
+                .addOnCompleteListener(requireActivity(), task -> {
                     if (task.isSuccessful()) {
                         progressBar.setVisibility(View.GONE);
                         startHomeActivity();

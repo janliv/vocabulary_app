@@ -261,9 +261,9 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\User\.gra
 	tools:ignore
 		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:19:9-35
 	android:roundIcon
-		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:16:9-46
 	android:icon
-		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:14:9-43
+		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:14:9-41
 	android:allowBackup
 		ADDED from D:\NguyenNhutTan\do_an\vocabulary_app\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme

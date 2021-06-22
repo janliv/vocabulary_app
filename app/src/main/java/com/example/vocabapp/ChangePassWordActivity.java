@@ -79,6 +79,7 @@ public class ChangePassWordActivity extends AppCompatActivity {
                 return;
             }
 
+
             user.updatePassword(c).addOnSuccessListener(aVoid->{
                 Toast.makeText(this,"Update password successfully",Toast.LENGTH_LONG).show();
                 finish();

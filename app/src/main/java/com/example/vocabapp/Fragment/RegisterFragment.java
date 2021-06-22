@@ -187,6 +187,7 @@ public class RegisterFragment extends BaseFragment {
             if (userName.isEmpty() || userName.length() <= 3) {
                 displayNameInput.requestFocus();
                 displayNameInput.setError("Invalid name");
+                return;
             }
 
             if (age.isEmpty()) {
@@ -208,7 +209,16 @@ public class RegisterFragment extends BaseFragment {
             if (password.compareTo(passwordAgain) != 0) {
                 passwordAgainInput.requestFocus();
                 passwordAgainInput.setError("");
+                return;
             }
+
+            if(Integer.parseInt(age)<=3){
+                ageInput.requestFocus();
+                ageInput.setError("Age must be more than 3");
+                return;
+            }
+
+
             progressBar.setVisibility(View.VISIBLE);
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(getActivity(), task -> {

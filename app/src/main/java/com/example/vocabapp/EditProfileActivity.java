@@ -1,10 +1,6 @@
 package com.example.vocabapp;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,8 +19,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.vocabapp.Users.UserDataHelper;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -87,8 +85,8 @@ public class EditProfileActivity extends AppCompatActivity {
         flydowntouplearn = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_learn);
         flydowntoupnext = AnimationUtils.loadAnimation(this, R.anim.fly_down_to_up_next);
 
-        delayAnim(saveChangeButton,flydowntouplearn,500);
-        delayAnim(displayPhoto,flyuptodown,500);
+        delayAnim(saveChangeButton, flydowntouplearn, 500);
+        delayAnim(displayPhoto, flyuptodown, 500);
 
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -102,7 +100,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(displayPhoto));
 
 
-        uploadTextView.setOnClickListener(v->{
+        uploadTextView.setOnClickListener(v -> {
             Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(openGallery, 1000);
         });
@@ -115,14 +113,14 @@ public class EditProfileActivity extends AppCompatActivity {
             Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(openGallery, 1000);
         });
-        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         userName.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus && !age.hasFocus())
-                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+            if (!hasFocus && !age.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         });
         age.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus && !userName.hasFocus())
-                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+            if (!hasFocus && !userName.hasFocus())
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         });
 
 
@@ -133,7 +131,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 userName.setError("Enter your name");
                 return;
             }
-            if (a.isEmpty()) {
+            if (a.isEmpty() || Integer.parseInt(a) <= 3) {
+                age.requestFocus();
                 age.setError("Enter your age");
                 //
                 return;
@@ -180,6 +179,7 @@ public class EditProfileActivity extends AppCompatActivity {
             btn.setVisibility(View.VISIBLE);
         }, time);
     }
+
     private void delayAnim(CircleImageView btn, Animation anim, long time) {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
