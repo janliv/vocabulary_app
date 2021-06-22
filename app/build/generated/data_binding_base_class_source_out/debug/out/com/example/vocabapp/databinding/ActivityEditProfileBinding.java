@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -34,17 +35,21 @@ public final class ActivityEditProfileBinding implements ViewBinding {
   public final Button saveChangeButton;
 
   @NonNull
+  public final TextView uploadTextView;
+
+  @NonNull
   public final TextInputEditText userName;
 
   private ActivityEditProfileBinding(@NonNull ConstraintLayout rootView,
       @NonNull TextInputEditText age, @NonNull CircleImageView displayPhoto,
       @NonNull ImageButton imageBackButton, @NonNull Button saveChangeButton,
-      @NonNull TextInputEditText userName) {
+      @NonNull TextView uploadTextView, @NonNull TextInputEditText userName) {
     this.rootView = rootView;
     this.age = age;
     this.displayPhoto = displayPhoto;
     this.imageBackButton = imageBackButton;
     this.saveChangeButton = saveChangeButton;
+    this.uploadTextView = uploadTextView;
     this.userName = userName;
   }
 
@@ -99,6 +104,12 @@ public final class ActivityEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.upload_text_view;
+      TextView uploadTextView = rootView.findViewById(id);
+      if (uploadTextView == null) {
+        break missingId;
+      }
+
       id = R.id.user_name;
       TextInputEditText userName = rootView.findViewById(id);
       if (userName == null) {
@@ -106,7 +117,7 @@ public final class ActivityEditProfileBinding implements ViewBinding {
       }
 
       return new ActivityEditProfileBinding((ConstraintLayout) rootView, age, displayPhoto,
-          imageBackButton, saveChangeButton, userName);
+          imageBackButton, saveChangeButton, uploadTextView, userName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

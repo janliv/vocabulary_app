@@ -35,15 +35,15 @@ private LoginFragment loginFragment;
         return;
     }
 
-    @Override
-    public void onBackPressed() {
-        List fragments = getSupportFragmentManager().getFragments();
-        BaseFragment currentFragment = (BaseFragment) fragments.get(fragments.size() - 1);
-
-        if (!currentFragment.onActivityBackPress()) {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        List fragments = getSupportFragmentManager().getFragments();
+//        BaseFragment currentFragment = (BaseFragment) fragments.get(fragments.size() - 1);
+//
+//        if (!currentFragment.onActivityBackPress()) {
+//            super.onBackPressed();
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

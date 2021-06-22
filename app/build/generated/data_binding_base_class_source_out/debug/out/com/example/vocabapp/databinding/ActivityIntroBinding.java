@@ -4,6 +4,7 @@ package com.example.vocabapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +20,15 @@ public final class ActivityIntroBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final FrameLayout container;
+
+  @NonNull
   public final LiquidPager liquidPager;
 
-  private ActivityIntroBinding(@NonNull LinearLayout rootView, @NonNull LiquidPager liquidPager) {
+  private ActivityIntroBinding(@NonNull LinearLayout rootView, @NonNull FrameLayout container,
+      @NonNull LiquidPager liquidPager) {
     this.rootView = rootView;
+    this.container = container;
     this.liquidPager = liquidPager;
   }
 
@@ -53,13 +59,19 @@ public final class ActivityIntroBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.container;
+      FrameLayout container = rootView.findViewById(id);
+      if (container == null) {
+        break missingId;
+      }
+
       id = R.id.liquid_pager;
       LiquidPager liquidPager = rootView.findViewById(id);
       if (liquidPager == null) {
         break missingId;
       }
 
-      return new ActivityIntroBinding((LinearLayout) rootView, liquidPager);
+      return new ActivityIntroBinding((LinearLayout) rootView, container, liquidPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

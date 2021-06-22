@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -65,6 +66,9 @@ public final class FragmentRegisterBinding implements ViewBinding {
   @NonNull
   public final Button registerButton;
 
+  @NonNull
+  public final TextView uploadTextView;
+
   private FragmentRegisterBinding(@NonNull FrameLayout rootView,
       @NonNull TextInputEditText ageEditText, @NonNull TextInputLayout customTextInputLayout01,
       @NonNull TextInputLayout customTextInputLayout02,
@@ -74,7 +78,7 @@ public final class FragmentRegisterBinding implements ViewBinding {
       @NonNull TextInputEditText emailEditText, @NonNull ImageButton imageBackButton,
       @NonNull CircleImageView imageDisplayPhoto, @NonNull TextInputEditText passwordAgainEditText,
       @NonNull TextInputEditText passwordEditText, @NonNull ProgressBar progressBar,
-      @NonNull Button registerButton) {
+      @NonNull Button registerButton, @NonNull TextView uploadTextView) {
     this.rootView = rootView;
     this.ageEditText = ageEditText;
     this.customTextInputLayout01 = customTextInputLayout01;
@@ -90,6 +94,7 @@ public final class FragmentRegisterBinding implements ViewBinding {
     this.passwordEditText = passwordEditText;
     this.progressBar = progressBar;
     this.registerButton = registerButton;
+    this.uploadTextView = uploadTextView;
   }
 
   @Override
@@ -203,11 +208,17 @@ public final class FragmentRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.upload_text_view;
+      TextView uploadTextView = rootView.findViewById(id);
+      if (uploadTextView == null) {
+        break missingId;
+      }
+
       return new FragmentRegisterBinding((FrameLayout) rootView, ageEditText,
           customTextInputLayout01, customTextInputLayout02, customTextInputLayout03,
           customTextInputLayout04, customTextInputLayout05, displayName, emailEditText,
           imageBackButton, imageDisplayPhoto, passwordAgainEditText, passwordEditText, progressBar,
-          registerButton);
+          registerButton, uploadTextView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

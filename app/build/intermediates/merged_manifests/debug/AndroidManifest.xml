@@ -26,6 +26,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.VocabApp" >
+        <activity android:name="com.example.vocabapp.IntActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.vocabapp.ChangePassWordActivity" />
         <activity android:name="com.example.vocabapp.UserActivity" />
         <activity android:name="com.example.vocabapp.TermOfUesActivity" />
@@ -35,11 +42,6 @@
             android:name="com.example.vocabapp.IntroActivity"
             android:label="@string/title_activity_intro"
             android:theme="@style/Theme.VocabApp.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

@@ -12,24 +12,12 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_third.xml"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_record.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_record.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\custom_toask_layout.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\custom_toask_layout.xml"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_privacy_policy.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_privacy_policy.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_change_pass_word.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_change_pass_word.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_firth.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_firth.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_first.xml",
@@ -40,20 +28,8 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\definition_row.xml"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_register.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_register.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_term_of_ues.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_term_of_ues.xml"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_user.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_user.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_reset_password.xml",
@@ -64,20 +40,8 @@
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_learn.xml"
     },
     {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_edit_profile.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_edit_profile.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_home.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_home.xml"
-    },
-    {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\icon_layout.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\icon_layout.xml"
-    },
-    {
-        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
-        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_sliding_search.xml",
@@ -90,5 +54,45 @@
     {
         "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_words_review.xml",
         "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_words_review.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_record.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_record.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\custom_toask_layout.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\custom_toask_layout.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_firth.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_firth.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_int.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_int.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_register.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_term_of_ues.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_term_of_ues.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_edit_profile.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_home.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "D:\\NguyenNhutTan\\do_an\\vocabulary_app\\app\\src\\main\\res\\layout\\activity_login.xml"
     }
 ]

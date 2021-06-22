@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vocabapp.Users.UserDataHelper;
@@ -42,6 +43,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText age;
     private Button saveChangeButton;
     private CircleImageView displayPhoto;
+    private TextView uploadTextView;
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
     private Uri uri;
@@ -74,6 +76,7 @@ public class EditProfileActivity extends AppCompatActivity {
         saveChangeButton = findViewById(R.id.save_change_button);
         displayPhoto = findViewById(R.id.display_photo);
         progressBar = findViewById(R.id.progressBar);
+        uploadTextView = findViewById(R.id.upload_text_view);
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -98,6 +101,11 @@ public class EditProfileActivity extends AppCompatActivity {
         fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(displayPhoto))
                 .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(displayPhoto));
 
+
+        uploadTextView.setOnClickListener(v->{
+            Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(openGallery, 1000);
+        });
 
         backButton.setOnClickListener(v -> {
             finish();

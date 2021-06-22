@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vocabapp.R;
@@ -58,6 +59,7 @@ public class RegisterFragment extends BaseFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView uploadTextView;
     private EditText emailInput;
     private EditText passwordInput;
     private EditText displayNameInput;
@@ -136,11 +138,18 @@ public class RegisterFragment extends BaseFragment {
         ageInput = view.findViewById(R.id.age_edit_text);
         registerButton = view.findViewById(R.id.register_button);
         bacButton = view.findViewById(R.id.image_back_button);
+        uploadTextView = view.findViewById(R.id.upload_text_view);
         progressBar = view.findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
         InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(INPUT_METHOD_SERVICE);
+
+
+        uploadTextView.setOnClickListener(v->{
+            Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(openGallery, 1000);
+        });
 
 
         bacButton.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());

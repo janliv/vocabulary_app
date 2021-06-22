@@ -30,7 +30,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="292.8084px"
             android:layout_height="292.8084px"
-            android:background="@drawable/iv_stroke_user"
+            android:background="@drawable/iv_avatar_user"
             android:layout_marginLeft="120px"
             android:layout_marginTop="550px"
             android:padding="1dp"
@@ -136,7 +136,7 @@
             android:layout_height="113.9998px"
             android:background="@drawable/btn_privacypolicy_user_custom"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="1380px"
+            android:layout_marginTop="1350px"
             android:id="@+id/privacy_policy"/>
 
         <Button
@@ -144,7 +144,7 @@
             android:layout_height="113.9998px"
             android:background="@drawable/btn_termsofuse_user_custom"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="1580px"
+            android:layout_marginTop="1520px"
             android:id="@+id/term_of_use"/>
 
         <Button
@@ -152,7 +152,7 @@
             android:layout_height="113.9998px"
             android:background="@drawable/btn_changepassword_user_custom"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="1780px"
+            android:layout_marginTop="1690px"
             android:id="@+id/change_password_button"/>
 
         <Button
@@ -160,7 +160,7 @@
             android:layout_height="157.2816px"
             android:background="@drawable/btn_logout_user_custom"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="1980px"
+            android:layout_marginTop="1900px"
             android:id="@+id/log_out"/>
 
     </RelativeLayout>

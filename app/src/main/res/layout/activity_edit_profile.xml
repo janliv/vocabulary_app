@@ -37,7 +37,7 @@
             android:layout_height="418.6065px"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="550px"
-            android:background="@drawable/iv_stroke_user"
+            android:background="@drawable/iv_avatar_user"
             android:padding="3dp"
             android:src="@drawable/iv_avatar_user"
             android:id="@+id/display_photo"/>
@@ -50,7 +50,8 @@
             android:fontFamily="@font/sfprodisplayregular"
             android:text="Change Profile Picture"
             android:textColor="@color/black"
-            android:textSize="50px" />
+            android:textSize="50px"
+            android:id="@+id/upload_text_view"/>
 
         <TextView
             android:layout_width="wrap_content"

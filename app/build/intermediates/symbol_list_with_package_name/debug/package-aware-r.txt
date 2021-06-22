@@ -1869,11 +1869,15 @@ drawable asset_47_learn
 drawable asset_48
 drawable asset_49
 drawable asset_50
+drawable asset_50_learn
 drawable asset_51
 drawable asset_51_facebook
+drawable asset_51_review
 drawable asset_52
 drawable asset_52_google
+drawable asset_52_record
 drawable asset_53
+drawable asset_53_dictionary
 drawable asset_53_signin
 drawable asset_54
 drawable asset_54_signup
@@ -2759,6 +2763,7 @@ id uniform
 id unknown
 id unlabeled
 id up
+id upload_text_view
 id useLogo
 id user_image_button
 id user_name
@@ -2847,6 +2852,7 @@ layout action_item_layout
 layout activity_change_pass_word
 layout activity_edit_profile
 layout activity_home
+layout activity_int
 layout activity_intro
 layout activity_login
 layout activity_privacy_policy

@@ -69,7 +69,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     private DiskDataSource diskDataSource;
     private NetworkDataSource networkDataSource;
     private static final String SHAREDPREF = "SHAREDPREF";
-    private final List<WordSuggestion> l = new ArrayList<>();
+    private List<WordSuggestion> l;
     private int i = 0;
 
     public FragmentSlidingSearch() {
@@ -94,9 +94,10 @@ public class FragmentSlidingSearch extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
+        if (l == null) return;
         if (l.size() > 0) {
             SharedPreferences sharedPreferences = getContext().getSharedPreferences("LASTWORD", Context.MODE_PRIVATE);
-            sharedPreferences.edit().putString("lastword", l.get(0).getBody()).apply();
+            sharedPreferences.edit().putString("lastword", l.get(l.size() - 1).getBody()).apply();
         }
     }
 
@@ -230,7 +231,7 @@ public class FragmentSlidingSearch extends BaseFragment {
                         new UserDataHelper().readWordSearched(new UserDataHelper.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<String> list, String key) {
-                                l.clear();
+                                l = new ArrayList<>();
                                 for (int i = list.size() - 1; i >= 0; i--) {
                                     l.add(new WordSuggestion(list.get(i), true));
                                 }
@@ -336,7 +337,7 @@ public class FragmentSlidingSearch extends BaseFragment {
     }
 
     private void addHistoryWord(String word) {
-        if (l.size() < 0 || word.equals("welcome")) return;
+        if (l == null || word.equals("welcome")) return;
         for (WordSuggestion wordSuggestion : l)
             if (wordSuggestion.getBody().equals(word))
                 return;

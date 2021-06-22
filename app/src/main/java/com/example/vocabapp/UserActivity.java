@@ -2,6 +2,7 @@ package com.example.vocabapp;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -43,7 +44,6 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-
 
         displayName = findViewById(R.id.display_name);
         age = findViewById(R.id.age);
@@ -97,6 +97,8 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
         });
         logout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
             firebaseAuth.signOut();
             finish();
         });

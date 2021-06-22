@@ -223,7 +223,8 @@
             android:fontFamily="@font/sfprodisplaysemibold"
             android:text="Upload your photo"
             android:textColor="#45377d"
-            android:textSize="55px" />
+            android:textSize="55px"
+            android:id="@+id/upload_text_view"/>
     </RelativeLayout>
 
     <ProgressBar

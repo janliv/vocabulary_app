@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +15,8 @@ import java.util.Arrays;
 
 public class RecylerAdapter extends RecyclerView.Adapter<RecylerAdapter.ViewHolder> {
 
-   private final int[] icons = {R.drawable.asset50_learn,R.drawable.asset51_review,R.drawable.asset52_acchiment,R.drawable.asset53_dictionary};
+   private final int[] icons = {R.drawable.asset_50_learn,R.drawable.asset_51_review,R.drawable.asset_52_record,R.drawable.asset_53_dictionary};
    private Context context;
-
 
     public RecylerAdapter (Context context){
        this.context = context;

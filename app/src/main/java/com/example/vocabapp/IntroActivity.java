@@ -51,11 +51,12 @@ public class IntroActivity extends AppCompatActivity {
         fourthFragment = new FourthFragment();
         firthFragment = new FirthFragment();
         adapter = new FragmentAdapter(getSupportFragmentManager());
-        adapter.addFragment(fourthFragment);
+        //adapter.addFragment(fourthFragment);
         adapter.addFragment(firstFragment);
         adapter.addFragment(secondFragment);
         adapter.addFragment(thirdFragment);
 //        adapter.addFragment(firthFragment);
+
         liquidPager = findViewById(R.id.liquid_pager);
         liquidPager.setAdapter(adapter);
         liquidPager.setCurrentItem(0);

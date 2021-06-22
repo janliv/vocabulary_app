@@ -54,8 +54,14 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        setContentView(R.layout.activity_home);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
@@ -81,7 +87,7 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
         imageView = layout.findViewById(R.id.display_photo);
         textView = layout.findViewById(R.id.display_name);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
             textView.setText(user.getDisplayName());
             storageReference = FirebaseStorage.getInstance().getReference();
@@ -171,6 +177,5 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
             startActivity(intent);
             finish();
         }
-
     }
 }

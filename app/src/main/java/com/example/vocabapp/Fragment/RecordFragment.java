@@ -124,32 +124,7 @@ public class RecordFragment extends Fragment {
         delayAnim(layout04, lefttoright, 300);
         delayAnim(layout05, flydowntoupnext, 300);
         delayAnim(layout06 , flyuptodown,300);
-    }
 
-    private void gone() {
-        layout01.setVisibility(View.GONE);
-        layout02.setVisibility(View.GONE);
-        layout03.setVisibility(View.GONE);
-        layout04.setVisibility(View.GONE);
-        layout05.setVisibility(View.GONE);
-        layout06.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        gone();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        gone();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         dataHelper = new UserDataHelper();
 
 
@@ -188,8 +163,29 @@ public class RecordFragment extends Fragment {
             animateTextView(numDayLearn, num, dayLearn);
             numDayLearn = num;
         });
-
     }
+
+    private void gone() {
+        layout01.setVisibility(View.GONE);
+        layout02.setVisibility(View.GONE);
+        layout03.setVisibility(View.GONE);
+        layout04.setVisibility(View.GONE);
+        layout05.setVisibility(View.GONE);
+        layout06.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        gone();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        gone();
+    }
+
 
     public void animateTextView(int initialValue, int finalValue, final TextView textview) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntActivity"
+    android:background="#5f538f">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_stars"
+            android:background="@drawable/ic_star_onboarding" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="3dp"
+            android:background="@drawable/ic_line1_onboarding"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/iv_line"
+            android:layout_marginTop="690dp"/>
+
+        <ImageView
+            android:layout_width="294.8498px"
+            android:layout_height="95.8791px"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="725dp"
+            android:id="@+id/iv_bglogo"
+            android:background="@drawable/ic_background_logo_onboarding"/>
+
+        <ImageView
+            android:layout_width="227.4316px"
+            android:layout_height="118.3296px"
+            android:id="@+id/iv_logo"
+            android:layout_marginLeft="271dp"
+            android:layout_marginTop="725dp"
+            android:background="@drawable/ic_logo"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle1"
+            android:textSize="20sp"
+            android:fontFamily="@font/sfprodisplaysemibold"
+            android:textColor="#edc182"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_subtitle1"
+            android:layout_marginTop="620dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle2"
+            android:textSize="20sp"
+            android:fontFamily="@font/sfprodisplaysemibold"
+            android:textColor="#edc182"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_subtitle2"
+            android:layout_marginTop="650dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="LEARN"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="ENGLISH"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="WITH"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="215dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="YOUR"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="COSMIC"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="365dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="VOCABUL"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="440dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="ARY"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="502dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/tv_title7" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="LEARN"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="ENGLISH"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="155dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="WITH"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="YOUR"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="305dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="COSMIC"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="380dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="VOCABUL"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="455dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="ARY"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            android:layout_marginTop="517dp"
+            android:layout_marginLeft="52dp"
+            android:alpha=".20"
+            android:id="@+id/tv_titles7" />
+    </RelativeLayout>
+
+</FrameLayout>
