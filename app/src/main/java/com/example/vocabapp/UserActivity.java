@@ -80,10 +80,6 @@ public class UserActivity extends AppCompatActivity {
             changePassword.setVisibility(View.GONE);
 
 
-        StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
-        fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(displayPhoto))
-                .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(displayPhoto));
-
         editProfile.setOnClickListener(v -> {
             Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
@@ -117,6 +113,9 @@ public class UserActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         displayName.setText(user.getDisplayName());
+        StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
+        fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(displayPhoto))
+                .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(displayPhoto));
     }
 
     public void animateTextView(int initialValue, int finalValue, final TextView textview) {

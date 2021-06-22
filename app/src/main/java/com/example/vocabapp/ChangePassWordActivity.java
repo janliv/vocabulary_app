@@ -16,6 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -55,12 +59,11 @@ public class ChangePassWordActivity extends AppCompatActivity {
 
         backButton.setOnClickListener(v-> finish());
 
-
-
         changePasswordButton.setOnClickListener(v->{
             String o = oldPassword.getText().toString().trim();
             String n = newPassword.getText().toString().trim();
             String c = confirmPassword.getText().toString().trim();
+            AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(),o);
 
             if(o.isEmpty()||o.length()<6){
                 oldPassword.setError("Invalid password");
@@ -79,16 +82,22 @@ public class ChangePassWordActivity extends AppCompatActivity {
                 return;
             }
 
-
-            user.updatePassword(c).addOnSuccessListener(aVoid->{
-                Toast.makeText(this,"Update password successfully",Toast.LENGTH_LONG).show();
+            user.reauthenticate(authCredential).addOnSuccessListener(aVoid -> user.updatePassword(c).addOnSuccessListener(av->{
+                Toast.makeText(getApplicationContext(),"Update password successfully",Toast.LENGTH_LONG).show();
                 finish();
             }).addOnFailureListener(e -> {
-                Toast.makeText(this,"Update password unsuccessfully, try again",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Update password unsuccessfully, try again",Toast.LENGTH_LONG).show();
                 confirmPassword.setText("");
                 newPassword.setText("");
                 oldPassword.requestFocus();
+            })).addOnFailureListener(e -> {
+                confirmPassword.setText("");
+                newPassword.setText("");
+                oldPassword.requestFocus();
+                oldPassword.setError("Old password is uncorrected");
             });
+
+
         });
 
 

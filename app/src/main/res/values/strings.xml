@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VocabApp</string>
+    <string name="app_name">Vocka</string>
 
     <string-array name="Sample_Words">
         <item> Sample word 1 </item>

@@ -59,6 +59,7 @@ public class HomeFragment extends Fragment {
     private OnSelectPageViewIndex mIndexSelected;
     private StorageReference storageReference;
     private Handler handler;
+    private FirebaseUser user;
     private Animation flyuptodown, flydowntoupvoice, flydowntouplearn, flydowntoupnext, lefttoright, righttoleft, fadein;
 
 
@@ -121,11 +122,7 @@ public class HomeFragment extends Fragment {
         gone();
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
-        fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(userButton))
-                .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(userButton));
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         learn.setOnClickListener(v -> mIndexSelected.onIndexSelected(1));
@@ -226,6 +223,10 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
             getActivity().finish();
         }
+
+        StorageReference fileReference = storageReference.child("users/" + user.getUid() + "/profile.jpg");
+        fileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).fit().into(userButton))
+                .addOnFailureListener(e -> Picasso.get().load(user.getPhotoUrl()).fit().into(userButton));
     }
 
     private void delayAnim(Button btn, Animation anim, long time) {
