@@ -22,6 +22,7 @@ import com.example.vocabapp.Fragment.FragmentSlidingSearch;
 import com.example.vocabapp.Fragment.HomeFragment;
 import com.example.vocabapp.Fragment.LearnFragment;
 import com.example.vocabapp.Fragment.RecordFragment;
+import com.example.vocabapp.InternetConnection.Connection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
@@ -177,5 +178,8 @@ public class Home extends AppCompatActivity implements BaseFragment.BaseExampleF
             startActivity(intent);
             finish();
         }
+
+        if(!Connection.getInstance(this).isOnline())
+            Toast.makeText(this,"Please, connect to Internet", Toast.LENGTH_SHORT).show();
     }
 }

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ import com.example.vocabapp.Data.DataSource.MemoryDataSource;
 import com.example.vocabapp.Data.DataSource.NetworkDataSource;
 import com.example.vocabapp.Data.WordSuggestion;
 import com.example.vocabapp.DatabaseHelper.DatabaseAccess;
+import com.example.vocabapp.InternetConnection.Connection;
 import com.example.vocabapp.OxfordDictionary.Definition;
 import com.example.vocabapp.OxfordDictionary.DefinitionRenderer;
 import com.example.vocabapp.R;
@@ -120,20 +122,20 @@ public class FragmentSlidingSearch extends BaseFragment {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE);
         memoryDataSource = new MemoryDataSource();
         diskDataSource = new DiskDataSource(sharedPreferences);
-        networkDataSource = new NetworkDataSource();
+        networkDataSource = new NetworkDataSource(getContext());
         DataHelper.setsColorSuggestions(getContext());
     }
 
     @SuppressLint("CheckResult")
     private void performSearch(final String searchText) {
-        addHistoryWord(searchText);
         DataRepository dataRepository = new DataRepository(memoryDataSource, diskDataSource, networkDataSource);
+        addHistoryWord(searchText);
         //entriesApi.getDictionaryEntries("en-us", searchText, "application/json", "0b61a8b1", "aae13662958f2a69eb82099315c1375d")
         dataRepository.getData(searchText)
                 .doOnSubscribe(d -> hideKeyboard())
                 .flatMap(re -> Observable.fromIterable(re.getResults()))
                 .flatMap(he -> Observable.fromIterable(he.getLexicalEntries()))
-                .flatMap(le -> Observable.fromIterable(le.getEntries()).map(e -> new FragmentSlidingSearch.CategorizedEntry(searchText, le.getLexicalCategory(), e)))
+                .flatMap(le -> Observable.fromIterable(le.getEntries()).map(e -> new CategorizedEntry(searchText, le.getLexicalCategory(), e)))
                 .flatMap(ce -> Observable.fromIterable(ce.entry.getSenses()).map(s -> new Definition(ce.category.getText(), ce.word, ce.entry, s)))
                 .toList()
                 .observeOn(AndroidSchedulers.mainThread())

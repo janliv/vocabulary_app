@@ -1,7 +1,9 @@
 package com.example.vocabapp.Data.DataSource;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.example.vocabapp.InternetConnection.Connection;
 import com.example.vocabapp.model.RetrieveEntry;
 
 import io.reactivex.Observable;
@@ -31,7 +33,6 @@ public class DataRepository implements DataSource{
             diskDataSource.saveData(word, retrieveEntry);
             memoryDataSource.cacheInMemory(word, retrieveEntry);
         });
-
     }
 
     private Observable<RetrieveEntry> getDataFromDisk(String word){

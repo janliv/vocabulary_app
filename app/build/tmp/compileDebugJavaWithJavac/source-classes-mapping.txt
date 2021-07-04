@@ -1,7 +1,6 @@
-com/example/vocabapp/Fragment/HomeFragment.java
- com.example.vocabapp.Fragment.HomeFragment
- com.example.vocabapp.Fragment.HomeFragment$1
- com.example.vocabapp.Fragment.HomeFragment$OnSelectPageViewIndex
+com/example/vocabapp/Home.java
+ com.example.vocabapp.Home
+ com.example.vocabapp.Home$1
 com/example/vocabapp/LearnModels/Meanings.java
  com.example.vocabapp.LearnModels.Meanings
 com/example/vocabapp/API/DictionaryEntriesApi.java
@@ -134,6 +133,8 @@ com/example/vocabapp/OxfordDictionary/DefinitionRenderer.java
  com.example.vocabapp.OxfordDictionary.DefinitionRenderer
 com/example/vocabapp/databinding/FragmentSecondBinding.java
  com.example.vocabapp.databinding.FragmentSecondBinding
+com/example/vocabapp/InternetConnection/Connection.java
+ com.example.vocabapp.InternetConnection.Connection
 com/example/vocabapp/databinding/FragmentRecordBinding.java
  com.example.vocabapp.databinding.FragmentRecordBinding
 com/example/vocabapp/model/Register.java
@@ -146,8 +147,8 @@ com/example/vocabapp/TermOfUesActivity.java
  com.example.vocabapp.TermOfUesActivity
 com/example/vocabapp/model/Domain.java
  com.example.vocabapp.model.Domain
-com/example/vocabapp/databinding/IconLayoutBinding.java
- com.example.vocabapp.databinding.IconLayoutBinding
+com/example/vocabapp/UserActivity.java
+ com.example.vocabapp.UserActivity
 com/example/vocabapp/model/GrammaticalFeaturesList.java
  com.example.vocabapp.model.GrammaticalFeaturesList
 com/example/vocabapp/LoginActivity.java
@@ -165,8 +166,9 @@ com/example/vocabapp/databinding/FragmentLoginBinding.java
  com.example.vocabapp.databinding.FragmentLoginBinding
 com/example/vocabapp/model/ExamplesList.java
  com.example.vocabapp.model.ExamplesList
-com/example/vocabapp/databinding/FragmentFourthBinding.java
- com.example.vocabapp.databinding.FragmentFourthBinding
+com/example/vocabapp/ChangePassWordActivity.java
+ com.example.vocabapp.ChangePassWordActivity
+ com.example.vocabapp.ChangePassWordActivity$1
 com/example/vocabapp/Data/DataSource/MemoryDataSource.java
  com.example.vocabapp.Data.DataSource.MemoryDataSource
 com/example/vocabapp/databinding/ActivityTermOfUesBinding.java
@@ -186,8 +188,10 @@ com/example/vocabapp/Fragment/FragmentSlidingSearch.java
  com.example.vocabapp.Fragment.FragmentSlidingSearch$2$1$1
  com.example.vocabapp.Fragment.FragmentSlidingSearch$3
  com.example.vocabapp.Fragment.FragmentSlidingSearch$CategorizedEntry
-com/example/vocabapp/model/Sense.java
- com.example.vocabapp.model.Sense
+com/example/vocabapp/Fragment/HomeFragment.java
+ com.example.vocabapp.Fragment.HomeFragment
+ com.example.vocabapp.Fragment.HomeFragment$1
+ com.example.vocabapp.Fragment.HomeFragment$OnSelectPageViewIndex
 com/example/vocabapp/Fragment/LearnFragment.java
  com.example.vocabapp.Fragment.LearnFragment
  com.example.vocabapp.Fragment.LearnFragment$1
@@ -215,11 +219,9 @@ com/example/vocabapp/LearnService/WordService.java
  com.example.vocabapp.LearnService.WordService
 com/example/vocabapp/model/CategorizedTextList.java
  com.example.vocabapp.model.CategorizedTextList
-com/example/vocabapp/Home.java
- com.example.vocabapp.Home
- com.example.vocabapp.Home$1
-com/example/vocabapp/ChangePassWordActivity.java
- com.example.vocabapp.ChangePassWordActivity
- com.example.vocabapp.ChangePassWordActivity$1
-com/example/vocabapp/UserActivity.java
- com.example.vocabapp.UserActivity
+com/example/vocabapp/model/Sense.java
+ com.example.vocabapp.model.Sense
+com/example/vocabapp/databinding/IconLayoutBinding.java
+ com.example.vocabapp.databinding.IconLayoutBinding
+com/example/vocabapp/databinding/FragmentFourthBinding.java
+ com.example.vocabapp.databinding.FragmentFourthBinding
